@@ -5,7 +5,8 @@ export type NavigationTab =
   | 'testimonials'
   | 'about' 
   | 'insights' 
-  | 'tools' 
+  | 'tools'
+  | 'enablement'
   | 'contact' 
   | 'privacy' 
   | 'terms';
@@ -100,3 +101,72 @@ export interface SelectorQuestion {
     };
   }[];
 }
+
+export interface WhitepaperItem {
+  id: string;
+  code: string;
+  title: string;
+  subtitle: string;
+  date: string;
+  author: string;
+  readTime: string;
+  pages: number;
+  category: string;
+  abstract: string;
+  executiveSummary: string[];
+  keyMetrics: { label: string; value: string; context: string }[];
+  chapters: {
+    number: string;
+    title: string;
+    summary: string;
+    paragraphs: string[];
+    callout?: string;
+  }[];
+  citation: string;
+}
+
+export interface InfosheetItem {
+  id: string;
+  code: string;
+  title: string;
+  subtitle: string;
+  audience: string;
+  format: string;
+  lastUpdated: string;
+  summary: string;
+  highlights: { label: string; desc: string }[];
+  contentSections: {
+    heading: string;
+    bullets: string[];
+  }[];
+  commercialAssurance: string;
+}
+
+export interface InfographicItem {
+  id: string;
+  code: string;
+  title: string;
+  subtitle: string;
+  type: 'comparison' | 'architecture' | 'funnel';
+  summary: string;
+}
+
+export interface ObjectionBattlecard {
+  id: string;
+  objection: string;
+  category: 'Budget & Agency' | 'In-House vs Vendor' | 'Technology & AI' | 'Risk & Timelines';
+  prospectMindset: string;
+  recommendedResponse: string;
+  mathematicalProof: string;
+  actionableFollowup: string;
+}
+
+export interface FaqItem {
+  id: string;
+  question: string;
+  category: 'Fixed-Price Model' | 'Project Timelines' | 'Scope & Governance' | 'Handoff & Support';
+  answer: string;
+  keyPoints?: string[];
+  badge?: string;
+}
+

@@ -202,6 +202,22 @@ export const SEO_METADATA: Record<NavigationTab, TabSeoConfig> = {
       operatingSystem: 'All',
     },
   },
+  enablement: {
+    title: 'Sales & Marketing Enablement Toolkit | S. C. Milenwall',
+    description: 'Executive sales enablement resources for Australian SMBs: Whitepapers on agency retainer economics and Generative Engine Optimization (GEO), printable 1-pagers, conversion infographics, and live objection battlecards.',
+    keywords: 'sales enablement toolkit Sydney, agency retainer whitepaper, generative engine optimization GEO whitepaper, B2B sales cheat sheet, commercial objection battlecards, S. C. Milenwall collateral',
+    ogTitle: 'Sales & Marketing Enablement Toolkit | S. C. Milenwall',
+    ogDescription: 'Whitepapers, executive 1-pagers, conversion infographics, and live objection battlecards designed for Australian commercial suppliers and founders.',
+    ogType: 'website',
+    canonicalPath: '/enablement',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'S. C. Milenwall Sales Enablement Hub',
+      description: 'Executive research whitepapers, commercial factsheets, and visual conversion infographics.',
+      url: 'https://scmw.com.au/enablement',
+    },
+  },
   contact: {
     title: 'Book a 20-Minute Direct Review | S. C. Milenwall Sydney',
     description: 'Speak directly with Sinisa Milenkovic. Honest evaluation of your commercial bottlenecks, with a written fixed-price proposal delivered within 48 hours.',

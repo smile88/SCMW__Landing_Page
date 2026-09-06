@@ -119,9 +119,9 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
 
   return (
     <div id="service-selector-tool" className={`w-full ${standalone ? 'py-6' : ''}`}>
-      <div className="bg-white rounded-xl border border-[#0B0F0D]/10 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-xl border-2 border-[#0B0F0D] shadow-sm overflow-hidden">
         {/* Top Progress and Header Bar */}
-        <div className="bg-[#0E4B3C] text-white p-6 sm:p-8 relative overflow-hidden">
+        <div className="bg-[#0E4B3C] text-white p-6 sm:p-8 relative overflow-hidden border-b-2 border-[#0B0F0D]">
           {/* Subtle geometric ring watermark */}
           <div className="absolute right-0 top-0 w-80 h-80 rounded-full border border-white/5 -mr-20 -mt-20 pointer-events-none" />
           
@@ -142,7 +142,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
             </div>
 
             {!showResult && (
-              <div className="flex items-center gap-3 self-start md:self-auto bg-white/10 px-4 py-2 rounded-lg backdrop-blur-xs border border-white/10">
+              <div className="flex items-center gap-3 self-start md:self-auto bg-white/10 px-4 py-2 rounded-lg backdrop-blur-xs border-2 border-[#0B0F0D]">
                 <div className="text-right">
                   <span className="text-xs font-mono text-[#C9A961] block font-bold">
                     STEP {currentStep + 1} OF {SELECTOR_QUESTIONS.length}
@@ -151,7 +151,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                     {Math.round(((currentStep + 1) / SELECTOR_QUESTIONS.length) * 100)}% Complete
                   </span>
                 </div>
-                <div className="w-16 h-2 bg-white/20 rounded-full overflow-hidden">
+                <div className="w-16 h-2 bg-white/20 rounded-full overflow-hidden border border-[#0B0F0D]">
                   <div 
                     className="h-full bg-[#C9A961] transition-all duration-300"
                     style={{ width: `${((currentStep + 1) / SELECTOR_QUESTIONS.length) * 100}%` }}
@@ -163,7 +163,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
             {showResult && (
               <button
                 onClick={handleReset}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-xs font-semibold uppercase tracking-wider text-[#C9A961] transition-colors border border-white/10"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded bg-white/10 hover:bg-white/20 text-xs font-semibold uppercase tracking-wider text-[#C9A961] transition-colors border-2 border-[#0B0F0D]"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Restart Selector</span>
@@ -197,10 +197,10 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                     key={option.id}
                     id={`selector-opt-${option.id}`}
                     onClick={() => handleSelectOption(activeQuestion.id, option.id)}
-                    className={`w-full text-left p-4 sm:p-5 rounded-lg border transition-all flex items-start justify-between gap-4 group ${
+                    className={`w-full text-left p-4 sm:p-5 rounded-lg border-2 transition-all flex items-start justify-between gap-4 group ${
                       isSelected
-                        ? 'border-[#0E4B3C] bg-[#0E4B3C]/5 ring-1 ring-[#0E4B3C]'
-                        : 'border-[#0B0F0D]/10 hover:border-[#C9A961] hover:bg-[#F6F7F5]'
+                        ? 'border-[#0B0F0D] bg-[#0E4B3C]/5 shadow-xs'
+                        : 'border-[#0B0F0D] hover:bg-[#F6F7F5]'
                     }`}
                   >
                     <div className="flex-1">
@@ -211,10 +211,10 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                         {option.description}
                       </p>
                     </div>
-                    <div className={`mt-0.5 shrink-0 w-5 h-5 rounded-full border flex items-center justify-center transition-colors ${
+                    <div className={`mt-0.5 shrink-0 w-5 h-5 rounded-full border-2 border-[#0B0F0D] flex items-center justify-center transition-colors ${
                       isSelected 
-                        ? 'border-[#0E4B3C] bg-[#0E4B3C] text-white' 
-                        : 'border-[#0B0F0D]/20 group-hover:border-[#C9A961]'
+                        ? 'bg-[#0E4B3C] text-white' 
+                        : 'bg-white'
                     }`}>
                       {isSelected ? <Check className="w-3 h-3 stroke-[3]" /> : null}
                     </div>
@@ -224,7 +224,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
             </div>
 
             {/* Navigation Footer */}
-            <div className="flex items-center justify-between pt-6 border-t border-[#0B0F0D]/10">
+            <div className="flex items-center justify-between pt-6 border-t-2 border-[#0B0F0D]">
               <button
                 onClick={handleBack}
                 disabled={currentStep === 0}
@@ -245,7 +245,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                 {selectedAnswers[activeQuestion.id] && currentStep < SELECTOR_QUESTIONS.length - 1 && (
                   <button
                     onClick={() => setCurrentStep(prev => prev + 1)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-[#0E4B3C] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#082E24] transition-colors"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-[#0E4B3C] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#082E24] transition-colors border-2 border-[#0B0F0D]"
                   >
                     <span>Next</span>
                     <ArrowRight className="w-3.5 h-3.5 text-[#C9A961]" />
@@ -254,7 +254,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                 {selectedAnswers[activeQuestion.id] && currentStep === SELECTOR_QUESTIONS.length - 1 && (
                   <button
                     onClick={() => setShowResult(true)}
-                    className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded bg-[#C9A961] text-[#0B0F0D] text-xs font-bold uppercase tracking-widest hover:bg-[#9C7A3D] transition-colors shadow-xs"
+                    className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded bg-[#C9A961] text-[#0B0F0D] text-xs font-bold uppercase tracking-widest hover:bg-[#9C7A3D] transition-colors shadow-xs border-2 border-[#0B0F0D]"
                   >
                     <span>See Recommendation</span>
                     <Sparkles className="w-4 h-4" />
@@ -269,9 +269,9 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
         {showResult && recommendation && (
           <div className="p-6 sm:p-10 animate-in fade-in-50">
             {/* Match Badge Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-lg bg-[#0E4B3C]/5 border border-[#0E4B3C]/15 mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-lg bg-[#0E4B3C]/5 border-2 border-[#0B0F0D] mb-8">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-[#0E4B3C] text-[#C9A961] flex items-center justify-center font-editorial font-bold text-lg">
+                <div className="w-12 h-12 rounded-full bg-[#0E4B3C] text-[#C9A961] flex items-center justify-center font-editorial font-bold text-lg border-2 border-[#0B0F0D]">
                   {recommendation.matchPercentage}%
                 </div>
                 <div>
@@ -285,12 +285,12 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
               </div>
 
               <div className="flex items-center gap-3 self-start sm:self-auto text-xs font-mono text-[#5B645F]">
-                <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded border border-[#0B0F0D]/10">
+                <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded border-2 border-[#0B0F0D]">
                   <DollarSign className="w-3.5 h-3.5 text-[#0E4B3C]" />
                   <strong className="text-[#0E4B3C]">{recommendation.primaryService.startingPrice}</strong>
                   <span>{recommendation.primaryService.billingType === 'monthly' ? 'rolling' : 'fixed'}</span>
                 </span>
-                <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded border border-[#0B0F0D]/10">
+                <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded border-2 border-[#0B0F0D]">
                   <Clock className="w-3.5 h-3.5 text-[#C9A961]" />
                   <span>{recommendation.primaryService.typicalTimeline}</span>
                 </span>
@@ -317,7 +317,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                 </div>
 
                 {/* Why This Fits Your Answers */}
-                <div className="bg-[#F6F7F5] rounded-lg p-5 border border-[#0B0F0D]/5">
+                <div className="bg-[#F6F7F5] rounded-lg p-5 border-2 border-[#0B0F0D]">
                   <h5 className="text-xs font-mono uppercase tracking-wider font-bold text-[#0B0F0D] mb-3 flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-[#0E4B3C]" />
                     <span>Why This System Eliminates Your Bottleneck</span>
@@ -325,7 +325,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                   <p className="text-xs sm:text-sm text-[#5B645F] leading-relaxed mb-3">
                     {recommendation.primaryService.forWhom}
                   </p>
-                  <div className="text-xs font-mono text-[#0E4B3C] font-semibold bg-white p-3 rounded border border-[#0E4B3C]/10">
+                  <div className="text-xs font-mono text-[#0E4B3C] font-semibold bg-white p-3 rounded border border-[#0B0F0D]">
                     Format: {recommendation.primaryService.format}
                   </div>
                 </div>
@@ -337,7 +337,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                   </h5>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {recommendation.primaryService.deliverables.map((deliv, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-xs text-[#0B0F0D] bg-white p-2.5 rounded border border-[#0B0F0D]/5">
+                      <div key={idx} className="flex items-start gap-2 text-xs text-[#0B0F0D] bg-white p-2.5 rounded border border-[#0B0F0D]">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#0E4B3C] shrink-0 mt-0.5" />
                         <span>{deliv}</span>
                       </div>
@@ -350,7 +350,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
               <div className="lg:col-span-5 space-y-4">
                 {/* Complementary Discipline Card */}
                 {recommendation.secondaryService && (
-                  <div className="bg-white rounded-lg border border-[#0B0F0D]/10 p-5 shadow-xs">
+                  <div className="bg-white rounded-lg border-2 border-[#0B0F0D] p-5 shadow-xs">
                     <div className="flex items-center justify-between gap-2 mb-2">
                       <span className="text-[11px] font-mono uppercase tracking-wider text-[#C9A961] font-bold flex items-center gap-1">
                         <Layers className="w-3.5 h-3.5" />
@@ -373,7 +373,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                 )}
 
                 {/* Operator Commitment & Action Box */}
-                <div className="bg-[#0E4B3C] text-white rounded-lg p-6 space-y-4 shadow-sm">
+                <div className="bg-[#0E4B3C] text-white rounded-lg p-6 space-y-4 shadow-sm border-2 border-[#0B0F0D]">
                   <div>
                     <span className="text-[#C9A961] text-[11px] font-mono uppercase tracking-widest block font-bold">
                       Direct Accountability Guarantee
@@ -390,7 +390,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                     <button
                       id="selector-book-call-btn"
                       onClick={() => handleProceedToContact(recommendation.primaryService, recommendation.secondaryService)}
-                      className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest shadow-xs transition-colors"
+                      className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest shadow-xs transition-colors border-2 border-[#0B0F0D]"
                     >
                       <span>Book 20-Min Review With This Scope</span>
                       <ArrowRight className="w-4 h-4 text-[#0B0F0D]" />

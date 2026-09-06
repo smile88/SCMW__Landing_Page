@@ -14,7 +14,7 @@ export const Hero: React.FC<HeroProps> = ({
   onSelectService,
 }) => {
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24 border-b border-[#0B0F0D]/10 bg-[#F6F7F5]">
+    <section className="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24 border-b-2 border-[#0B0F0D] bg-[#F6F7F5]">
       {/* Background dot matrix texture from Professional Polish design */}
       <div
         className="absolute top-0 left-0 w-full h-full opacity-[0.04] pointer-events-none"
@@ -30,8 +30,8 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Top Tag with Gold Rule from Design HTML */}
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-12 bg-[#C9A961]" />
-              <span className="text-[#C9A961] text-xs font-bold tracking-[0.3em] uppercase">
+              <div className="h-0.5 w-12 bg-[#0B0F0D]" />
+              <span className="text-[#0E4B3C] text-xs font-bold tracking-[0.3em] uppercase">
                 Sydney, NSW • B2B Infrastructure
               </span>
             </div>
@@ -49,11 +49,11 @@ export const Hero: React.FC<HeroProps> = ({
               Most small businesses run marketing and sales on instinct. We build the discipline: websites, search visibility, strategy, and sales tools—built once and run properly.
             </p>
 
-            {/* Action Buttons in Professional Polish styling */}
+            {/* Action Buttons in Professional Polish styling with crisp dark borders */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
               <button
                 onClick={onBookCall}
-                className="bg-[#C9A961] text-[#0B0F0D] font-bold text-xs sm:text-sm uppercase tracking-widest px-8 py-4 rounded shadow-sm hover:bg-[#9C7A3D] transition-colors flex items-center justify-center gap-2"
+                className="bg-[#C9A961] text-[#0B0F0D] font-bold text-xs sm:text-sm uppercase tracking-widest px-8 py-4 rounded shadow-sm hover:bg-[#9C7A3D] transition-colors flex items-center justify-center gap-2 border-2 border-[#0B0F0D]"
               >
                 <span>Book a Call</span>
                 <ArrowRight className="w-4 h-4 text-[#0B0F0D]" />
@@ -61,14 +61,14 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={onExploreServices}
-                className="border border-[#0E4B3C] text-[#0E4B3C] font-bold text-xs sm:text-sm uppercase tracking-widest px-8 py-4 rounded hover:bg-[#0E4B3C] hover:text-white transition-all flex items-center justify-center"
+                className="bg-white border-2 border-[#0B0F0D] text-[#0B0F0D] font-bold text-xs sm:text-sm uppercase tracking-widest px-8 py-4 rounded hover:bg-[#0E4B3C] hover:text-white transition-all flex items-center justify-center shadow-xs"
               >
                 <span>View Services</span>
               </button>
             </div>
 
             {/* Credibility & Value Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-[#0B0F0D]/10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t-2 border-[#0B0F0D]">
               <div className="flex items-start gap-2 text-xs text-[#0B0F0D] font-medium py-1">
                 <Check className="w-4 h-4 text-[#0E4B3C] shrink-0 mt-0.5" />
                 <span>Fixed-Price Scopes (No Hourly Creep)</span>
@@ -86,7 +86,7 @@ export const Hero: React.FC<HeroProps> = ({
 
           {/* Right Column: Specialised Services in Professional Polish Dark Card */}
           <div className="lg:col-span-5 flex flex-col justify-center">
-            <div className="bg-[#0E4B3C] p-8 sm:p-10 rounded-2xl flex flex-col justify-center text-white relative overflow-hidden shadow-2xl border border-[#C9A961]/25">
+            <div className="bg-[#0E4B3C] p-8 sm:p-10 rounded-2xl flex flex-col justify-center text-white relative overflow-hidden shadow-2xl border-2 border-[#0B0F0D]">
               {/* Concentric rings decoration from Professional Polish design */}
               <div className="absolute -bottom-20 -right-20 w-80 h-80 border border-white/10 rounded-full pointer-events-none" />
               <div className="absolute -bottom-10 -right-10 w-80 h-80 border border-white/5 rounded-full pointer-events-none" />
@@ -182,7 +182,7 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
         {/* Enterprise Credibility Strip below Hero */}
-        <div className="mt-16 pt-8 border-t border-[#0B0F0D]/10">
+        <div className="mt-16 pt-8 border-t-2 border-[#0B0F0D]">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#5B645F]">

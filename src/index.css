@@ -12,17 +12,327 @@
     --color-slate: #5B645F;
   }
 
+  [data-theme="emerald-dark"] {
+    --color-emerald: #34D399;
+    --color-emerald-deep: #0E4B3C;
+    --color-ink: #F6F7F5;
+    --color-white: #071510;
+    --color-paper: #040907;
+    --color-gold: #C9A961;
+    --color-gold-deep: #B38E3F;
+    --color-slate: #9FB1A9;
+  }
+
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: #0B0F0D;
     background-color: #F6F7F5;
     font-size: 16px;
     line-height: 1.6;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   h1, h2, h3, h4, .font-editorial {
     font-family: 'Spectral', Georgia, serif;
   }
+}
+
+/* ============================================================
+   DEEP EMERALD / INK HIGH-CONTRAST DARK THEME OVERRIDES
+   - Canvas & Sections: Uniform near-black obsidian with emerald shadow (#040907)
+   - Cards & Boxes: Deep dark obsidian-emerald (#081410 / #06110D)
+   - Borders & Outlines: Crisp architectural emerald (#16654F)
+   - Text & Accents: High-contrast paper (#F6F7F5) & Radiant Gold (#C9A961)
+   ============================================================ */
+[data-theme="emerald-dark"],
+.theme-emerald-dark {
+  color-scheme: dark;
+  background-color: #040907 !important;
+  color: #F6F7F5 !important;
+}
+
+[data-theme="emerald-dark"] body {
+  background-color: #040907 !important;
+  color: #F6F7F5 !important;
+}
+
+/* Ensure ALL section backgrounds are the dark near-black canvas */
+[data-theme="emerald-dark"] section,
+[data-theme="emerald-dark"] section.bg-white,
+[data-theme="emerald-dark"] section.bg-\[\#F6F7F5\],
+[data-theme="emerald-dark"] footer.bg-\[\#082E24\] {
+  background-color: #040907 !important;
+}
+
+/* Canvas background overrides (near-black emerald) */
+[data-theme="emerald-dark"] .bg-\[\#F6F7F5\]:not(.card-surface) {
+  background-color: #040907 !important;
+}
+
+[data-theme="emerald-dark"] .bg-\[\#F6F7F5\]\/95 {
+  background-color: rgba(4, 9, 7, 0.95) !important;
+}
+
+[data-theme="emerald-dark"] .bg-\[\#F6F7F5\]\/90 {
+  background-color: rgba(4, 9, 7, 0.90) !important;
+}
+
+[data-theme="emerald-dark"] .bg-\[\#F6F7F5\]\/80 {
+  background-color: rgba(4, 9, 7, 0.80) !important;
+}
+
+/* Card and container surfaces: deep dark obsidian-emerald */
+[data-theme="emerald-dark"] div.bg-white,
+[data-theme="emerald-dark"] article.bg-white,
+[data-theme="emerald-dark"] div.bg-\[\#F6F7F5\] {
+  background-color: #081410 !important;
+}
+
+[data-theme="emerald-dark"] .bg-white\/95 {
+  background-color: rgba(8, 20, 16, 0.95) !important;
+}
+
+[data-theme="emerald-dark"] .bg-white\/90 {
+  background-color: rgba(8, 20, 16, 0.90) !important;
+}
+
+[data-theme="emerald-dark"] .bg-white\/80 {
+  background-color: rgba(8, 20, 16, 0.80) !important;
+}
+
+[data-theme="emerald-dark"] .hover\:bg-white:hover {
+  background-color: #0D231B !important;
+}
+
+[data-theme="emerald-dark"] .hover\:bg-\[\#F6F7F5\]:hover {
+  background-color: #0A1E16 !important;
+}
+
+[data-theme="emerald-dark"] .hover\:bg-neutral-100:hover {
+  background-color: #0D231B !important;
+}
+
+[data-theme="emerald-dark"] .hover\:bg-black\/5:hover {
+  background-color: rgba(22, 101, 79, 0.2) !important;
+}
+
+/* ============================================================
+   DARK FEATURE & CALLOUT BOXES
+   (Specialised Services, S. C. Milenwall Method, Persona Info, etc.)
+   Never bright or clashing green: deep dark obsidian-emerald with
+   crisp emerald outlines for maximum text legibility
+   ============================================================ */
+[data-theme="emerald-dark"] div.bg-\[\#082E24\],
+[data-theme="emerald-dark"] div.bg-\[\#0E4B3C\],
+[data-theme="emerald-dark"] .bg-\[\#082E24\]:not(footer):not(button):not(a),
+[data-theme="emerald-dark"] div.bg-\[\#0E4B3C\]\/50 {
+  background-color: #06110D !important;
+  border-color: #16654F !important;
+  color: #F6F7F5 !important;
+}
+
+/* Nested sub-boxes inside dark cards (e.g., Starting Scope, stat cards) */
+[data-theme="emerald-dark"] div.bg-\[\#082E24\] div.bg-\[\#0E4B3C\],
+[data-theme="emerald-dark"] div.bg-\[\#06110D\] div.bg-\[\#0E4B3C\],
+[data-theme="emerald-dark"] div.bg-white div.bg-\[\#0E4B3C\] {
+  background-color: #030806 !important;
+  border-color: #16654F !important;
+}
+
+[data-theme="emerald-dark"] div.bg-\[\#082E24\] div.bg-\[\#082E24\],
+[data-theme="emerald-dark"] div.bg-\[\#06110D\] div.bg-\[\#082E24\] {
+  background-color: #030806 !important;
+  border-color: #16654F !important;
+}
+
+/* Interactive CTA buttons in dark mode */
+[data-theme="emerald-dark"] button.bg-\[\#0E4B3C\],
+[data-theme="emerald-dark"] a.bg-\[\#0E4B3C\],
+[data-theme="emerald-dark"] button.bg-\[\#082E24\],
+[data-theme="emerald-dark"] a.bg-\[\#082E24\] {
+  background-color: #0E352A !important;
+  border-color: #16654F !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="emerald-dark"] button.bg-\[\#0E4B3C\]:hover,
+[data-theme="emerald-dark"] a.bg-\[\#0E4B3C\]:hover {
+  background-color: #14493A !important;
+}
+
+/* Primary ink text -> High contrast crisp paper */
+[data-theme="emerald-dark"] .text-\[\#0B0F0D\] {
+  color: #F6F7F5 !important;
+}
+
+/* Sub-text contrast enhancement in dark mode */
+[data-theme="emerald-dark"] .text-white\/60 {
+  color: rgba(246, 247, 245, 0.75) !important;
+}
+
+[data-theme="emerald-dark"] .text-white\/70 {
+  color: rgba(246, 247, 245, 0.85) !important;
+}
+
+[data-theme="emerald-dark"] .text-white\/80 {
+  color: rgba(246, 247, 245, 0.90) !important;
+}
+
+[data-theme="emerald-dark"] .text-\[\#F6F7F5\]\/80 {
+  color: rgba(246, 247, 245, 0.85) !important;
+}
+
+[data-theme="emerald-dark"] .text-\[\#F6F7F5\]\/90 {
+  color: rgba(246, 247, 245, 0.95) !important;
+}
+
+/* Muted slate text -> High legibility soft sage */
+[data-theme="emerald-dark"] .text-\[\#5B645F\] {
+  color: #9FB1A9 !important;
+}
+
+[data-theme="emerald-dark"] .text-\[\#5B645F\]\/70 {
+  color: rgba(159, 177, 169, 0.70) !important;
+}
+
+[data-theme="emerald-dark"] .text-\[\#5B645F\]\/80 {
+  color: rgba(159, 177, 169, 0.80) !important;
+}
+
+/* Badges and alert states */
+[data-theme="emerald-dark"] .bg-red-100 {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+}
+
+[data-theme="emerald-dark"] .text-red-700 {
+  color: #FCA5A5 !important;
+}
+
+/* Text Emerald in dark mode -> Luminous Emerald for contrast */
+[data-theme="emerald-dark"] .text-\[\#0E4B3C\] {
+  color: #34D399 !important;
+}
+
+[data-theme="emerald-dark"] .hover\:text-\[\#0E4B3C\]:hover {
+  color: #C9A961 !important;
+}
+
+/* Headings in dark mode */
+[data-theme="emerald-dark"] h1,
+[data-theme="emerald-dark"] h2,
+[data-theme="emerald-dark"] h3,
+[data-theme="emerald-dark"] h4 {
+  color: #F6F7F5;
+}
+
+/* Architectural emerald borders and outlines on cards/boxes */
+[data-theme="emerald-dark"] .border-\[\#0B0F0D\] {
+  border-color: #16654F !important;
+}
+
+[data-theme="emerald-dark"] .border-\[\#0B0F0D\]\/10 {
+  border-color: rgba(22, 101, 79, 0.25) !important;
+}
+
+[data-theme="emerald-dark"] .border-\[\#0B0F0D\]\/20 {
+  border-color: rgba(22, 101, 79, 0.45) !important;
+}
+
+[data-theme="emerald-dark"] .border-\[\#0B0F0D\]\/30 {
+  border-color: rgba(22, 101, 79, 0.70) !important;
+}
+
+[data-theme="emerald-dark"] .border-neutral-200 {
+  border-color: #16654F !important;
+}
+
+[data-theme="emerald-dark"] .border-gray-200 {
+  border-color: #16654F !important;
+}
+
+/* ============================================================
+   BRAND GOLD PRESERVATION: All gold accents remain gleaming
+   ============================================================ */
+[data-theme="emerald-dark"] .text-\[\#C9A961\] {
+  color: #C9A961 !important;
+}
+
+[data-theme="emerald-dark"] .text-\[\#C9A961\]\/90 {
+  color: rgba(201, 169, 97, 0.90) !important;
+}
+
+[data-theme="emerald-dark"] .border-\[\#C9A961\] {
+  border-color: #C9A961 !important;
+}
+
+[data-theme="emerald-dark"] .border-\[\#C9A961\]\/30 {
+  border-color: rgba(201, 169, 97, 0.35) !important;
+}
+
+[data-theme="emerald-dark"] .border-\[\#C9A961\]\/40 {
+  border-color: rgba(201, 169, 97, 0.45) !important;
+}
+
+[data-theme="emerald-dark"] .border-\[\#C9A961\]\/50 {
+  border-color: rgba(201, 169, 97, 0.55) !important;
+}
+
+[data-theme="emerald-dark"] .bg-\[\#C9A961\] {
+  background-color: #C9A961 !important;
+  color: #040907 !important;
+}
+
+[data-theme="emerald-dark"] .bg-\[\#C9A961\] * {
+  color: #040907 !important;
+}
+
+[data-theme="emerald-dark"] .hover\:bg-\[\#9C7A3D\]:hover {
+  background-color: #B38E3F !important;
+}
+
+/* Light emerald pill badges & tag chips in dark mode */
+[data-theme="emerald-dark"] .bg-\[\#0E4B3C\]\/5,
+[data-theme="emerald-dark"] .bg-\[\#0E4B3C\]\/10 {
+  background-color: rgba(22, 101, 79, 0.2) !important;
+  border-color: #16654F !important;
+}
+
+/* Form controls & inputs */
+[data-theme="emerald-dark"] input,
+[data-theme="emerald-dark"] select,
+[data-theme="emerald-dark"] textarea {
+  background-color: #06110D !important;
+  color: #F6F7F5 !important;
+  border-color: #16654F !important;
+}
+
+[data-theme="emerald-dark"] input:focus,
+[data-theme="emerald-dark"] select:focus,
+[data-theme="emerald-dark"] textarea:focus {
+  border-color: #C9A961 !important;
+  box-shadow: 0 0 0 2px rgba(201, 169, 97, 0.25) !important;
+}
+
+[data-theme="emerald-dark"] input::placeholder,
+[data-theme="emerald-dark"] textarea::placeholder {
+  color: #728A81 !important;
+}
+
+/* Focus rings */
+[data-theme="emerald-dark"] .focus\:ring-\[\#0E4B3C\]:focus {
+  --tw-ring-color: #C9A961 !important;
+}
+
+/* Sticky Header in dark mode */
+[data-theme="emerald-dark"] header {
+  background-color: rgba(4, 9, 7, 0.95) !important;
+  border-bottom-color: #16654F !important;
+}
+
+/* Mobile dropdown menu */
+[data-theme="emerald-dark"] header .lg\:hidden.bg-\[\#F6F7F5\] {
+  background-color: #040907 !important;
+  border-bottom-color: #16654F !important;
 }
 
 /* Professional Polish dot pattern */
@@ -31,9 +341,17 @@
   background-size: 24px 24px;
 }
 
+[data-theme="emerald-dark"] .bg-dot-pattern {
+  background-image: radial-gradient(rgba(201, 169, 97, 0.18) 1px, transparent 0) !important;
+}
+
 .bg-dot-pattern-light {
   background-image: radial-gradient(rgba(11, 15, 13, 0.12) 1px, transparent 0);
   background-size: 24px 24px;
+}
+
+[data-theme="emerald-dark"] .bg-dot-pattern-light {
+  background-image: radial-gradient(rgba(201, 169, 97, 0.12) 1px, transparent 0) !important;
 }
 
 .bg-dot-pattern-emerald {
@@ -47,6 +365,12 @@
   background-image: 
     linear-gradient(to right, rgba(14, 75, 60, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(14, 75, 60, 0.04) 1px, transparent 1px);
+}
+
+[data-theme="emerald-dark"] .bg-architectural-grid {
+  background-image: 
+    linear-gradient(to right, rgba(201, 169, 97, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(201, 169, 97, 0.06) 1px, transparent 1px) !important;
 }
 
 .bg-architectural-grid-dark {
@@ -66,8 +390,18 @@
   );
 }
 
+[data-theme="emerald-dark"] .bg-ledger {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 23px,
+    rgba(201, 169, 97, 0.07) 24px
+  ) !important;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
+
 

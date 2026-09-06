@@ -55,13 +55,13 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
   };
 
   return (
-    <section id="insights" className="py-16 md:py-24 bg-[#F6F7F5] border-b border-[#0E4B3C]/10">
+    <section id="insights" className="py-16 md:py-24 bg-[#F6F7F5] border-b-2 border-[#0B0F0D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-10 bg-[#C9A961]" />
+              <div className="h-0.5 w-10 bg-[#C9A961]" />
               <span className="text-[#C9A961] text-xs font-bold tracking-[0.25em] uppercase">
                 Thought Leadership &amp; SEO Insights
               </span>
@@ -76,24 +76,24 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
           </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-            <div className="text-xs font-mono text-[#5B645F] bg-white px-3 py-2 rounded border border-[#0B0F0D]/10">
+            <div className="text-xs font-mono text-[#5B645F] bg-white px-3.5 py-2 rounded border-2 border-[#0B0F0D]">
               Author: <strong className="text-[#0B0F0D]">Sinisa Milenkovic</strong> • Ex-Fortinet / Mandiant
             </div>
           </div>
         </div>
 
         {/* Search and Category Filter Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 bg-white p-4 rounded-xl border border-[#0B0F0D]/10 shadow-2xs">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 bg-white p-4 rounded-xl border-2 border-[#0B0F0D] shadow-2xs">
           {/* Category Chips */}
           <div className="flex flex-wrap gap-2 w-full md:w-auto">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all border ${
+                className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all border-2 ${
                   activeCategory === cat.id
-                    ? 'bg-[#0E4B3C] text-white border-[#0E4B3C]'
-                    : 'bg-[#F6F7F5] text-[#5B645F] border-[#0B0F0D]/5 hover:border-[#C9A961] hover:text-[#0B0F0D]'
+                    ? 'bg-[#0E4B3C] text-white border-[#0B0F0D]'
+                    : 'bg-[#F6F7F5] text-[#5B645F] border-[#0B0F0D] hover:border-[#C9A961] hover:text-[#0B0F0D]'
                 }`}
               >
                 {cat.label}
@@ -109,7 +109,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
               placeholder="Search topics, keywords, AI..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-xs rounded bg-[#F6F7F5] border border-[#0B0F0D]/10 focus:outline-hidden focus:border-[#0E4B3C] focus:bg-white transition-colors"
+              className="w-full pl-9 pr-4 py-2 text-xs rounded bg-[#F6F7F5] border-2 border-[#0B0F0D] focus:outline-hidden focus:border-[#0E4B3C] focus:bg-white transition-colors"
             />
             {searchQuery && (
               <button
@@ -123,7 +123,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
         </div>
 
         {/* Highlight Banner: Entity Search & SEO Authority */}
-        <div className="mb-12 p-6 sm:p-8 rounded-xl bg-[#082E24] text-white border border-[#C9A961]/30 relative overflow-hidden">
+        <div className="mb-12 p-6 sm:p-8 rounded-xl bg-[#082E24] text-white border-2 border-[#0B0F0D] relative overflow-hidden">
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="max-w-2xl">
               <div className="flex items-center gap-2 mb-2">
@@ -142,7 +142,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
 
             <button
               onClick={() => setShowSchemaPreview(!showSchemaPreview)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded bg-white/10 hover:bg-white/20 text-[#C9A961] border border-white/10 text-xs font-mono font-bold uppercase tracking-wider transition-colors shrink-0"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded bg-white/10 hover:bg-white/20 text-[#C9A961] border-2 border-[#0B0F0D] text-xs font-mono font-bold uppercase tracking-wider transition-colors shrink-0"
             >
               <FileCode className="w-4 h-4" />
               <span>{showSchemaPreview ? 'Hide JSON-LD Schema' : 'Inspect Article Schema'}</span>
@@ -151,7 +151,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
 
           {/* Collapsible Schema Preview */}
           {showSchemaPreview && (
-            <div className="mt-6 pt-6 border-t border-white/10 font-mono text-[11px] bg-black/40 p-4 rounded text-[#C9A961] overflow-x-auto">
+            <div className="mt-6 pt-6 border-t-2 border-[#0B0F0D] font-mono text-[11px] bg-black/40 p-4 rounded text-[#C9A961] overflow-x-auto border-2 border-[#0B0F0D]">
               <pre>{JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "BlogPosting",
@@ -176,7 +176,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
 
         {/* Articles Grid */}
         {filteredArticles.length === 0 ? (
-          <div className="bg-white rounded-xl border border-[#0B0F0D]/10 p-12 text-center">
+          <div className="bg-white rounded-xl border-2 border-[#0B0F0D] p-12 text-center">
             <p className="text-base text-[#5B645F]">
               No articles match &ldquo;{searchQuery}&rdquo; under {activeCategory}.
             </p>
@@ -192,11 +192,11 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
             {filteredArticles.map((article) => (
               <div
                 key={article.id}
-                className="bg-white rounded-xl border border-[#0E4B3C]/15 hover:border-[#0E4B3C]/40 transition-all p-6 sm:p-7 flex flex-col justify-between shadow-2xs hover:shadow-md group"
+                className="bg-white rounded-xl border-2 border-[#0B0F0D] hover:shadow-md transition-all p-6 sm:p-7 flex flex-col justify-between shadow-xs group"
               >
                 <div>
                   <div className="flex items-center justify-between text-xs font-mono text-[#5B645F] mb-3">
-                    <span className="px-2.5 py-0.5 rounded bg-[#F6F7F5] text-[#0E4B3C] font-semibold border border-[#0B0F0D]/5">
+                    <span className="px-2.5 py-0.5 rounded bg-[#F6F7F5] text-[#0E4B3C] font-semibold border border-[#0B0F0D]">
                       {article.category}
                     </span>
                     <span className="flex items-center gap-1">
@@ -217,25 +217,25 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
                   {article.tags && (
                     <div className="flex flex-wrap gap-1.5 mt-4">
                       {article.tags.slice(0, 2).map((tag, tIdx) => (
-                        <span key={tIdx} className="text-[10px] font-mono text-[#5B645F] bg-[#F6F7F5] px-2 py-0.5 rounded">
+                        <span key={tIdx} className="text-[10px] font-mono text-[#5B645F] bg-[#F6F7F5] px-2 py-0.5 rounded border border-[#0B0F0D]">
                           #{tag}
                         </span>
                       ))}
                     </div>
                   )}
 
-                  <div className="mt-4 p-3 rounded bg-[#F6F7F5] border-l-2 border-[#C9A961] text-xs text-[#0B0F0D] italic">
+                  <div className="mt-4 p-3 rounded bg-[#F6F7F5] border-l-4 border-l-[#C9A961] border border-[#0B0F0D] text-xs text-[#0B0F0D] italic">
                     <strong>Rule:</strong> {article.keyTakeaway}
                   </div>
                 </div>
 
-                <div className="pt-5 mt-5 border-t border-black/5 flex items-center justify-between">
+                <div className="pt-5 mt-5 border-t-2 border-[#0B0F0D] flex items-center justify-between">
                   <span className="text-[11px] text-[#5B645F] font-mono">{article.date}</span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => handleShare(article)}
                       title="Copy share link"
-                      className="p-1.5 rounded hover:bg-[#F6F7F5] text-[#5B645F] hover:text-[#0B0F0D] transition-colors"
+                      className="p-1.5 rounded border border-[#0B0F0D] hover:bg-[#F6F7F5] text-[#5B645F] hover:text-[#0B0F0D] transition-colors"
                     >
                       {copiedId === article.id ? (
                         <Check className="w-3.5 h-3.5 text-emerald-600" />
@@ -261,10 +261,10 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
         {/* Full Article Reader Modal */}
         {selectedArticle && (
           <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in-50">
-            <div className="bg-white rounded-xl max-w-3xl w-full p-6 sm:p-10 shadow-2xl relative max-h-[90vh] overflow-y-auto border border-[#0E4B3C]/20">
+            <div className="bg-white rounded-xl max-w-3xl w-full p-6 sm:p-10 shadow-2xl relative max-h-[90vh] overflow-y-auto border-2 border-[#0B0F0D]">
               <button
                 onClick={() => setSelectedArticle(null)}
-                className="absolute top-5 right-5 p-2 rounded-full hover:bg-black/5 text-[#5B645F] hover:text-[#0B0F0D] transition-colors"
+                className="absolute top-5 right-5 p-2 rounded-full hover:bg-black/5 text-[#5B645F] hover:text-[#0B0F0D] transition-colors border border-[#0B0F0D]"
                 aria-label="Close article modal"
               >
                 <X className="w-6 h-6" />
@@ -273,7 +273,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
               <div className="space-y-6">
                 <div>
                   <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#5B645F] mb-3">
-                    <span className="text-[#0E4B3C] font-semibold bg-[#0E4B3C]/10 px-2 py-0.5 rounded">
+                    <span className="text-[#0E4B3C] font-semibold bg-[#0E4B3C]/10 px-2 py-0.5 rounded border border-[#0B0F0D]">
                       {selectedArticle.category}
                     </span>
                     <span>•</span>
@@ -286,7 +286,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
                     {selectedArticle.title}
                   </h2>
 
-                  <div className="flex items-center gap-3 mt-3 pt-3 border-t border-[#0B0F0D]/5 text-xs text-[#5B645F]">
+                  <div className="flex items-center gap-3 mt-3 pt-3 border-t-2 border-[#0B0F0D] text-xs text-[#5B645F]">
                     <div className="flex items-center gap-1.5">
                       <User className="w-3.5 h-3.5 text-[#C9A961]" />
                       <span>{selectedArticle.author || 'Sinisa Milenkovic'}</span>
@@ -296,7 +296,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
                   </div>
                 </div>
 
-                <div className="p-4 rounded-lg bg-[#082E24] text-white border border-[#C9A961]/30 text-xs sm:text-sm">
+                <div className="p-4 rounded-lg bg-[#082E24] text-white border-2 border-[#0B0F0D] text-xs sm:text-sm">
                   <div className="text-[11px] font-mono text-[#C9A961] uppercase tracking-wider mb-1">
                     Core Commercial Rule &amp; Thesis
                   </div>
@@ -322,13 +322,13 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
 
                 {/* Article Tags */}
                 {selectedArticle.tags && (
-                  <div className="pt-4 border-t border-black/5 flex flex-wrap gap-2 items-center">
+                  <div className="pt-4 border-t-2 border-[#0B0F0D] flex flex-wrap gap-2 items-center">
                     <span className="text-xs font-mono text-[#5B645F] flex items-center gap-1">
                       <Tag className="w-3 h-3" />
                       Topics:
                     </span>
                     {selectedArticle.tags.map((tag, idx) => (
-                      <span key={idx} className="text-xs font-mono text-[#0E4B3C] bg-[#F6F7F5] px-2 py-0.5 rounded">
+                      <span key={idx} className="text-xs font-mono text-[#0E4B3C] bg-[#F6F7F5] px-2 py-0.5 rounded border border-[#0B0F0D]">
                         {tag}
                       </span>
                     ))}
@@ -336,7 +336,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
                 )}
 
                 {/* Article Footer & Consultation CTA */}
-                <div className="pt-6 border-t border-black/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#F6F7F5] p-5 rounded-lg">
+                <div className="pt-6 border-t-2 border-[#0B0F0D] flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#F6F7F5] p-5 rounded-lg border-2 border-[#0B0F0D]">
                   <div>
                     <div className="text-xs font-bold text-[#0B0F0D]">
                       Have questions about implementing this in your business?
@@ -351,7 +351,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({ onEnquire }) =
                       setSelectedArticle(null);
                       onEnquire();
                     }}
-                    className="px-6 py-3 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-colors shadow-xs shrink-0"
+                    className="px-6 py-3 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-colors shadow-xs shrink-0 border-2 border-[#0B0F0D]"
                   >
                     Discuss With Sinisa
                   </button>

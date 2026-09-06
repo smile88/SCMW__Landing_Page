@@ -12,10 +12,10 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-white rounded-xl max-w-3xl w-full p-6 sm:p-10 shadow-2xl relative max-h-[90vh] overflow-y-auto border border-[#0E4B3C]/20 font-sans">
+      <div className="bg-white rounded-xl max-w-3xl w-full p-6 sm:p-10 shadow-2xl relative max-h-[90vh] overflow-y-auto border-2 border-[#0B0F0D] font-sans">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full hover:bg-black/5 text-[#5B645F] hover:text-[#0B0F0D] transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-full hover:bg-black/5 text-[#5B645F] hover:text-[#0B0F0D] transition-colors border border-[#0B0F0D]"
           aria-label="Close legal modal"
         >
           <X className="w-6 h-6" />
@@ -23,7 +23,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
 
         {type === 'privacy' ? (
           <div className="space-y-6 text-[#0B0F0D]">
-            <div className="flex items-center gap-2 pb-3 border-b border-black/10">
+            <div className="flex items-center gap-2 pb-3 border-b-2 border-[#0B0F0D]">
               <Shield className="w-5 h-5 text-[#0E4B3C]" />
               <div>
                 <h2 className="text-2xl font-editorial font-semibold text-[#0B0F0D]">
@@ -67,10 +67,10 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
               </p>
             </div>
 
-            <div className="pt-4 border-t border-black/10 flex justify-end">
+            <div className="pt-4 border-t-2 border-[#0B0F0D] flex justify-end">
               <button
                 onClick={onClose}
-                className="px-5 py-2.5 rounded bg-[#0E4B3C] text-white hover:bg-[#082E24] text-xs font-semibold"
+                className="px-5 py-2.5 rounded bg-[#0E4B3C] text-white hover:bg-[#082E24] text-xs font-semibold border-2 border-[#0B0F0D]"
               >
                 I Understand
               </button>
@@ -78,7 +78,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
           </div>
         ) : (
           <div className="space-y-6 text-[#0B0F0D]">
-            <div className="flex items-center gap-2 pb-3 border-b border-black/10">
+            <div className="flex items-center gap-2 pb-3 border-b-2 border-[#0B0F0D]">
               <FileCheck className="w-5 h-5 text-[#0E4B3C]" />
               <div>
                 <h2 className="text-2xl font-editorial font-semibold text-[#0B0F0D]">
@@ -117,10 +117,10 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
               </p>
             </div>
 
-            <div className="pt-4 border-t border-black/10 flex justify-end">
+            <div className="pt-4 border-t-2 border-[#0B0F0D] flex justify-end">
               <button
                 onClick={onClose}
-                className="px-5 py-2.5 rounded bg-[#0E4B3C] text-white hover:bg-[#082E24] text-xs font-semibold"
+                className="px-5 py-2.5 rounded bg-[#0E4B3C] text-white hover:bg-[#082E24] text-xs font-semibold border-2 border-[#0B0F0D]"
               >
                 Accept &amp; Close
               </button>

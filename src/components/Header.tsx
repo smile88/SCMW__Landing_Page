@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrandLogo } from './BrandLogo';
+import { ThemeToggle } from './ThemeToggle';
 import { NavigationTab } from '../types';
 import { Menu, X, ArrowUpRight, PhoneCall, Shield } from 'lucide-react';
 
@@ -19,10 +20,11 @@ export const Header: React.FC<HeaderProps> = ({
   const navLinks: { id: NavigationTab; label: string }[] = [
     { id: 'home', label: 'Home' },
     { id: 'services', label: 'Services' },
-    { id: 'selector', label: 'Service Matcher' },
+    { id: 'selector', label: 'Matcher' },
+    { id: 'enablement', label: 'Sales Toolkit' },
     { id: 'testimonials', label: 'Client Proof' },
     { id: 'insights', label: 'SEO & Insights' },
-    { id: 'about', label: 'About Sinisa' },
+    { id: 'about', label: 'About' },
     { id: 'tools', label: 'Audit Suite' },
     { id: 'contact', label: 'Contact' },
   ];
@@ -34,9 +36,9 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#F6F7F5]/95 backdrop-blur-md border-b border-[#0E4B3C]/10 transition-colors">
+    <header className="sticky top-0 z-50 bg-[#F6F7F5]/95 backdrop-blur-md border-b-2 border-[#0B0F0D] transition-colors">
       {/* Top micro-bar: Sydney status & fixed-price assurance */}
-      <div className="bg-[#0E4B3C] text-white text-[12px] py-1.5 px-4 hidden sm:block">
+      <div className="bg-[#0E4B3C] text-white text-[12px] py-1.5 px-4 hidden sm:block border-b border-[#0B0F0D]">
         <div className="max-w-7xl mx-auto flex items-center justify-between font-sans">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#C9A961] animate-pulse" />
@@ -54,30 +56,32 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 h-20 sm:h-22 flex items-center justify-between">
-        {/* Brand wordmark logo */}
-        <button
-          onClick={() => handleNavClick('home')}
-          className="text-left focus:outline-hidden group"
-          aria-label="S. C. Milenwall Home"
-        >
-          <div className="flex items-center gap-3">
-            <BrandLogo variant="full" size="md" />
-          </div>
-        </button>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between gap-4">
+        {/* Brand wordmark logo with guaranteed breathing room and crisp architectural divider */}
+        <div className="flex items-center shrink-0 pr-6 lg:pr-8 border-r-2 border-[#0B0F0D]">
+          <button
+            onClick={() => handleNavClick('home')}
+            className="text-left focus:outline-hidden group"
+            aria-label="S. C. Milenwall Home"
+          >
+            <div className="flex items-center gap-3">
+              <BrandLogo variant="full" size="md" />
+            </div>
+          </button>
+        </div>
 
-        {/* Desktop navigation items */}
-        <nav className="hidden lg:flex items-center gap-8 text-xs font-semibold tracking-widest uppercase text-[#5B645F]">
+        {/* Desktop navigation items - spacious separation from logo and crisp styling */}
+        <nav className="hidden lg:flex items-center gap-2 xl:gap-4 2xl:gap-5 text-[11px] xl:text-xs font-semibold tracking-wider uppercase text-[#5B645F] pl-2 xl:pl-3">
           {navLinks.map((link) => {
             const isActive = activeTab === link.id;
             return (
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
-                className={`transition-all pb-1 border-b-2 uppercase tracking-widest ${
+                className={`transition-all pb-1 border-b-2 uppercase tracking-wider whitespace-nowrap px-1 ${
                   isActive
-                    ? 'text-[#0E4B3C] border-[#C9A961] font-bold'
-                    : 'text-[#5B645F] border-transparent hover:text-[#0E4B3C] hover:border-[#C9A961]'
+                    ? 'text-[#0E4B3C] border-[#0B0F0D] font-bold'
+                    : 'text-[#5B645F] border-transparent hover:text-[#0E4B3C] hover:border-[#0B0F0D]'
                 }`}
               >
                 {link.label}
@@ -86,40 +90,36 @@ export const Header: React.FC<HeaderProps> = ({
           })}
         </nav>
 
-        {/* Desktop CTA actions */}
-        <div className="hidden lg:flex items-center gap-4">
-          <button
-            onClick={() => handleNavClick('tools')}
-            className="text-xs font-bold uppercase tracking-widest text-[#0E4B3C] hover:text-[#082E24] px-3 py-2 transition-colors border-b border-transparent hover:border-[#0E4B3C]"
-          >
-            Audit Suite
-          </button>
+        {/* Desktop CTA actions with visible dark borders */}
+        <div className="hidden lg:flex items-center gap-3 shrink-0">
+          <ThemeToggle variant="header" />
           <button
             onClick={() => {
               if (onOpenContactWithService) onOpenContactWithService();
               else handleNavClick('contact');
             }}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-all shadow-xs"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-all shadow-sm border-2 border-[#0B0F0D]"
           >
             <span>Book a Call</span>
             <ArrowUpRight className="w-3.5 h-3.5 text-[#0B0F0D]" />
           </button>
         </div>
 
-        {/* Mobile menu hamburger toggle */}
+        {/* Mobile menu hamburger toggle & quick theme button */}
         <div className="flex lg:hidden items-center gap-2">
+          <ThemeToggle variant="header" className="px-2 py-1 text-[10px]" />
           <button
             onClick={() => {
               if (onOpenContactWithService) onOpenContactWithService();
               else handleNavClick('contact');
             }}
-            className="px-3.5 py-1.5 rounded bg-[#0E4B3C] text-white text-xs font-medium"
+            className="px-3.5 py-1.5 rounded bg-[#0E4B3C] text-white text-xs font-medium border border-[#0B0F0D]"
           >
             Enquire
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-md text-[#0E4B3C] hover:bg-[#0E4B3C]/10 min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-hidden"
+            className="p-2.5 rounded-md text-[#0E4B3C] hover:bg-[#0E4B3C]/10 min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-hidden border border-[#0B0F0D]"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -129,7 +129,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#F6F7F5] border-b border-[#0E4B3C]/15 px-6 pt-4 pb-8 space-y-4 shadow-lg animate-in slide-in-from-top-2">
+        <div className="lg:hidden bg-[#F6F7F5] border-b-2 border-[#0B0F0D] px-6 pt-4 pb-8 space-y-4 shadow-lg animate-in slide-in-from-top-2">
           <div className="flex flex-col space-y-3">
             {navLinks.map((link) => (
               <button
@@ -149,7 +149,15 @@ export const Header: React.FC<HeaderProps> = ({
             ))}
           </div>
 
-          <div className="pt-4 border-t border-[#0E4B3C]/10 flex flex-col gap-3">
+          {/* Theme Palette selection in mobile drawer */}
+          <div className="pt-3 pb-2 border-t border-[#0B0F0D]/20 flex items-center justify-between">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#5B645F] font-semibold">
+              Palette Mode
+            </span>
+            <ThemeToggle variant="segmented" />
+          </div>
+
+          <div className="pt-2 border-t border-[#0E4B3C]/10 flex flex-col gap-3">
             <div className="text-xs text-[#5B645F] mb-1">
               Direct Contact: <a href="mailto:hello@scmw.com.au" className="font-semibold text-[#0E4B3C]">hello@scmw.com.au</a>
             </div>

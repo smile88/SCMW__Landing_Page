@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 interface BrandLogoProps {
   variant?: 'full' | 'monogram' | 'stacked';
@@ -9,11 +10,20 @@ interface BrandLogoProps {
 
 export const BrandLogo: React.FC<BrandLogoProps> = ({
   variant = 'full',
-  theme = 'light',
+  theme,
   className = '',
   size = 'md',
 }) => {
-  const isDark = theme === 'dark' || theme === 'emerald';
+  let isContextDark = false;
+  try {
+    const themeContext = useTheme();
+    isContextDark = themeContext.isDark;
+  } catch {
+    // If rendered outside ThemeProvider fallback gracefully
+  }
+
+  const effectiveTheme = theme ?? (isContextDark ? 'dark' : 'light');
+  const isDark = effectiveTheme === 'dark' || effectiveTheme === 'emerald';
   const wordmarkTextColor = isDark ? '#FFFFFF' : '#0E4B3C';
   const goldColor = '#C9A961';
   const emeraldColor = '#0E4B3C';

@@ -52,12 +52,12 @@ export const SystemsGraphic: React.FC<SystemsGraphicProps> = ({ onSelectService 
   ];
 
   return (
-    <div className="w-full bg-[#082E24] text-[#F6F7F5] rounded-xl border border-[#C9A961]/25 p-6 md:p-8 shadow-2xl relative overflow-hidden">
+    <div className="w-full bg-[#082E24] text-[#F6F7F5] rounded-xl border-2 border-[#0B0F0D] p-6 md:p-8 shadow-2xl relative overflow-hidden">
       {/* Structural ledger background lines */}
       <div className="absolute inset-0 bg-architectural-grid-dark opacity-30 pointer-events-none" />
       
       {/* Header bar */}
-      <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between pb-6 mb-6 border-b border-[#C9A961]/20 gap-4">
+      <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between pb-6 mb-6 border-b-2 border-white/20 gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="inline-block w-2 h-2 rounded-full bg-[#C9A961] animate-pulse" />
@@ -71,7 +71,7 @@ export const SystemsGraphic: React.FC<SystemsGraphicProps> = ({ onSelectService 
         </div>
         <div className="flex items-center gap-3">
           <span className="text-xs text-[#F6F7F5]/70 font-mono">Status: Production Spec</span>
-          <span className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-[#0E4B3C] border border-[#C9A961]/30 text-[#C9A961]">
+          <span className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-[#0E4B3C] border-2 border-[#0B0F0D] text-[#C9A961] font-bold">
             Enterprise-Grade
           </span>
         </div>
@@ -88,14 +88,14 @@ export const SystemsGraphic: React.FC<SystemsGraphicProps> = ({ onSelectService 
               <button
                 key={node.id}
                 onClick={() => setActiveNode(index)}
-                className={`w-full text-left p-4 rounded-lg transition-all duration-200 border flex items-start gap-4 ${
+                className={`w-full text-left p-4 rounded-lg transition-all duration-200 border-2 flex items-start gap-4 ${
                   isSelected
                     ? 'bg-[#0E4B3C] border-[#C9A961] shadow-md'
-                    : 'bg-[#0B0F0D]/40 border-white/10 hover:border-[#C9A961]/40 hover:bg-[#0B0F0D]/70'
+                    : 'bg-[#0B0F0D]/40 border-[#0B0F0D] hover:border-[#C9A961] hover:bg-[#0B0F0D]/70'
                 }`}
               >
                 <div
-                  className={`p-2.5 rounded-md shrink-0 ${
+                  className={`p-2.5 rounded-md shrink-0 border border-[#0B0F0D] ${
                     isSelected ? 'bg-[#C9A961] text-[#0B0F0D]' : 'bg-[#082E24] text-[#C9A961]'
                   }`}
                 >
@@ -103,10 +103,10 @@ export const SystemsGraphic: React.FC<SystemsGraphicProps> = ({ onSelectService 
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-mono text-[#C9A961] tracking-wider uppercase">
+                    <span className="text-xs font-mono text-[#C9A961] tracking-wider uppercase font-bold">
                       {node.title.split(' ')[0]}
                     </span>
-                    <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#082E24] text-[#F6F7F5]/80 border border-white/10">
+                    <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#082E24] text-[#F6F7F5]/80 border border-[#0B0F0D]">
                       {node.badge}
                     </span>
                   </div>
@@ -123,11 +123,11 @@ export const SystemsGraphic: React.FC<SystemsGraphicProps> = ({ onSelectService 
         </div>
 
         {/* Center: Interactive Schematic Inspection View */}
-        <div className="lg:col-span-7 bg-[#0B0F0D]/80 rounded-xl border border-[#C9A961]/30 p-6 relative">
-          <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+        <div className="lg:col-span-7 bg-[#0B0F0D]/80 rounded-xl border-2 border-[#0B0F0D] p-6 relative">
+          <div className="flex items-center justify-between pb-4 mb-4 border-b-2 border-white/20">
             <div className="flex items-center gap-2">
               <Cpu className="w-4 h-4 text-[#C9A961]" />
-              <span className="text-xs font-mono tracking-wider text-[#C9A961] uppercase">
+              <span className="text-xs font-mono tracking-wider text-[#C9A961] uppercase font-bold">
                 Sub-System Analysis
               </span>
             </div>
@@ -150,9 +150,9 @@ export const SystemsGraphic: React.FC<SystemsGraphicProps> = ({ onSelectService 
             </div>
 
             {/* Benchmark metric block */}
-            <div className="bg-[#082E24] p-3.5 rounded-lg border border-[#C9A961]/25 flex items-center justify-between">
+            <div className="bg-[#082E24] p-3.5 rounded-lg border-2 border-[#0B0F0D] flex items-center justify-between">
               <div>
-                <span className="text-[11px] uppercase tracking-wider text-[#F6F7F5]/60 font-mono block">
+                <span className="text-[11px] uppercase tracking-wider text-[#F6F7F5]/60 font-mono block font-semibold">
                   Core Performance Benchmark
                 </span>
                 <span className="text-sm font-semibold text-[#C9A961] font-mono">
@@ -164,7 +164,7 @@ export const SystemsGraphic: React.FC<SystemsGraphicProps> = ({ onSelectService 
 
             {/* Specifications list */}
             <div>
-              <span className="text-xs font-mono text-[#F6F7F5]/70 uppercase tracking-wider block mb-2">
+              <span className="text-xs font-mono text-[#F6F7F5]/70 uppercase tracking-wider block mb-2 font-semibold">
                 Discipline Checkpoints
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -181,7 +181,7 @@ export const SystemsGraphic: React.FC<SystemsGraphicProps> = ({ onSelectService 
             <div className="pt-2">
               <button
                 onClick={() => onSelectService && onSelectService(systemNodes[activeNode].id)}
-                className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-md bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-md bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] transition-colors border-2 border-[#0B0F0D]"
               >
                 <span>View Full {systemNodes[activeNode].serviceName} Scope</span>
                 <ArrowRight className="w-3.5 h-3.5" />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { NavigationTab } from './types';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -11,12 +12,14 @@ import { InsightsSection } from './components/InsightsSection';
 import { ContactSection } from './components/ContactSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ServiceSelector } from './components/ServiceSelector';
+import { EnablementHub } from './components/enablement/EnablementHub';
+import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
 import { LegalModal } from './components/LegalModals';
 import { SystemsGraphic } from './components/SystemsGraphic';
 import { SERVICES, BUSINESS_INFO } from './data/content';
 import { applyTabSeo } from './utils/seo';
-import { ArrowRight, Sparkles, Award } from 'lucide-react';
+import { ArrowRight, Sparkles, Award, BookOpen, FileSpreadsheet } from 'lucide-react';
 
 const VALID_TABS: NavigationTab[] = [
   'home',
@@ -26,6 +29,7 @@ const VALID_TABS: NavigationTab[] = [
   'about',
   'insights',
   'tools',
+  'enablement',
   'contact',
   'privacy',
   'terms',
@@ -102,8 +106,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F6F7F5] text-[#0B0F0D] selection:bg-[#0E4B3C] selection:text-[#F6F7F5]">
-      {/* Primary Sticky Header with Brand Wordmark & Navigation */}
+    <ThemeProvider>
+      <div className="min-h-screen flex flex-col bg-[#F6F7F5] text-[#0B0F0D] selection:bg-[#0E4B3C] selection:text-[#F6F7F5]">
+        {/* Primary Sticky Header with Brand Wordmark & Navigation */}
       <Header
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -149,10 +154,10 @@ export default function App() {
             />
 
             {/* Interactive Service Selector Callout Block */}
-            <section className="py-14 bg-[#F6F7F5] border-b border-[#0B0F0D]/10">
+            <section className="py-14 bg-[#F6F7F5] border-b-2 border-[#0B0F0D]">
               <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-8">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-2 border border-[#0B0F0D]">
                     <Sparkles className="w-3.5 h-3.5 text-[#0E4B3C]" />
                     <span className="text-xs font-mono uppercase tracking-widest text-[#0E4B3C] font-semibold">
                       Unsure Which Scope Fits Your Stage?
@@ -177,6 +182,55 @@ export default function App() {
               defaultTool="audit"
             />
 
+            {/* Sales Enablement & Strategic Collateral Callout Block */}
+            <section className="py-16 bg-white border-b-2 border-[#0B0F0D]">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="rounded-xl bg-[#F6F7F5] border-2 border-[#0B0F0D] p-8 sm:p-12 flex flex-col lg:flex-row lg:items-center justify-between gap-8 shadow-sm">
+                  <div className="space-y-3 max-w-2xl">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 border-2 border-[#0B0F0D]">
+                      <BookOpen className="w-3.5 h-3.5 text-[#0E4B3C]" />
+                      <span className="text-xs font-mono uppercase tracking-widest text-[#0E4B3C] font-semibold">
+                        Sales &amp; Marketing Enablement Suite
+                      </span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-editorial font-bold text-[#0B0F0D]">
+                      Executive Whitepapers, One-Pagers &amp; Infographics
+                    </h3>
+                    <p className="text-sm sm:text-base text-[#5B645F] leading-relaxed">
+                      Review empirical research on agency retainer economics, 2026 Generative Engine Optimization (GEO), printable 1-page capability scorecards, and live commercial objection battlecards.
+                    </p>
+                    <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#0B0F0D] pt-2">
+                      <span className="flex items-center gap-1.5 font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-[#0E4B3C]"></span>
+                        2 Executive Whitepapers
+                      </span>
+                      <span className="flex items-center gap-1.5 font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-[#0E4B3C]"></span>
+                        3 Printable 1-Pagers
+                      </span>
+                      <span className="flex items-center gap-1.5 font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-[#0E4B3C]"></span>
+                        3 Conversion Infographics
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+                    <button
+                      onClick={() => {
+                        setActiveTab('enablement');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-[#0E4B3C] text-white hover:bg-[#082E24] text-xs font-bold uppercase tracking-wider border-2 border-[#0B0F0D] transition-colors shadow-sm"
+                    >
+                      <span>Explore Sales Toolkit</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#C9A961]" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             <AboutSection
               onBookCall={() => {
                 setSelectedServiceForContact('');
@@ -185,6 +239,19 @@ export default function App() {
             />
 
             <InsightsSection
+              onEnquire={() => {
+                setSelectedServiceForContact('');
+                setActiveTab('contact');
+              }}
+            />
+
+            {/* Frequently Asked Questions: Fixed-Price & Timelines */}
+            <FaqSection
+              id="home-faq"
+              onBookCall={() => {
+                setSelectedServiceForContact('');
+                setActiveTab('contact');
+              }}
               onEnquire={() => {
                 setSelectedServiceForContact('');
                 setActiveTab('contact');
@@ -202,7 +269,7 @@ export default function App() {
         {activeTab === 'services' && (
           <div className="py-12 md:py-20 animate-in fade-in-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3 border border-[#0B0F0D]">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#0E4B3C] font-semibold">
                   Service Catalogue &amp; Scopes
                 </span>
@@ -235,14 +302,14 @@ export default function App() {
 
             {/* Pricing Model Comparison Table */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-              <div className="bg-white rounded-xl border border-[#0E4B3C]/15 p-6 sm:p-10 shadow-sm">
+              <div className="bg-white rounded-xl border-2 border-[#0B0F0D] p-6 sm:p-10 shadow-sm">
                 <h3 className="text-2xl font-editorial font-semibold text-[#0B0F0D] mb-6">
                   Quick Service Comparison &amp; Investment Summary
                 </h3>
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-sm font-sans">
                     <thead>
-                      <tr className="border-b border-black/10 text-xs font-mono text-[#5B645F] uppercase">
+                      <tr className="border-b-2 border-[#0B0F0D] text-xs font-mono text-[#5B645F] uppercase font-bold">
                         <th className="pb-3 pr-4">Service</th>
                         <th className="pb-3 px-4">Starting Price</th>
                         <th className="pb-3 px-4">Format</th>
@@ -250,7 +317,7 @@ export default function App() {
                         <th className="pb-3 pl-4 text-right">Action</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-black/5">
+                    <tbody className="divide-y-2 divide-[#0B0F0D]/10">
                       {SERVICES.map((srv) => (
                         <tr key={srv.id} className="hover:bg-[#F6F7F5]/80 transition-colors">
                           <td className="py-4 pr-4">
@@ -269,7 +336,7 @@ export default function App() {
                           <td className="py-4 pl-4 text-right">
                             <button
                               onClick={() => handleSelectServiceForContact(srv.id)}
-                              className="px-3.5 py-1.5 rounded bg-[#0E4B3C] text-white hover:bg-[#082E24] text-xs font-medium inline-flex items-center gap-1"
+                              className="px-3.5 py-1.5 rounded bg-[#0E4B3C] text-white hover:bg-[#082E24] text-xs font-semibold inline-flex items-center gap-1 border-2 border-[#0B0F0D]"
                             >
                               <span>Enquire</span>
                               <ArrowRight className="w-3 h-3 text-[#C9A961]" />
@@ -283,6 +350,20 @@ export default function App() {
               </div>
             </div>
 
+            {/* Frequently Asked Questions: Fixed-Price & Timelines */}
+            <FaqSection
+              id="services-faq"
+              defaultCategory="Fixed-Price Model"
+              onBookCall={() => {
+                setSelectedServiceForContact('');
+                setActiveTab('contact');
+              }}
+              onEnquire={() => {
+                setSelectedServiceForContact('');
+                setActiveTab('contact');
+              }}
+            />
+
             <ContactSection
               initialService={selectedServiceForContact}
               initialNotes={customNotesForContact}
@@ -294,7 +375,7 @@ export default function App() {
         {activeTab === 'selector' && (
           <div className="py-12 md:py-20 animate-in fade-in-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3 border border-[#0B0F0D]">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#0E4B3C] font-semibold">
                   Guided Solution Matching
                 </span>
@@ -325,7 +406,7 @@ export default function App() {
         {activeTab === 'testimonials' && (
           <div className="py-12 md:py-20 animate-in fade-in-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3 border border-[#0B0F0D]">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#0E4B3C] font-semibold">
                   Evidence Over Hype
                 </span>
@@ -357,7 +438,7 @@ export default function App() {
         {activeTab === 'about' && (
           <div className="py-12 md:py-20 animate-in fade-in-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3 border border-[#0B0F0D]">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#0E4B3C] font-semibold">
                   About S. C. Milenwall
                 </span>
@@ -392,7 +473,7 @@ export default function App() {
         {activeTab === 'insights' && (
           <div className="py-12 md:py-20 animate-in fade-in-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3 border border-[#0B0F0D]">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#0E4B3C] font-semibold">
                   Insights &amp; Case Studies
                 </span>
@@ -418,7 +499,7 @@ export default function App() {
         {activeTab === 'tools' && (
           <div className="py-12 md:py-20 animate-in fade-in-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3 border border-[#0B0F0D]">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#0E4B3C] font-semibold">
                   Diagnostic &amp; Modeler Suite
                 </span>
@@ -438,7 +519,36 @@ export default function App() {
           </div>
         )}
 
-        {/* VIEW 8: CONTACT PAGE */}
+        {/* VIEW 8: SALES ENABLEMENT & MARKETING TOOLKIT */}
+        {activeTab === 'enablement' && (
+          <div className="py-12 md:py-20 animate-in fade-in-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3 border-2 border-[#0B0F0D]">
+                <span className="text-xs font-mono uppercase tracking-widest text-[#0E4B3C] font-semibold">
+                  Commercial Enablement &amp; Marketing Collateral
+                </span>
+              </div>
+              <h1 className="text-3xl sm:text-5xl font-editorial font-semibold text-[#0B0F0D]">
+                Sales Enablement Toolkit
+              </h1>
+              <p className="text-lg text-[#5B645F] max-w-3xl mt-3 leading-relaxed">
+                Empirical executive whitepapers, printable 1-page factsheets, interactive conversion infographics, and live commercial battlecards designed for Australian business owners and sales leads.
+              </p>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <EnablementHub
+                onSelectService={handleSelectServiceForContact}
+                onBookCall={() => {
+                  setSelectedServiceForContact('');
+                  setActiveTab('contact');
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* VIEW 9: CONTACT PAGE */}
         {activeTab === 'contact' && (
           <div className="py-12 md:py-20 animate-in fade-in-50">
             <ContactSection
@@ -466,5 +576,6 @@ export default function App() {
         onClose={() => setLegalModalType(null)}
       />
     </div>
+    </ThemeProvider>
   );
 }

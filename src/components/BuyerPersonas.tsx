@@ -29,10 +29,10 @@ export const BuyerPersonas: React.FC<BuyerPersonasProps> = ({
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[#F6F7F5] border-b border-[#0E4B3C]/10">
+    <section className="py-16 md:py-24 bg-[#F6F7F5] border-b-2 border-[#0B0F0D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/10 mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded bg-[#0E4B3C]/10 mb-3 border-2 border-[#0B0F0D]">
             <span className="text-xs font-mono uppercase tracking-widest text-[#0E4B3C] font-semibold">
               Who We Work Best With
             </span>
@@ -54,14 +54,14 @@ export const BuyerPersonas: React.FC<BuyerPersonasProps> = ({
               <button
                 key={persona.id}
                 onClick={() => setSelectedPersonaId(persona.id)}
-                className={`flex items-center gap-3 px-5 py-3 rounded-lg text-sm font-medium transition-all text-left border ${
+                className={`flex items-center gap-3 px-5 py-3 rounded-lg text-sm font-medium transition-all text-left border-2 border-[#0B0F0D] ${
                   isSelected
-                    ? 'bg-[#0E4B3C] text-white border-[#0E4B3C] shadow-md'
-                    : 'bg-white text-[#0B0F0D] border-black/10 hover:border-[#0E4B3C]/40'
+                    ? 'bg-[#0E4B3C] text-white shadow-md'
+                    : 'bg-white text-[#0B0F0D] hover:bg-[#F6F7F5]'
                 }`}
               >
                 <div
-                  className={`p-2 rounded ${
+                  className={`p-2 rounded border border-[#0B0F0D] ${
                     isSelected ? 'bg-[#C9A961] text-[#0B0F0D]' : 'bg-[#F6F7F5] text-[#0E4B3C]'
                   }`}
                 >
@@ -79,7 +79,7 @@ export const BuyerPersonas: React.FC<BuyerPersonasProps> = ({
         </div>
 
         {/* Detailed Persona Analysis Card */}
-        <div className="bg-white rounded-xl border border-[#0E4B3C]/15 p-6 sm:p-10 shadow-lg max-w-5xl mx-auto">
+        <div className="bg-white rounded-xl border-2 border-[#0B0F0D] p-6 sm:p-10 shadow-lg max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left: Persona context & pain points */}
             <div className="lg:col-span-7 space-y-5">
@@ -99,7 +99,7 @@ export const BuyerPersonas: React.FC<BuyerPersonasProps> = ({
               </div>
 
               {/* Recurring Pain Points */}
-              <div className="space-y-2 pt-2 border-t border-black/5">
+              <div className="space-y-2 pt-4 border-t-2 border-[#0B0F0D]">
                 <span className="text-xs font-mono uppercase tracking-wider text-[#5B645F] block mb-1">
                   Specific Friction We Eliminate:
                 </span>
@@ -113,7 +113,7 @@ export const BuyerPersonas: React.FC<BuyerPersonasProps> = ({
             </div>
 
             {/* Right: SCM Recommendation Box */}
-            <div className="lg:col-span-5 bg-[#082E24] text-white rounded-xl p-6 border border-[#C9A961]/30 flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-5 bg-[#082E24] text-white rounded-xl p-6 border-2 border-[#0B0F0D] flex flex-col justify-between space-y-6 shadow-md">
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-2 h-2 rounded-full bg-[#C9A961]" />
@@ -128,7 +128,7 @@ export const BuyerPersonas: React.FC<BuyerPersonasProps> = ({
                   {activePersona.whatSCMProvides}
                 </p>
 
-                <div className="mt-4 p-3 rounded-lg bg-[#0E4B3C] border border-[#C9A961]/20">
+                <div className="mt-4 p-3 rounded-lg bg-[#0E4B3C] border border-[#C9A961]">
                   <span className="text-[11px] font-mono text-[#C9A961] uppercase block">
                     Recommended Starting Scope
                   </span>
@@ -143,10 +143,10 @@ export const BuyerPersonas: React.FC<BuyerPersonasProps> = ({
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-white/10 flex flex-col gap-2.5">
+              <div className="pt-3 border-t-2 border-[#C9A961]/40 flex flex-col gap-2.5">
                 <button
                   onClick={() => onSelectService(activePersona.recommendedService)}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-md bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-semibold text-xs transition-colors"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-md bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-semibold text-xs transition-colors border-2 border-[#0B0F0D]"
                 >
                   <span>Enquire for {activePersona.title}</span>
                   <ArrowRight className="w-3.5 h-3.5" />

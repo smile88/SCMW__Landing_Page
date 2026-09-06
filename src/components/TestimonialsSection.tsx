@@ -46,13 +46,13 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
     : TESTIMONIALS.filter(t => t.industry === selectedIndustry);
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-white border-y border-[#0B0F0D]/10 relative">
+    <section id="testimonials" className="py-16 md:py-24 bg-white border-y-2 border-[#0B0F0D] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-10 bg-[#C9A961]" />
+              <div className="h-0.5 w-10 bg-[#C9A961]" />
               <span className="text-[#C9A961] text-xs font-bold tracking-[0.25em] uppercase">
                 Verified Client Outcomes
               </span>
@@ -67,8 +67,8 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
           </div>
 
           {/* High-Level Impact Metric Pill */}
-          <div className="bg-[#F6F7F5] border border-[#0B0F0D]/10 p-4 rounded-lg flex items-center gap-4 self-start md:self-auto shrink-0">
-            <div className="w-10 h-10 rounded-full bg-[#0E4B3C] text-[#C9A961] flex items-center justify-center font-bold">
+          <div className="bg-[#F6F7F5] border-2 border-[#0B0F0D] p-4 rounded-lg flex items-center gap-4 self-start md:self-auto shrink-0 shadow-2xs">
+            <div className="w-10 h-10 rounded-full bg-[#0E4B3C] text-[#C9A961] flex items-center justify-center font-bold border-2 border-[#0B0F0D]">
               <Award className="w-5 h-5" />
             </div>
             <div>
@@ -84,10 +84,10 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
             <button
               key={ind.id}
               onClick={() => setSelectedIndustry(ind.id)}
-              className={`px-4 py-2 rounded text-xs font-semibold uppercase tracking-wider transition-all border ${
+              className={`px-4 py-2 rounded text-xs font-semibold uppercase tracking-wider transition-all border-2 ${
                 selectedIndustry === ind.id
-                  ? 'bg-[#0E4B3C] text-white border-[#0E4B3C] shadow-xs'
-                  : 'bg-[#F6F7F5] text-[#5B645F] border-[#0B0F0D]/10 hover:border-[#C9A961] hover:text-[#0B0F0D]'
+                  ? 'bg-[#0E4B3C] text-white border-[#0B0F0D] shadow-xs'
+                  : 'bg-[#F6F7F5] text-[#5B645F] border-[#0B0F0D] hover:border-[#C9A961] hover:text-[#0B0F0D]'
               }`}
             >
               {ind.label}
@@ -100,16 +100,16 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
           {filteredTestimonials.map((item) => (
             <div
               key={item.id}
-              className="bg-[#F6F7F5] rounded-xl border border-[#0B0F0D]/10 p-6 sm:p-8 flex flex-col justify-between hover:border-[#0E4B3C]/30 transition-all hover:shadow-xs group"
+              className="bg-[#F6F7F5] rounded-xl border-2 border-[#0B0F0D] p-6 sm:p-8 flex flex-col justify-between hover:shadow-md transition-all group"
             >
               <div>
                 {/* Card Top: Industry & Service Tags + Video Indicator */}
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0E4B3C] bg-[#0E4B3C]/10 px-2.5 py-1 rounded">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0E4B3C] bg-[#0E4B3C]/10 px-2.5 py-1 rounded border border-[#0B0F0D]">
                       {item.industry}
                     </span>
-                    <span className="text-[11px] font-mono text-[#5B645F] bg-white px-2.5 py-1 rounded border border-[#0B0F0D]/5">
+                    <span className="text-[11px] font-mono text-[#5B645F] bg-white px-2.5 py-1 rounded border border-[#0B0F0D]">
                       {item.location}
                     </span>
                   </div>
@@ -117,7 +117,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
                   {item.hasVideo && (
                     <button
                       onClick={() => setActiveVideoItem(item)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C9A961]/20 hover:bg-[#C9A961]/30 text-[#0B0F0D] text-xs font-bold transition-colors border border-[#C9A961]/40"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C9A961]/20 hover:bg-[#C9A961]/30 text-[#0B0F0D] text-xs font-bold transition-colors border-2 border-[#0B0F0D]"
                     >
                       <Play className="w-3 h-3 fill-[#0B0F0D]" />
                       <span>Video Review ({item.videoDuration})</span>
@@ -128,20 +128,20 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
                 {/* Primary Quote */}
                 <div className="relative mb-6">
                   <Quote className="w-8 h-8 text-[#C9A961]/30 absolute -top-2 -left-2 pointer-events-none" />
-                  <p className="text-base sm:text-lg text-[#0B0F0D] font-serif italic leading-relaxed pl-4 border-l-2 border-[#C9A961]">
+                  <p className="text-base sm:text-lg text-[#0B0F0D] font-serif italic leading-relaxed pl-4 border-l-4 border-[#C9A961]">
                     &ldquo;{item.quote}&rdquo;
                   </p>
                 </div>
 
                 {/* Challenge & Solution Architecture */}
-                <div className="space-y-2.5 bg-white p-4 rounded-lg border border-[#0B0F0D]/5 text-xs mb-6">
+                <div className="space-y-2.5 bg-white p-4 rounded-lg border-2 border-[#0B0F0D] text-xs mb-6">
                   <div>
                     <span className="font-mono font-bold text-[#9C7A3D] uppercase tracking-wider block">
                       The Bottleneck:
                     </span>
                     <p className="text-[#5B645F] mt-0.5">{item.challenge}</p>
                   </div>
-                  <div className="pt-2 border-t border-[#0B0F0D]/5">
+                  <div className="pt-2 border-t-2 border-[#0B0F0D]">
                     <span className="font-mono font-bold text-[#0E4B3C] uppercase tracking-wider block">
                       The Delivered System:
                     </span>
@@ -152,7 +152,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
                 {/* 4 Metric Badges */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
                   {item.metrics.map((m, idx) => (
-                    <div key={idx} className="bg-white p-3 rounded border border-[#0B0F0D]/5 text-center">
+                    <div key={idx} className="bg-white p-3 rounded border-2 border-[#0B0F0D] text-center">
                       <div className="text-sm sm:text-base font-bold text-[#0E4B3C] font-mono">
                         {m.value}
                       </div>
@@ -165,9 +165,9 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
               </div>
 
               {/* Client Profile Footer */}
-              <div className="pt-4 border-t border-[#0B0F0D]/10 flex items-center justify-between gap-4">
+              <div className="pt-4 border-t-2 border-[#0B0F0D] flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#0E4B3C] text-white flex items-center justify-center font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-[#0E4B3C] text-white flex items-center justify-center font-bold text-sm border-2 border-[#0B0F0D]">
                     {item.clientName.split(' ')[0][0]}
                   </div>
                   <div>
@@ -199,9 +199,9 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         </div>
 
         {/* Bottom Assurance Bar */}
-        <div className="mt-12 p-6 rounded-xl bg-[#0E4B3C] text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 p-6 rounded-xl bg-[#0E4B3C] text-white flex flex-col sm:flex-row items-center justify-between gap-4 border-2 border-[#0B0F0D]">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#C9A961] text-[#0B0F0D] flex items-center justify-center font-bold shrink-0">
+            <div className="w-10 h-10 rounded-full bg-[#C9A961] text-[#0B0F0D] flex items-center justify-center font-bold shrink-0 border-2 border-[#0B0F0D]">
               <Sparkles className="w-5 h-5" />
             </div>
             <div>
@@ -218,7 +218,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
             onClick={() => {
               if (onBookCall) onBookCall();
             }}
-            className="shrink-0 px-6 py-3 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-colors shadow-xs"
+            className="shrink-0 px-6 py-3 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-colors shadow-xs border-2 border-[#0B0F0D]"
           >
             Book 20-Min Review
           </button>
@@ -228,9 +228,9 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
       {/* Video / Audio Case Review Modal */}
       {activeVideoItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs animate-in fade-in-50">
-          <div className="bg-[#0B0F0D] text-white rounded-xl max-w-2xl w-full border border-white/10 overflow-hidden shadow-2xl relative">
+          <div className="bg-[#0B0F0D] text-white rounded-xl max-w-2xl w-full border-2 border-[#0B0F0D] overflow-hidden shadow-2xl relative">
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-white/10 bg-[#0E4B3C]/50">
+            <div className="flex items-center justify-between p-4 border-b-2 border-[#0B0F0D] bg-[#0E4B3C]/50">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#C9A961]">
@@ -239,7 +239,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
               </div>
               <button
                 onClick={() => setActiveVideoItem(null)}
-                className="p-1 rounded text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+                className="p-1 rounded text-white/70 hover:text-white hover:bg-white/10 transition-colors border border-white/20"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -260,7 +260,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
               <div className="text-center my-auto">
                 <button
                   onClick={() => setIsPlaying(!isPlaying)}
-                  className="w-16 h-16 rounded-full bg-[#C9A961] text-[#0B0F0D] flex items-center justify-center mx-auto hover:scale-105 transition-transform shadow-lg"
+                  className="w-16 h-16 rounded-full bg-[#C9A961] text-[#0B0F0D] flex items-center justify-center mx-auto hover:scale-105 transition-transform shadow-lg border-2 border-[#0B0F0D]"
                 >
                   {isPlaying ? <Pause className="w-7 h-7 fill-[#0B0F0D]" /> : <Play className="w-7 h-7 fill-[#0B0F0D] ml-1" />}
                 </button>
@@ -284,7 +284,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
 
               {/* Bottom Video Progress Bar & Controls */}
               <div className="space-y-2">
-                <div className="w-full bg-white/20 h-1.5 rounded-full overflow-hidden cursor-pointer">
+                <div className="w-full bg-white/20 h-1.5 rounded-full overflow-hidden cursor-pointer border border-black/30">
                   <div
                     className="bg-[#C9A961] h-full transition-all"
                     style={{ width: `${videoProgress}%` }}
@@ -306,7 +306,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
             </div>
 
             {/* Transcript Area */}
-            <div className="p-6 bg-[#0E1512] border-t border-white/10 space-y-4">
+            <div className="p-6 bg-[#0E1512] border-t-2 border-[#0B0F0D] space-y-4">
               <div>
                 <span className="text-[11px] font-mono uppercase tracking-widest text-[#C9A961] font-bold block">
                   Verified Audio Transcript
@@ -326,7 +326,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
                     setActiveVideoItem(null);
                     if (onBookCall) onBookCall();
                   }}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-colors"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-colors border-2 border-[#0B0F0D]"
                 >
                   Book 20-Min Call With Sinisa
                 </button>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrandLogo } from './BrandLogo';
+import { ThemeToggle } from './ThemeToggle';
 import { BUSINESS_INFO, SERVICES } from '../data/content';
 import { NavigationTab } from '../types';
 import { Shield, ArrowUp, Mail, MapPin } from 'lucide-react';
@@ -22,9 +23,9 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="bg-[#0B0F0D] text-[#F6F7F5] pt-16 pb-12 border-t border-[#0E4B3C]/40 relative font-sans">
+    <footer className="bg-[#0B0F0D] text-[#F6F7F5] pt-16 pb-12 border-t-2 border-[#0B0F0D] relative font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b-2 border-white/20">
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
             <BrandLogo variant="full" theme="dark" size="md" />
@@ -95,6 +96,25 @@ export const Footer: React.FC<FooterProps> = ({
                 </button>
               </li>
               <li>
+                <button
+                  onClick={() => {
+                    onNavigate('services');
+                    setTimeout(() => {
+                      const el = document.getElementById('services-faq');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                  className="hover:text-white transition-colors"
+                >
+                  Frequently Asked Questions (FAQ)
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('enablement')} className="hover:text-white transition-colors text-[#C9A961] font-semibold">
+                  Sales Toolkit &amp; Whitepapers
+                </button>
+              </li>
+              <li>
                 <button onClick={() => onNavigate('testimonials')} className="hover:text-white transition-colors">
                   Client Proof &amp; Video Reviews
                 </button>
@@ -122,12 +142,12 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* Discipline Commitments */}
-          <div className="space-y-3">
+          {/* Discipline Commitments & Theme Switcher */}
+          <div className="space-y-4">
             <h4 className="text-xs font-mono uppercase tracking-widest text-[#C9A961] font-semibold">
               Operating Standard
             </h4>
-            <div className="p-3 rounded bg-[#082E24] border border-[#C9A961]/25 text-xs text-[#F6F7F5]/80 space-y-2 font-sans">
+            <div className="p-4 rounded bg-[#082E24] border-2 border-white/20 text-xs text-[#F6F7F5]/80 space-y-2 font-sans">
               <div className="font-semibold text-white">Fixed-Price Honesty</div>
               <p className="text-[11px] text-[#F6F7F5]/70">
                 Scopes locked in writing before commencement. Zero surprise hourly invoices.
@@ -137,11 +157,14 @@ export const Footer: React.FC<FooterProps> = ({
                 Delivered directly by Sinisa. No junior account handoffs.
               </p>
             </div>
+
+            {/* High contrast theme selector in footer */}
+            <ThemeToggle variant="footer" className="pt-1" />
           </div>
         </div>
 
         {/* Bottom Professional Polish bar */}
-        <div className="pt-8 mt-6 border-t border-white/10 flex flex-col lg:flex-row justify-between items-center text-[11px] sm:text-xs uppercase tracking-[0.18em] text-white/50 gap-4">
+        <div className="pt-8 mt-6 border-t-2 border-white/20 flex flex-col lg:flex-row justify-between items-center text-[11px] sm:text-xs uppercase tracking-[0.18em] text-white/50 gap-4">
           <div>
             &copy; {new Date().getFullYear()} {BUSINESS_INFO.legalEntity}
           </div>
@@ -180,7 +203,7 @@ export const Footer: React.FC<FooterProps> = ({
             </button>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded bg-white/5 hover:bg-white/10 text-white transition-colors flex items-center gap-1"
+              className="p-2 rounded bg-white/10 hover:bg-white/20 text-white transition-colors flex items-center gap-1 border border-white/20"
               aria-label="Scroll to top of page"
             >
               <ArrowUp className="w-3.5 h-3.5 text-[#C9A961]" />

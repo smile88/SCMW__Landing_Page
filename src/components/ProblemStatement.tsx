@@ -3,11 +3,11 @@ import { AlertCircle, CheckCircle, Clock, ShieldCheck, UserX, UserCheck, DollarS
 
 export const ProblemStatement: React.FC = () => {
   return (
-    <section className="py-16 md:py-24 bg-white border-b border-[#0E4B3C]/10">
+    <section className="py-16 md:py-24 bg-white border-b-2 border-[#0B0F0D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Core Statement Box */}
         <div className="max-w-4xl mx-auto text-center space-y-6 mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E4B3C]/5 border border-[#0E4B3C]/15">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded bg-[#0E4B3C]/5 border-2 border-[#0B0F0D]">
             <span className="text-xs font-mono uppercase tracking-widest text-[#0E4B3C] font-semibold">
               The Fundamental Gap
             </span>
@@ -25,9 +25,9 @@ export const ProblemStatement: React.FC = () => {
         {/* Structural Contrast Grid: The Typical Agency Trap vs The S. C. Milenwall System */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Column 1: The Status Quo (Freelancer / Traditional Agency) */}
-          <div className="bg-[#F6F7F5] rounded-xl p-6 sm:p-8 border border-red-200/60 relative">
-            <div className="flex items-center gap-3 pb-4 mb-6 border-b border-black/10">
-              <div className="p-2 rounded bg-red-100 text-red-700">
+          <div className="bg-[#F6F7F5] rounded-xl p-6 sm:p-8 border-2 border-[#0B0F0D] shadow-sm relative">
+            <div className="flex items-center gap-3 pb-4 mb-6 border-b-2 border-[#0B0F0D]">
+              <div className="p-2 rounded bg-red-100 text-red-700 border border-[#0B0F0D]">
                 <AlertCircle className="w-5 h-5" />
               </div>
               <div>
@@ -76,11 +76,11 @@ export const ProblemStatement: React.FC = () => {
           </div>
 
           {/* Column 2: The S. C. Milenwall Standard */}
-          <div className="bg-[#082E24] text-[#F6F7F5] rounded-xl p-6 sm:p-8 border border-[#C9A961]/40 shadow-xl relative overflow-hidden">
+          <div className="bg-[#082E24] text-[#F6F7F5] rounded-xl p-6 sm:p-8 border-2 border-[#0B0F0D] shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-48 h-48 bg-[#C9A961]/10 rounded-full blur-2xl pointer-events-none" />
 
-            <div className="flex items-center gap-3 pb-4 mb-6 border-b border-[#C9A961]/25 relative z-10">
-              <div className="p-2 rounded bg-[#0E4B3C] border border-[#C9A961]/30 text-[#C9A961]">
+            <div className="flex items-center gap-3 pb-4 mb-6 border-b-2 border-[#C9A961] relative z-10">
+              <div className="p-2 rounded bg-[#0E4B3C] border border-[#0B0F0D] text-[#C9A961]">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>

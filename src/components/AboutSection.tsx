@@ -8,13 +8,13 @@ interface AboutSectionProps {
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
   return (
-    <section id="about" className="py-16 md:py-24 bg-[#F6F7F5] border-b border-[#0E4B3C]/10">
+    <section id="about" className="py-16 md:py-24 bg-[#F6F7F5] border-b-2 border-[#0B0F0D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left: Sinisa Milenkovic Profile & Heritage */}
           <div className="lg:col-span-6 space-y-6">
             <div className="flex items-center gap-3 mb-2">
-              <div className="h-px w-10 bg-[#C9A961]" />
+              <div className="h-0.5 w-10 bg-[#C9A961]" />
               <span className="text-[#C9A961] text-xs font-bold tracking-[0.25em] uppercase">
                 Founder &amp; Principal Operator
               </span>
@@ -27,7 +27,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
 
             {/* Approved copy block from Section 10 */}
             <div className="space-y-4 text-base sm:text-lg text-[#0B0F0D]/90 leading-relaxed font-sans">
-              <p className="border-l-2 border-[#C9A961] pl-4 py-1 italic text-[#0B0F0D] bg-white/60 rounded-r-md">
+              <p className="border-l-4 border-l-[#C9A961] border-2 border-[#0B0F0D] pl-4 py-2 italic text-[#0B0F0D] bg-white rounded-md shadow-2xs">
                 &ldquo;S. C. Milenwall is run by Sinisa Milenkovic, a Sydney-based operator whose career was built inside enterprise cybersecurity sales — carrying quota into some of the most demanding, process-driven sales organisations there are.&rdquo;
               </p>
 
@@ -42,7 +42,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
 
             {/* Credential Cards */}
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-white p-5 rounded-lg border border-[#0B0F0D]/10 shadow-2xs">
+              <div className="bg-white p-5 rounded-lg border-2 border-[#0B0F0D] shadow-2xs">
                 <div className="flex items-center gap-2 text-[#0E4B3C] mb-1">
                   <Award className="w-4 h-4 text-[#C9A961]" />
                   <span className="text-xs font-bold tracking-wider uppercase text-[#C9A961]">Quota Heritage</span>
@@ -55,7 +55,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                 </p>
               </div>
 
-              <div className="bg-white p-5 rounded-lg border border-[#0B0F0D]/10 shadow-2xs">
+              <div className="bg-white p-5 rounded-lg border-2 border-[#0B0F0D] shadow-2xs">
                 <div className="flex items-center gap-2 text-[#0E4B3C] mb-1">
                   <MapPin className="w-4 h-4 text-[#C9A961]" />
                   <span className="text-xs font-bold tracking-wider uppercase text-[#C9A961]">Local Presence</span>
@@ -72,7 +72,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
             <div className="pt-2">
               <button
                 onClick={onBookCall}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-colors shadow-xs"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-colors shadow-xs border-2 border-[#0B0F0D]"
               >
                 <UserCheck className="w-4 h-4 text-[#0B0F0D]" />
                 <span>Speak Directly with Sinisa</span>
@@ -83,8 +83,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
 
           {/* Right: The 5 Core Operating Values */}
           <div className="lg:col-span-6 space-y-4">
-            <div className="bg-[#082E24] text-white rounded-xl p-6 sm:p-8 border border-[#C9A961]/30 shadow-xl relative overflow-hidden">
-              <div className="flex items-center gap-2 pb-4 mb-6 border-b border-[#C9A961]/25">
+            <div className="bg-[#082E24] text-white rounded-xl p-6 sm:p-8 border-2 border-[#0B0F0D] shadow-xl relative overflow-hidden">
+              <div className="flex items-center gap-2 pb-4 mb-6 border-b-2 border-white/20">
                 <ShieldCheck className="w-5 h-5 text-[#C9A961]" />
                 <span className="text-xs font-mono uppercase tracking-wider text-[#C9A961] font-semibold">
                   Operating Principles &amp; Guarantees
@@ -93,16 +93,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
 
               <div className="space-y-5">
                 {CORE_VALUES.map((val, idx) => (
-                  <div key={idx} className="space-y-1 pb-4 border-b border-white/10 last:border-0 last:pb-0">
+                  <div key={idx} className="space-y-1 pb-4 border-b-2 border-white/15 last:border-0 last:pb-0">
                     <div className="flex items-baseline justify-between gap-2">
                       <h4 className="text-base font-editorial font-semibold text-white">
                         {val.title}
                       </h4>
-                      <span className="text-[10px] font-mono text-[#C9A961] tracking-wider uppercase">
+                      <span className="text-[10px] font-mono text-[#C9A961] tracking-wider uppercase font-bold">
                         Rule 0{idx + 1}
                       </span>
                     </div>
-                    <div className="text-xs font-mono text-[#C9A961]/90">
+                    <div className="text-xs font-mono text-[#C9A961]">
                       {val.subtitle}
                     </div>
                     <p className="text-xs text-[#F6F7F5]/80 leading-relaxed font-sans mt-1">
@@ -112,7 +112,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                 ))}
               </div>
 
-              <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-xs text-[#F6F7F5]/70">
+              <div className="mt-6 pt-4 border-t-2 border-white/20 flex items-center gap-2 text-xs text-[#F6F7F5]/80">
                 <CheckCircle2 className="w-4 h-4 text-[#C9A961] shrink-0" />
                 <span>Zero junior account handoffs. Zero surprise hourly invoices.</span>
               </div>

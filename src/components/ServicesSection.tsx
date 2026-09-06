@@ -18,13 +18,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   };
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-white border-b border-[#0E4B3C]/10">
+    <section id="services" className="py-16 md:py-24 bg-white border-b-2 border-[#0B0F0D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-10 bg-[#C9A961]" />
-            <span className="text-[#C9A961] text-xs font-bold tracking-[0.25em] uppercase">
+            <div className="h-0.5 w-10 bg-[#0B0F0D]" />
+            <span className="text-[#0E4B3C] text-xs font-bold tracking-[0.25em] uppercase">
               The Service Catalogue
             </span>
           </div>
@@ -44,11 +44,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             return (
               <div
                 key={service.id}
-                className="bg-[#F6F7F5] rounded-xl border border-[#0B0F0D]/10 hover:border-[#0E4B3C]/35 transition-all p-6 sm:p-8 flex flex-col justify-between shadow-2xs hover:shadow-md relative"
+                className="bg-[#F6F7F5] rounded-xl border-2 border-[#0B0F0D] transition-all p-6 sm:p-8 flex flex-col justify-between shadow-sm relative hover:shadow-md"
               >
                 <div>
                   {/* Top Bar: Number & Price */}
-                  <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#0B0F0D]/10">
+                  <div className="flex items-center justify-between pb-4 mb-4 border-b-2 border-[#0B0F0D]">
                     <span className="font-editorial italic text-base font-semibold text-[#C9A961] flex items-center gap-1.5">
                       <span className="text-xs uppercase tracking-widest font-sans font-bold text-[#5B645F]">Discipline</span>
                       <span>0{service.number}</span>
@@ -71,7 +71,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     {service.tagline}
                   </p>
 
-                  <div className="p-3.5 my-4 rounded-lg bg-white border border-[#0B0F0D]/10 text-sm text-[#0B0F0D] italic">
+                  <div className="p-3.5 my-4 rounded-lg bg-white border-2 border-[#0B0F0D] text-sm text-[#0B0F0D] italic">
                     &ldquo;{service.pitch}&rdquo;
                   </div>
 
@@ -82,11 +82,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
                   {/* Timeline & Format chips */}
                   <div className="flex flex-wrap gap-2 mb-6">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded bg-white text-[#0B0F0D] border border-black/10">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded bg-white text-[#0B0F0D] border border-[#0B0F0D]">
                       <Clock className="w-3.5 h-3.5 text-[#C9A961]" />
                       {service.typicalTimeline}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded bg-white text-[#0B0F0D] border border-black/10">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded bg-white text-[#0B0F0D] border border-[#0B0F0D]">
                       <ShieldCheck className="w-3.5 h-3.5 text-[#0E4B3C]" />
                       Fixed-Price Scope
                     </span>
@@ -96,7 +96,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   {!isDetailedPage && (
                     <button
                       onClick={() => toggleExpand(service.id)}
-                      className="w-full text-left text-xs font-semibold text-[#0E4B3C] flex items-center justify-between py-2 border-t border-black/5 hover:text-[#082E24]"
+                      className="w-full text-left text-xs font-semibold text-[#0E4B3C] flex items-center justify-between py-2 border-t-2 border-[#0B0F0D] hover:text-[#082E24]"
                     >
                       <span>{isExpanded ? 'Hide Deliverables & Inclusions' : 'View Full Scope & Inclusions'}</span>
                       {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -105,7 +105,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
                   {/* Detailed Inclusions and Deliverables */}
                   {isExpanded && (
-                    <div className="pt-4 border-t border-black/10 space-y-4 animate-in fade-in-50 duration-200">
+                    <div className="pt-4 border-t-2 border-[#0B0F0D] space-y-4 animate-in fade-in-50 duration-200">
                       <div>
                         <span className="text-xs font-mono uppercase tracking-wider text-[#0E4B3C] font-semibold block mb-2">
                           What&apos;s Included:
@@ -134,7 +134,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                         </ul>
                       </div>
 
-                      <div className="p-2.5 rounded bg-white border border-[#0E4B3C]/10 text-xs text-[#5B645F]">
+                      <div className="p-2.5 rounded bg-white border border-[#0B0F0D] text-xs text-[#5B645F]">
                         <strong className="text-[#0B0F0D]">Engagement Format:</strong> {service.format}
                       </div>
                     </div>
@@ -142,10 +142,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 </div>
 
                 {/* Bottom Action: Pre-fill Contact Form */}
-                <div className="pt-6 mt-6 border-t border-[#0B0F0D]/10">
+                <div className="pt-6 mt-6 border-t-2 border-[#0B0F0D]">
                   <button
                     onClick={() => onSelectService(service.id)}
-                    className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-all shadow-xs"
+                    className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-all shadow-xs border-2 border-[#0B0F0D]"
                   >
                     <span>Enquire About {service.name.split(' ')[0]}</span>
                     <ArrowRight className="w-4 h-4 text-[#0B0F0D]" />
