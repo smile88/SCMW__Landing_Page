@@ -43,11 +43,19 @@ export interface InsightArticle {
   readTime: string;
   category: string;
   date: string;
+  type?: 'article' | 'case-study';
+  client?: string;
+  industry?: string;
+  metrics?: {
+    label: string;
+    value: string;
+  }[];
   author?: string;
   authorRole?: string;
   tags?: string[];
   summary: string;
-  content: {
+  markdownContent?: string;
+  content?: {
     sectionHeading: string;
     paragraphs: string[];
   }[];
