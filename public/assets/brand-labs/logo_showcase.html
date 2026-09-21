@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S. C. Milenwall — Logo Exploration Lab</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    .font-serif-brand { font-family: 'Spectral', Georgia, serif; }
+    .font-sans-brand { font-family: 'Inter', -apple-system, sans-serif; }
+    .transition-theme { transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+  </style>
+</head>
+<body class="bg-transparent text-[var(--foreground)] antialiased p-3 sm:p-6 transition-theme">
+
+  <!-- Main Container Card -->
+  <div class="max-w-6xl mx-auto bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-2xl p-6 sm:p-8 shadow-xl space-y-8">
+
+    <!-- Header & Controls -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[var(--border)]">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-bold uppercase tracking-widest border border-emerald-500/20 mb-2">
+          Brand Identity Direction // SCM-DSN-2026
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-serif-brand font-semibold text-[var(--foreground)]">
+          S. C. Milenwall — Logo Exploration Lab
+        </h1>
+        <p class="text-sm text-[var(--muted-foreground)] mt-1 max-w-2xl font-sans-brand">
+          Evaluating 4 new identity directions against your criteria: <strong>Corporate</strong>, <strong>Clean</strong>, <strong>Sharp</strong>, <strong>Classical</strong>, and <strong>Instantly Recognisable from Silhouette</strong>.
+        </p>
+      </div>
+
+      <!-- Interactive Global Controls -->
+      <div class="flex flex-wrap items-center gap-2 self-start md:self-auto bg-[var(--background)] p-1.5 rounded-xl border border-[var(--border)] shrink-0">
+        <!-- Theme Mode Toggle -->
+        <button id="btnThemeEmerald" onclick="setLabTheme('emerald')" class="px-3 py-1.5 rounded-lg text-xs font-mono font-bold uppercase transition-all bg-[#082E24] text-[#C9A961] border border-[#C9A961]/40 shadow-xs">
+          Obsidian Dark
+        </button>
+        <button id="btnThemeLight" onclick="setLabTheme('light')" class="px-3 py-1.5 rounded-lg text-xs font-mono font-bold uppercase transition-all text-[var(--muted-foreground)] hover:text-[var(--foreground)]">
+          Paper Light
+        </button>
+        <button id="btnThemeSilhouette" onclick="setLabTheme('silhouette')" class="px-3 py-1.5 rounded-lg text-xs font-mono font-bold uppercase transition-all text-[var(--muted-foreground)] hover:text-[var(--foreground)] flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-black border border-white"></span>
+          <span>1-Bit Silhouette Test</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- The 4 Concepts Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="conceptsGrid">
+
+      <!-- ========================================================
+           CONCEPT 1: THE ARCHITECTURAL BASTION (M-CITADEL)
+           ======================================================== -->
+      <div class="concept-card rounded-xl border border-[var(--border)] bg-[var(--background)] p-6 flex flex-col justify-between space-y-6 hover:border-[#C9A961] transition-all group">
+        <div>
+          <!-- Card Header -->
+          <div class="flex items-center justify-between pb-3 border-b border-[var(--border)]">
+            <div>
+              <span class="text-[11px] font-mono font-bold text-[#C9A961] uppercase tracking-wider block">
+                DIRECTION 01 // ARCHITECTURAL MONOLITH
+              </span>
+              <h3 class="text-xl font-serif-brand font-semibold text-[var(--foreground)] mt-0.5">
+                The Bastion Citadel ('M' Pylons)
+              </h3>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-[#0E4B3C]/15 text-[#0E4B3C] dark:text-[#34D399] font-mono text-[10px] font-bold uppercase border border-[#0E4B3C]/30">
+              Structural Power
+            </span>
+          </div>
+
+          <!-- Description -->
+          <p class="text-xs text-[var(--muted-foreground)] mt-3 leading-relaxed font-sans-brand">
+            Inspired by classical stone bastion architecture and Roman triumphal gateways. Two precision-chamfered monolith pylons interlock with a central suspended keystone, forging an unmistakable, razor-sharp <strong>'M'</strong>.
+          </p>
+
+          <!-- Visual Display Area -->
+          <div class="display-box mt-5 p-8 rounded-xl flex flex-col items-center justify-center transition-theme bg-[#082E24] border border-[#0E4B3C]/40 min-h-[220px]">
+            <!-- Vector SVG: Concept 1 -->
+            <svg class="logo-mark w-24 h-24 drop-shadow-md" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Left Pylon -->
+              <path class="mark-primary" d="M16 84 V28 L34 16 V84 H16 Z" fill="#C9A961"/>
+              <!-- Right Pylon -->
+              <path class="mark-primary" d="M84 84 V28 L66 16 V84 H84 Z" fill="#C9A961"/>
+              <!-- Center Chevron Keystone -->
+              <path class="mark-accent" d="M50 18 L62 38 H38 L50 18 Z" fill="#FFFFFF"/>
+              <!-- Inverted Foundation Spear (Completing the M) -->
+              <path class="mark-primary" d="M50 48 L62 40 V72 L50 84 L38 72 V40 L50 48 Z" fill="#C9A961"/>
+            </svg>
+
+            <!-- Wordmark Lockup -->
+            <div class="mt-5 text-center lockup-text">
+              <div class="text-[10px] font-serif-brand font-semibold tracking-[0.35em] text-[#C9A961] uppercase leading-none mb-1">
+                S. C.
+              </div>
+              <div class="text-xl font-serif-brand font-bold tracking-[0.12em] text-[#FFFFFF] uppercase leading-none brand-wordmark">
+                MILENWALL
+              </div>
+              <div class="text-[8px] font-mono tracking-[0.25em] text-[#C9A961]/80 uppercase mt-1.5">
+                SYDNEY • REVENUE ARCHITECTURE
+              </div>
+            </div>
+          </div>
+
+          <!-- Scale & Favicon Simulation -->
+          <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-[var(--muted-foreground)]">
+            <span>Silhouette Rating: <strong class="text-emerald-500">10/10 (Bold Towers)</strong></span>
+            <div class="flex items-center gap-3">
+              <span class="text-[10px]">Favicon 24px:</span>
+              <div class="w-6 h-6 rounded bg-[#082E24] border border-[#C9A961]/40 flex items-center justify-center p-0.5">
+                <svg viewBox="0 0 100 100" fill="none" class="w-full h-full">
+                  <path d="M16 84 V28 L34 16 V84 H16 Z" fill="#C9A961"/>
+                  <path d="M84 84 V28 L66 16 V84 H84 Z" fill="#C9A961"/>
+                  <path d="M50 18 L62 38 H38 L50 18 Z" fill="#FFFFFF"/>
+                  <path d="M50 48 L62 40 V72 L50 84 L38 72 V40 L50 48 Z" fill="#C9A961"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rationale Chips -->
+        <div class="flex flex-wrap gap-1.5 pt-2">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--border)] text-[var(--foreground)]">Monumental Silhouette</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--border)] text-[var(--foreground)]">Architectural Geometry</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--border)] text-[var(--foreground)]">Zero Line Clutter</span>
+        </div>
+      </div>
+
+
+      <!-- ========================================================
+           CONCEPT 2: THE SOVEREIGN KEYSTONE (FACETED SHIELD)
+           ======================================================== -->
+      <div class="concept-card rounded-xl border border-[var(--border)] bg-[var(--background)] p-6 flex flex-col justify-between space-y-6 hover:border-[#C9A961] transition-all group">
+        <div>
+          <!-- Card Header -->
+          <div class="flex items-center justify-between pb-3 border-b border-[var(--border)]">
+            <div>
+              <span class="text-[11px] font-mono font-bold text-[#C9A961] uppercase tracking-wider block">
+                DIRECTION 02 // CLASSICAL MASONRY
+              </span>
+              <h3 class="text-xl font-serif-brand font-semibold text-[var(--foreground)] mt-0.5">
+                The Sovereign Keystone (Hex-Prism)
+              </h3>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-[#0E4B3C]/15 text-[#0E4B3C] dark:text-[#34D399] font-mono text-[10px] font-bold uppercase border border-[#0E4B3C]/30">
+              Institutional Authority
+            </span>
+          </div>
+
+          <!-- Description -->
+          <p class="text-xs text-[var(--muted-foreground)] mt-3 leading-relaxed font-sans-brand">
+            The **Keystone** is the central stone in Roman masonry that holds the entire structure in equilibrium under tension. Faceted with 45° cuts, its inner geometry forms an interlocking <strong>'S'</strong> and <strong>'M'</strong>.
+          </p>
+
+          <!-- Visual Display Area -->
+          <div class="display-box mt-5 p-8 rounded-xl flex flex-col items-center justify-center transition-theme bg-[#082E24] border border-[#0E4B3C]/40 min-h-[220px]">
+            <!-- Vector SVG: Concept 2 -->
+            <svg class="logo-mark w-24 h-24 drop-shadow-md" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Outer Faceted Keystone Geometry -->
+              <!-- Top Left Facet -->
+              <path class="mark-primary" d="M50 12 L18 26 L26 58 L50 46 Z" fill="#C9A961"/>
+              <!-- Top Right Facet -->
+              <path class="mark-light" d="M50 12 L82 26 L74 58 L50 46 Z" fill="#DFCA96"/>
+              <!-- Bottom Left Keel -->
+              <path class="mark-dark" d="M26 58 L50 90 L50 46 Z" fill="#9C7A3D"/>
+              <!-- Bottom Right Keel -->
+              <path class="mark-primary" d="M74 58 L50 90 L50 46 Z" fill="#C9A961"/>
+              <!-- Inner Razor Diamond Core -->
+              <polygon class="mark-accent" points="50,30 60,46 50,62 40,46" fill="#082E24"/>
+            </svg>
+
+            <!-- Wordmark Lockup -->
+            <div class="mt-5 text-center lockup-text">
+              <div class="text-[10px] font-serif-brand font-semibold tracking-[0.35em] text-[#C9A961] uppercase leading-none mb-1">
+                S. C.
+              </div>
+              <div class="text-xl font-serif-brand font-bold tracking-[0.12em] text-[#FFFFFF] uppercase leading-none brand-wordmark">
+                MILENWALL
+              </div>
+              <div class="text-[8px] font-mono tracking-[0.25em] text-[#C9A961]/80 uppercase mt-1.5">
+                PRIVATE ENTERPRISE ADVISORY
+              </div>
+            </div>
+          </div>
+
+          <!-- Scale & Favicon Simulation -->
+          <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-[var(--muted-foreground)]">
+            <span>Silhouette Rating: <strong class="text-emerald-500">10/10 (Chiseled Shield)</strong></span>
+            <div class="flex items-center gap-3">
+              <span class="text-[10px]">Favicon 24px:</span>
+              <div class="w-6 h-6 rounded bg-[#082E24] border border-[#C9A961]/40 flex items-center justify-center p-0.5">
+                <svg viewBox="0 0 100 100" fill="none" class="w-full h-full">
+                  <path d="M50 12 L18 26 L26 58 L50 46 Z" fill="#C9A961"/>
+                  <path d="M50 12 L82 26 L74 58 L50 46 Z" fill="#DFCA96"/>
+                  <path d="M26 58 L50 90 L50 46 Z" fill="#9C7A3D"/>
+                  <path d="M74 58 L50 90 L50 46 Z" fill="#C9A961"/>
+                  <polygon points="50,30 60,46 50,62 40,46" fill="#082E24"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rationale Chips -->
+        <div class="flex flex-wrap gap-1.5 pt-2">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--border)] text-[var(--foreground)]">Faceted 3D Keel</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--border)] text-[var(--foreground)]">Merchant-Bank Calibre</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--border)] text-[var(--foreground)]">Sovereign Presence</span>
+        </div>
+      </div>
+
+
+      <!-- ========================================================
+           CONCEPT 3: THE PRECISION CIPHER (INTERLOCKING S-C-M)
+           ======================================================== -->
+      <div class="concept-card rounded-xl border border-[var(--border)] bg-[var(--background)] p-6 flex flex-col justify-between space-y-6 hover:border-[#C9A961] transition-all group">
+        <div>
+          <!-- Card Header -->
+          <div class="flex items-center justify-between pb-3 border-b border-[var(--border)]">
+            <div>
+              <span class="text-[11px] font-mono font-bold text-[#C9A961] uppercase tracking-wider block">
+                DIRECTION 03 // CYBER & QUOTA DISCIPLINE
+              </span>
+              <h3 class="text-xl font-serif-brand font-semibold text-[var(--foreground)] mt-0.5">
+                The Precision Hex-Cipher (SCM Link)
+              </h3>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-[#0E4B3C]/15 text-[#0E4B3C] dark:text-[#34D399] font-mono text-[10px] font-bold uppercase border border-[#0E4B3C]/30">
+              Surgical Precision
+            </span>
+          </div>
+
+          <!-- Description -->
+          <p class="text-xs text-[var(--muted-foreground)] mt-3 leading-relaxed font-sans-brand">
+            A continuous, razor-sharp isometric ribbon engineered at 60° angles. Cleanly integrates the letters <strong>'S'</strong>, <strong>'C'</strong>, and <strong>'M'</strong> in an unbroken circuit of commercial pipeline velocity.
+          </p>
+
+          <!-- Visual Display Area -->
+          <div class="display-box mt-5 p-8 rounded-xl flex flex-col items-center justify-center transition-theme bg-[#082E24] border border-[#0E4B3C]/40 min-h-[220px]">
+            <!-- Vector SVG: Concept 3 -->
+            <svg class="logo-mark w-24 h-24 drop-shadow-md" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Top Left Wing (S/C Loop) -->
+              <path class="mark-primary" d="M50 14 L82 32 L82 50 L50 32 Z" fill="#C9A961"/>
+              <!-- Center Connecting Strut -->
+              <path class="mark-light" d="M50 32 L82 50 L50 68 L18 50 Z" fill="#DFCA96"/>
+              <!-- Bottom Right Wing (M Anchor) -->
+              <path class="mark-dark" d="M18 50 L50 68 L50 86 L18 68 Z" fill="#9C7A3D"/>
+              <!-- Left Upward Flange -->
+              <path class="mark-primary" d="M18 32 L50 14 L50 32 L18 50 Z" fill="#C9A961"/>
+              <!-- Right Downward Flange -->
+              <path class="mark-primary" d="M82 50 L82 68 L50 86 L50 68 Z" fill="#C9A961"/>
+            </svg>
+
+            <!-- Wordmark Lockup -->
+            <div class="mt-5 text-center lockup-text">
+              <div class="text-[10px] font-serif-brand font-semibold tracking-[0.35em] text-[#C9A961] uppercase leading-none mb-1">
+                S. C.
+              </div>
+              <div class="text-xl font-serif-brand font-bold tracking-[0.12em] text-[#FFFFFF] uppercase leading-none brand-wordmark">
+                MILENWALL
+              </div>
+              <div class="text-[8px] font-mono tracking-[0.25em] text-[#C9A961]/80 uppercase mt-1.5">
+                GROWTH SYSTEMS &amp; INFRASTRUCTURE
+              </div>
+            </div>
+          </div>
+
+          <!-- Scale & Favicon Simulation -->
+          <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-[var(--muted-foreground)]">
+            <span>Silhouette Rating: <strong class="text-emerald-500">9.5/10 (Isometric Hex)</strong></span>
+            <div class="flex items-center gap-3">
+              <span class="text-[10px]">Favicon 24px:</span>
+              <div class="w-6 h-6 rounded bg-[#082E24] border border-[#C9A961]/40 flex items-center justify-center p-0.5">
+                <svg viewBox="0 0 100 100" fill="none" class="w-full h-full">
+                  <path d="M50 14 L82 32 L82 50 L50 32 Z" fill="#C9A961"/>
+                  <path d="M50 32 L82 50 L50 68 L18 50 Z" fill="#DFCA96"/>
+                  <path d="M18 50 L50 68 L50 86 L18 68 Z" fill="#9C7A3D"/>
+                  <path d="M18 32 L50 14 L50 32 L18 50 Z" fill="#C9A961"/>
+                  <path d="M82 50 L82 68 L50 86 L50 68 Z" fill="#C9A961"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rationale Chips -->
+        <div class="flex flex-wrap gap-1.5 pt-2">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--border)] text-[var(--foreground)]">Enterprise Cyber Nod</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--border)] text-[var(--foreground)]">Isometric Geometric Flow</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--border)] text-[var(--foreground)]">Scales Flawlessly</span>
+        </div>
+      </div>
+
+
+      <!-- ========================================================
+           CONCEPT 4: THE CLASSICAL TEMPLE PEDIMENT (ROMAN TRI-PILLAR)
+           ======================================================== -->
+      <div class="concept-card rounded-xl border border-[var(--border)] bg-[var(--background)] p-6 flex flex-col justify-between space-y-6 hover:border-[#C9A961] transition-all group">
+        <div>
+          <!-- Card Header -->
+          <div class="flex items-center justify-between pb-3 border-b border-[var(--border)]">
+            <div>
+              <span class="text-[11px] font-mono font-bold text-[#C9A961] uppercase tracking-wider block">
+                DIRECTION 04 // GRECO-ROMAN MINIMALISM
+              </span>
+              <h3 class="text-xl font-serif-brand font-semibold text-[var(--foreground)] mt-0.5">
+                The Classical Pediment ('M' Columns)
+              </h3>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-[#0E4B3C]/15 text-[#0E4B3C] dark:text-[#34D399] font-mono text-[10px] font-bold uppercase border border-[#0E4B3C]/30">
+              Timeless Prestige
+            </span>
+          </div>
+
+          <!-- Description -->
+          <p class="text-xs text-[var(--muted-foreground)] mt-3 leading-relaxed font-sans-brand">
+            Pure classical antiquity distilled into Swiss modernist discipline. An architectural pediment (gable) supported by three fluted columns, evoking legal, academic, and financial permanence.
+          </p>
+
+          <!-- Visual Display Area -->
+          <div class="display-box mt-5 p-8 rounded-xl flex flex-col items-center justify-center transition-theme bg-[#082E24] border border-[#0E4B3C]/40 min-h-[220px]">
+            <!-- Vector SVG: Concept 4 -->
+            <svg class="logo-mark w-24 h-24 drop-shadow-md" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Triangular Pediment (Roof/Lintel) -->
+              <path class="mark-primary" d="M50 12 L86 28 H14 L50 12 Z" fill="#C9A961"/>
+              <!-- Pediment Lintel Shelf -->
+              <rect class="mark-light" x="14" y="32" width="72" height="6" fill="#DFCA96"/>
+              <!-- Left Column -->
+              <rect class="mark-primary" x="18" y="42" width="14" height="42" rx="1" fill="#C9A961"/>
+              <!-- Center Column (Slightly Recessed, Creating 'M' Rhythm) -->
+              <rect class="mark-dark" x="43" y="42" width="14" height="42" rx="1" fill="#9C7A3D"/>
+              <!-- Right Column -->
+              <rect class="mark-primary" x="68" y="42" width="14" height="42" rx="1" fill="#C9A961"/>
+              <!-- Architectural Base Stylobate -->
+              <rect class="mark-light" x="10" y="86" width="80" height="4" rx="0.5" fill="#DFCA96"/>
+            </svg>
+
+            <!-- Wordmark Lockup -->
+            <div class="mt-5 text-center lockup-text">
+              <div class="text-[10px] font-serif-brand font-semibold tracking-[0.35em] text-[#C9A961] uppercase leading-none mb-1">
+                S. C.
+              </div>
+              <div class="text-xl font-serif-brand font-bold tracking-[0.12em] text-[#FFFFFF] uppercase leading-none brand-wordmark">
+                MILENWALL
+              </div>
+              <div class="text-[8px] font-mono tracking-[0.25em] text-[#C9A961]/80 uppercase mt-1.5">
+                COMMERCIAL STRATEGY • EST. 2026
+              </div>
+            </div>
+          </div>
+
+          <!-- Scale & Favicon Simulation -->
+          <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-[var(--muted-foreground)]">
+            <span>Silhouette Rating: <strong class="text-emerald-500">10/10 (Roman Temple)</strong></span>
+            <div class="flex items-center gap-3">
+              <span class="text-[10px]">Favicon 24px:</span>
+              <div class="w-6 h-6 rounded bg-[#082E24] border border-[#C9A961]/40 flex items-center justify-center p-0.5">
+                <svg viewBox="0 0 100 100" fill="none" class="w-full h-full">
+                  <path d="M50 12 L86 28 H14 L50 12 Z" fill="#C9A961"/>
+                  <rect x="14" y="32" width="72" height="6" fill="#DFCA96"/>
+                  <rect x="18" y="42" width="14" height="42" fill="#C9A961"/>
+                  <rect x="43" y="42" width="14" height="42" fill="#9C7A3D"/>
+                  <rect x="68" y="42" width="14" height="42" fill="#C9A961"/>
+                  <rect x="10" y="86" width="80" height="4" fill="#DFCA96"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rationale Chips -->
+        <div class="flex flex-wrap gap-1.5 pt-2">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--border)] text-[var(--foreground)]">Classical Antiquity</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--border)] text-[var(--foreground)]">Sandstone Institution</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--border)] text-[var(--foreground)]">Immediate Gravitas</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Comparative Silhouette Comparison Banner -->
+    <div class="p-6 rounded-xl border border-[var(--border)] bg-[var(--background)] space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[var(--border)]">
+        <div>
+          <span class="text-xs font-mono uppercase font-bold text-[#C9A961]">The Ultimate Acid Test</span>
+          <h4 class="text-base font-serif-brand font-semibold text-[var(--foreground)]">
+            Side-by-Side 1-Bit Silhouette Comparison
+          </h4>
+        </div>
+        <p class="text-xs text-[var(--muted-foreground)] max-w-sm font-sans-brand">
+          Great logos are identifiable strictly from their solid perimeter without relying on color or labels.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+        <!-- Mark 1 Silhouette -->
+        <div class="p-4 rounded-lg bg-white text-black border border-neutral-300 flex flex-col items-center">
+          <svg class="w-12 h-12" viewBox="0 0 100 100" fill="black">
+            <path d="M16 84 V28 L34 16 V84 H16 Z"/>
+            <path d="M84 84 V28 L66 16 V84 H84 Z"/>
+            <path d="M50 18 L62 38 H38 L50 18 Z"/>
+            <path d="M50 48 L62 40 V72 L50 84 L38 72 V40 L50 48 Z"/>
+          </svg>
+          <span class="text-[11px] font-mono font-bold mt-2 text-neutral-800">01. Bastion Monolith</span>
+        </div>
+
+        <!-- Mark 2 Silhouette -->
+        <div class="p-4 rounded-lg bg-white text-black border border-neutral-300 flex flex-col items-center">
+          <svg class="w-12 h-12" viewBox="0 0 100 100" fill="black">
+            <path d="M50 12 L18 26 L26 58 L50 46 Z"/>
+            <path d="M50 12 L82 26 L74 58 L50 46 Z"/>
+            <path d="M26 58 L50 90 L50 46 Z"/>
+            <path d="M74 58 L50 90 L50 46 Z"/>
+          </svg>
+          <span class="text-[11px] font-mono font-bold mt-2 text-neutral-800">02. Sovereign Keystone</span>
+        </div>
+
+        <!-- Mark 3 Silhouette -->
+        <div class="p-4 rounded-lg bg-white text-black border border-neutral-300 flex flex-col items-center">
+          <svg class="w-12 h-12" viewBox="0 0 100 100" fill="black">
+            <path d="M50 14 L82 32 L82 50 L50 32 Z"/>
+            <path d="M50 32 L82 50 L50 68 L18 50 Z"/>
+            <path d="M18 50 L50 68 L50 86 L18 68 Z"/>
+            <path d="M18 32 L50 14 L50 32 L18 50 Z"/>
+            <path d="M82 50 L82 68 L50 86 L50 68 Z"/>
+          </svg>
+          <span class="text-[11px] font-mono font-bold mt-2 text-neutral-800">03. Precision Cipher</span>
+        </div>
+
+        <!-- Mark 4 Silhouette -->
+        <div class="p-4 rounded-lg bg-white text-black border border-neutral-300 flex flex-col items-center">
+          <svg class="w-12 h-12" viewBox="0 0 100 100" fill="black">
+            <path d="M50 12 L86 28 H14 L50 12 Z"/>
+            <rect x="14" y="32" width="72" height="6"/>
+            <rect x="18" y="42" width="14" height="42"/>
+            <rect x="43" y="42" width="14" height="42"/>
+            <rect x="68" y="42" width="14" height="42"/>
+            <rect x="10" y="86" width="80" height="4"/>
+          </svg>
+          <span class="text-[11px] font-mono font-bold mt-2 text-neutral-800">04. Roman Pediment</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    function setLabTheme(mode) {
+      const displayBoxes = document.querySelectorAll('.display-box');
+      const marks = document.querySelectorAll('.logo-mark');
+      const brandWordmarks = document.querySelectorAll('.brand-wordmark');
+      const lockupTexts = document.querySelectorAll('.lockup-text');
+      
+      const btnEmerald = document.getElementById('btnThemeEmerald');
+      const btnLight = document.getElementById('btnThemeLight');
+      const btnSil = document.getElementById('btnThemeSilhouette');
+
+      // Reset button styles
+      [btnEmerald, btnLight, btnSil].forEach(btn => {
+        btn.className = "px-3 py-1.5 rounded-lg text-xs font-mono font-bold uppercase transition-all text-[var(--muted-foreground)] hover:text-[var(--foreground)]";
+      });
+
+      if (mode === 'emerald') {
+        btnEmerald.className = "px-3 py-1.5 rounded-lg text-xs font-mono font-bold uppercase transition-all bg-[#082E24] text-[#C9A961] border border-[#C9A961]/40 shadow-xs";
+        displayBoxes.forEach(box => {
+          box.style.backgroundColor = '#082E24';
+          box.style.borderColor = 'rgba(201, 169, 97, 0.3)';
+        });
+        brandWordmarks.forEach(wm => wm.style.color = '#FFFFFF');
+        lockupTexts.forEach(lt => lt.style.display = 'block');
+        applySvgColors('#C9A961', '#DFCA96', '#9C7A3D', '#FFFFFF', '#082E24');
+      } else if (mode === 'light') {
+        btnLight.className = "px-3 py-1.5 rounded-lg text-xs font-mono font-bold uppercase transition-all bg-[#F6F7F5] text-[#0E4B3C] border border-[#0E4B3C]/30 shadow-xs";
+        displayBoxes.forEach(box => {
+          box.style.backgroundColor = '#F6F7F5';
+          box.style.borderColor = 'rgba(14, 75, 60, 0.2)';
+        });
+        brandWordmarks.forEach(wm => wm.style.color = '#0B0F0D');
+        lockupTexts.forEach(lt => lt.style.display = 'block');
+        applySvgColors('#0E4B3C', '#16654F', '#082E24', '#C9A961', '#F6F7F5');
+      } else if (mode === 'silhouette') {
+        btnSil.className = "px-3 py-1.5 rounded-lg text-xs font-mono font-bold uppercase transition-all bg-black text-white border border-neutral-700 shadow-xs";
+        displayBoxes.forEach(box => {
+          box.style.backgroundColor = '#FFFFFF';
+          box.style.borderColor = '#000000';
+        });
+        brandWordmarks.forEach(wm => wm.style.color = '#000000');
+        lockupTexts.forEach(lt => lt.style.display = 'none');
+        applySvgColors('#000000', '#000000', '#000000', '#000000', '#FFFFFF');
+      }
+    }
+
+    function applySvgColors(primary, light, dark, accent, coreBg) {
+      document.querySelectorAll('.mark-primary').forEach(el => el.setAttribute('fill', primary));
+      document.querySelectorAll('.mark-light').forEach(el => el.setAttribute('fill', light));
+      document.querySelectorAll('.mark-dark').forEach(el => el.setAttribute('fill', dark));
+      document.querySelectorAll('.mark-accent').forEach(el => el.setAttribute('fill', accent));
+    }
+  </script>
+</body>
+</html>

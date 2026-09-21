@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" width="880" height="520" fill="none">
+  <defs>
+    <pattern id="infoGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#0E4B3C" stroke-opacity="0.08" stroke-width="1"/>
+      <circle cx="30" cy="30" r="1" fill="#C9A961" fill-opacity="0.25"/>
+    </pattern>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0E4B3C" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="520" rx="14" fill="#F6F7F5"/>
+  <rect width="880" height="520" rx="14" fill="url(#infoGrid)"/>
+  <rect x="16" y="16" width="848" height="488" rx="8" stroke="#0E4B3C" stroke-opacity="0.2" stroke-width="1" fill="none"/>
+  <rect x="22" y="22" width="836" height="476" rx="4" stroke="#C9A961" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4 4" fill="none"/>
+
+  <!-- Infographic Header -->
+  <g transform="translate(44, 40)">
+    <text x="0" y="16" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#0E4B3C">
+      S. C. MILENWALL // ARCHITECTURAL FRAMEWORK
+    </text>
+    <text x="0" y="44" font-family="'Spectral', serif" font-size="24" font-weight="600" fill="#0B0F0D">
+      The Enterprise Growth Systems Blueprint (From Search Entity to Closed-Won Pipeline)
+    </text>
+    <line x1="0" y1="56" x2="792" y2="56" stroke="#0E4B3C" stroke-opacity="0.15" stroke-width="1"/>
+  </g>
+
+  <!-- STAGE 1: ATTRACT -->
+  <g transform="translate(44, 120)" filter="url(#cardShadow)">
+    <rect width="180" height="340" rx="8" fill="#FFFFFF" stroke="#0E4B3C" stroke-width="1.5"/>
+    <rect x="12" y="12" width="156" height="28" rx="4" fill="#0E4B3C"/>
+    <text x="22" y="30" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#C9A961" letter-spacing="1">
+      01 / ATTRACT
+    </text>
+    <text x="16" y="68" font-family="'Spectral', serif" font-size="16" font-weight="600" fill="#0B0F0D">
+      Dual Search Engine
+    </text>
+    <text x="16" y="86" font-family="'Inter', sans-serif" font-size="10" fill="#5B645F">
+      Google SERP + AI Answer LLMs
+    </text>
+
+    <!-- Component Blocks -->
+    <g transform="translate(14, 105)">
+      <rect width="152" height="44" rx="4" fill="#F6F7F5" stroke="#C9A961" stroke-width="1"/>
+      <text x="10" y="18" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0B0F0D">Entity Schema</text>
+      <text x="10" y="32" font-family="'Inter', sans-serif" font-size="9" fill="#5B645F">ChatGPT citation readiness</text>
+
+      <rect y="54" width="152" height="44" rx="4" fill="#F6F7F5" stroke="#0E4B3C" stroke-opacity="0.25" stroke-width="1"/>
+      <text x="10" y="72" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0B0F0D">Sydney Intent Map</text>
+      <text x="10" y="86" font-family="'Inter', sans-serif" font-size="9" fill="#5B645F">Local commercial buyers</text>
+
+      <rect y="108" width="152" height="44" rx="4" fill="#F6F7F5" stroke="#0E4B3C" stroke-opacity="0.25" stroke-width="1"/>
+      <text x="10" y="126" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0B0F0D">Verified Citations</text>
+      <text x="10" y="140" font-family="'Inter', sans-serif" font-size="9" fill="#5B645F">ABR &amp; external proof</text>
+
+      <rect y="162" width="152" height="48" rx="4" fill="#082E24"/>
+      <text x="10" y="180" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#C9A961">OUTPUT METRIC</text>
+      <text x="10" y="198" font-family="'Spectral', serif" font-size="14" font-weight="600" fill="#FFFFFF">+340% Authority</text>
+    </g>
+  </g>
+
+  <!-- Flow Arrow 1 -> 2 -->
+  <g transform="translate(228, 280)">
+    <line x1="0" y1="0" x2="20" y2="0" stroke="#C9A961" stroke-width="2" stroke-dasharray="3 2"/>
+    <polygon points="20,0 15,-4 15,4" fill="#C9A961"/>
+  </g>
+
+  <!-- STAGE 2: CONVERT -->
+  <g transform="translate(252, 120)" filter="url(#cardShadow)">
+    <rect width="180" height="340" rx="8" fill="#FFFFFF" stroke="#0E4B3C" stroke-width="2"/>
+    <rect x="12" y="12" width="156" height="28" rx="4" fill="#0E4B3C"/>
+    <text x="22" y="30" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#C9A961" letter-spacing="1">
+      02 / CONVERT
+    </text>
+    <text x="16" y="68" font-family="'Spectral', serif" font-size="16" font-weight="600" fill="#0B0F0D">
+      Enquiry Web Engine
+    </text>
+    <text x="16" y="86" font-family="'Inter', sans-serif" font-size="10" fill="#5B645F">
+      Frictionless intent architecture
+    </text>
+
+    <!-- Component Blocks -->
+    <g transform="translate(14, 105)">
+      <rect width="152" height="44" rx="4" fill="#F6F7F5" stroke="#0E4B3C" stroke-opacity="0.25" stroke-width="1"/>
+      <text x="10" y="18" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0B0F0D">Sub-Second Speed</text>
+      <text x="10" y="32" font-family="'Inter', sans-serif" font-size="9" fill="#5B645F">100% Core Web Vitals</text>
+
+      <rect y="54" width="152" height="44" rx="4" fill="#F6F7F5" stroke="#C9A961" stroke-width="1"/>
+      <text x="10" y="72" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0B0F0D">Commercial Copy</text>
+      <text x="10" y="86" font-family="'Inter', sans-serif" font-size="9" fill="#5B645F">Australian English buying triggers</text>
+
+      <rect y="108" width="152" height="44" rx="4" fill="#F6F7F5" stroke="#0E4B3C" stroke-opacity="0.25" stroke-width="1"/>
+      <text x="10" y="126" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0B0F0D">Zero-Friction Forms</text>
+      <text x="10" y="140" font-family="'Inter', sans-serif" font-size="9" fill="#5B645F">Pre-qualification selectors</text>
+
+      <rect y="162" width="152" height="48" rx="4" fill="#0E4B3C"/>
+      <text x="10" y="180" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#C9A961">OUTPUT METRIC</text>
+      <text x="10" y="198" font-family="'Spectral', serif" font-size="14" font-weight="600" fill="#FFFFFF">3.8x Booking Rate</text>
+    </g>
+  </g>
+
+  <!-- Flow Arrow 2 -> 3 -->
+  <g transform="translate(436, 280)">
+    <line x1="0" y1="0" x2="20" y2="0" stroke="#C9A961" stroke-width="2" stroke-dasharray="3 2"/>
+    <polygon points="20,0 15,-4 15,4" fill="#C9A961"/>
+  </g>
+
+  <!-- STAGE 3: ENABLE -->
+  <g transform="translate(460, 120)" filter="url(#cardShadow)">
+    <rect width="180" height="340" rx="8" fill="#FFFFFF" stroke="#0E4B3C" stroke-width="1.5"/>
+    <rect x="12" y="12" width="156" height="28" rx="4" fill="#0E4B3C"/>
+    <text x="22" y="30" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#C9A961" letter-spacing="1">
+      03 / ENABLE
+    </text>
+    <text x="16" y="68" font-family="'Spectral', serif" font-size="16" font-weight="600" fill="#0B0F0D">
+      Sales Playbooks
+    </text>
+    <text x="16" y="86" font-family="'Inter', sans-serif" font-size="10" fill="#5B645F">
+      Enterprise quota discipline
+    </text>
+
+    <!-- Component Blocks -->
+    <g transform="translate(14, 105)">
+      <rect width="152" height="44" rx="4" fill="#F6F7F5" stroke="#C9A961" stroke-width="1"/>
+      <text x="10" y="18" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0B0F0D">48h Proposal SLA</text>
+      <text x="10" y="32" font-family="'Inter', sans-serif" font-size="9" fill="#5B645F">Fixed-price modular decks</text>
+
+      <rect y="54" width="152" height="44" rx="4" fill="#F6F7F5" stroke="#0E4B3C" stroke-opacity="0.25" stroke-width="1"/>
+      <text x="10" y="72" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0B0F0D">HubSpot Pipeline</text>
+      <text x="10" y="86" font-family="'Inter', sans-serif" font-size="9" fill="#5B645F">Strict deal qualification stages</text>
+
+      <rect y="108" width="152" height="44" rx="4" fill="#F6F7F5" stroke="#0E4B3C" stroke-opacity="0.25" stroke-width="1"/>
+      <text x="10" y="126" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0B0F0D">Objection Cards</text>
+      <text x="10" y="140" font-family="'Inter', sans-serif" font-size="9" fill="#5B645F">Standardised rep battlecards</text>
+
+      <rect y="162" width="152" height="48" rx="4" fill="#082E24"/>
+      <text x="10" y="180" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#C9A961">OUTPUT METRIC</text>
+      <text x="10" y="198" font-family="'Spectral', serif" font-size="14" font-weight="600" fill="#FFFFFF">-57% Deal Velocity</text>
+    </g>
+  </g>
+
+  <!-- Flow Arrow 3 -> 4 -->
+  <g transform="translate(644, 280)">
+    <line x1="0" y1="0" x2="20" y2="0" stroke="#C9A961" stroke-width="2" stroke-dasharray="3 2"/>
+    <polygon points="20,0 15,-4 15,4" fill="#C9A961"/>
+  </g>
+
+  <!-- STAGE 4: SCALE -->
+  <g transform="translate(668, 120)" filter="url(#cardShadow)">
+    <rect width="170" height="340" rx="8" fill="#082E24" stroke="#C9A961" stroke-width="2"/>
+    <rect x="12" y="12" width="146" height="28" rx="4" fill="#0E4B3C"/>
+    <text x="22" y="30" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#C9A961" letter-spacing="1">
+      04 / SCALE
+    </text>
+    <text x="16" y="68" font-family="'Spectral', serif" font-size="16" font-weight="600" fill="#FFFFFF">
+      Predictable Growth
+    </text>
+    <text x="16" y="86" font-family="'Inter', sans-serif" font-size="10" fill="#C9D6CF">
+      Zero founder 9pm panic
+    </text>
+
+    <!-- Component Blocks -->
+    <g transform="translate(12, 105)">
+      <rect width="146" height="44" rx="4" fill="#0E4B3C" stroke="rgba(201,169,97,0.4)" stroke-width="1"/>
+      <text x="10" y="18" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">Fixed Cash Flow</text>
+      <text x="10" y="32" font-family="'Inter', sans-serif" font-size="9" fill="#B5BFBA">Zero hourly billing games</text>
+
+      <rect y="54" width="146" height="44" rx="4" fill="#0E4B3C" stroke="rgba(201,169,97,0.4)" stroke-width="1"/>
+      <text x="10" y="72" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">Institutional Value</text>
+      <text x="10" y="86" font-family="'Inter', sans-serif" font-size="9" fill="#B5BFBA">Documented assets &amp; CRM</text>
+
+      <rect y="108" width="146" height="44" rx="4" fill="#0E4B3C" stroke="rgba(201,169,97,0.4)" stroke-width="1"/>
+      <text x="10" y="126" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">Accountability</text>
+      <text x="10" y="140" font-family="'Inter', sans-serif" font-size="9" fill="#B5BFBA">Single point of contact</text>
+
+      <rect y="162" width="146" height="48" rx="4" fill="#C9A961"/>
+      <text x="10" y="180" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0B0F0D">THE OUTCOME</text>
+      <text x="10" y="198" font-family="'Spectral', serif" font-size="14" font-weight="700" fill="#0B0F0D">Enterprise Pipeline</text>
+    </g>
+  </g>
+</svg>

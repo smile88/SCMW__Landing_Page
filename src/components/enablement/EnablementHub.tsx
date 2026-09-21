@@ -169,18 +169,30 @@ export const EnablementHub: React.FC<EnablementHubProps> = ({
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t-2 border-[#0B0F0D]/10 flex items-center justify-between gap-3">
+                <div className="pt-6 mt-6 border-t-2 border-[#0B0F0D]/10 flex flex-wrap items-center justify-between gap-3">
                   <span className="text-xs font-mono text-[#5B645F] hidden sm:inline">
                     By {wp.author.split('(')[0].trim()}
                   </span>
-                  <button
-                    onClick={() => setSelectedWhitepaper(wp)}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded bg-[#0E4B3C] text-white hover:bg-[#082E24] text-xs font-bold uppercase tracking-wider border-2 border-[#0B0F0D] transition-colors ml-auto shadow-sm"
-                  >
-                    <BookOpen className="w-3.5 h-3.5 text-[#C9A961]" />
-                    <span>Read Full Paper &amp; Print</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                  <div className="flex items-center gap-2 ml-auto">
+                    <a
+                      href={wp.id === 'enterprise-quota-to-smb' ? '/assets/collateral/whitepaper-pipeline-discipline.html' : '/assets/collateral/whitepaper-ai-search-2026.html'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-2 rounded bg-[#F6F7F5] hover:bg-white text-[#0B0F0D] text-xs font-mono font-bold uppercase tracking-wider border-2 border-[#0B0F0D] transition-colors"
+                      title="Open standalone printable document / Save PDF"
+                    >
+                      <Printer className="w-3.5 h-3.5 text-[#0E4B3C]" />
+                      <span className="hidden md:inline">Print/PDF</span>
+                    </a>
+                    <button
+                      onClick={() => setSelectedWhitepaper(wp)}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded bg-[#0E4B3C] text-white hover:bg-[#082E24] text-xs font-bold uppercase tracking-wider border-2 border-[#0B0F0D] transition-colors shadow-sm"
+                    >
+                      <BookOpen className="w-3.5 h-3.5 text-[#C9A961]" />
+                      <span>Read Paper</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -252,13 +264,28 @@ export const EnablementHub: React.FC<EnablementHubProps> = ({
                   </div>
                 </div>
 
-                <div className="pt-4 mt-6 border-t-2 border-[#0B0F0D]/10">
+                <div className="pt-4 mt-6 border-t-2 border-[#0B0F0D]/10 flex items-center gap-2">
+                  <a
+                    href={
+                      info.id === 'fixed-price-guarantee'
+                        ? '/assets/collateral/infosheet-fixed-price-guarantee.html'
+                        : info.id === 'dual-search-matrix'
+                        ? '/assets/collateral/infosheet-dual-search-matrix.html'
+                        : '/assets/collateral/infosheet-sales-playbook.html'
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center p-2 rounded bg-[#F6F7F5] hover:bg-white text-[#0B0F0D] border-2 border-[#0B0F0D] transition-colors"
+                    title="Open standalone printable 1-pager / Save PDF"
+                  >
+                    <Printer className="w-3.5 h-3.5 text-[#0E4B3C]" />
+                  </a>
                   <button
                     onClick={() => setSelectedInfosheet(info)}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded bg-[#F6F7F5] hover:bg-[#0E4B3C] hover:text-white text-xs font-bold uppercase tracking-wider text-[#0B0F0D] border-2 border-[#0B0F0D] transition-colors"
+                    className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#F6F7F5] hover:bg-[#0E4B3C] hover:text-white text-xs font-bold uppercase tracking-wider text-[#0B0F0D] border-2 border-[#0B0F0D] transition-colors"
                   >
-                    <Printer className="w-3.5 h-3.5" />
-                    <span>View &amp; Print 1-Pager</span>
+                    <FileSpreadsheet className="w-3.5 h-3.5" />
+                    <span>View 1-Pager</span>
                   </button>
                 </div>
               </div>

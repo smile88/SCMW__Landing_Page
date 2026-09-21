@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <!-- Rounded Architectural Shield Canvas -->
+  <rect width="32" height="32" rx="7" fill="#082E24"/>
+  <rect x="1" y="1" width="30" height="30" rx="6" stroke="#C9A961" stroke-opacity="0.3" stroke-width="1"/>
+  <!-- Bastion Citadel Vector Mark -->
+  <g transform="translate(4.5, 4.5) scale(0.23)">
+    <!-- Left Pylon -->
+    <path d="M16 84 V28 L34 16 V84 H16 Z" fill="#C9A961"/>
+    <!-- Right Pylon -->
+    <path d="M84 84 V28 L66 16 V84 H84 Z" fill="#C9A961"/>
+    <!-- Center Chevron Keystone -->
+    <path d="M50 18 L62 38 H38 L50 18 Z" fill="#FFFFFF"/>
+    <!-- Center Inverted Foundation Spear -->
+    <path d="M50 48 L62 40 V72 L50 84 L38 72 V40 L50 48 Z" fill="#C9A961"/>
+  </g>
+</svg>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { TESTIMONIALS, BUSINESS_INFO } from '../data/content';
+import React, { useState, useEffect } from 'react';
+import { TESTIMONIALS } from '../data/content';
 import { TestimonialItem } from '../types';
 import { 
   Quote, 
@@ -10,12 +10,12 @@ import {
   X, 
   ArrowRight, 
   CheckCircle2, 
-  TrendingUp, 
   Building2, 
-  MapPin, 
   Award,
   Clock,
-  Sparkles
+  Sparkles,
+  ListOrdered,
+  FileText
 } from 'lucide-react';
 
 interface TestimonialsSectionProps {
@@ -31,7 +31,9 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
   const [activeVideoItem, setActiveVideoItem] = useState<TestimonialItem | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isMuted, setIsMuted] = useState<boolean>(false);
-  const [videoProgress, setVideoProgress] = useState<number>(35);
+  const [videoProgress, setVideoProgress] = useState<number>(30);
+  const [activeChapterIndex, setActiveChapterIndex] = useState<number>(0);
+  const [modalTab, setModalTab] = useState<'transcript' | 'chapters'>('transcript');
 
   const industries = [
     { id: 'all', label: 'All Sectors' },
@@ -44,6 +46,52 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
   const filteredTestimonials = selectedIndustry === 'all' 
     ? TESTIMONIALS 
     : TESTIMONIALS.filter(t => t.industry === selectedIndustry);
+
+  // Parse time "MM:SS" into seconds
+  const parseTimeToSeconds = (timeStr: string): number => {
+    const parts = timeStr.split(':').map(Number);
+    if (parts.length === 2) return parts[0] * 60 + parts[1];
+    return 0;
+  };
+
+  // Convert seconds back to "M:SS"
+  const formatSecondsToTime = (totalSec: number): string => {
+    const mins = Math.floor(totalSec / 60);
+    const secs = Math.floor(totalSec % 60);
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  };
+
+  const getDurationSec = (durationStr?: string): number => {
+    if (!durationStr) return 200;
+    if (durationStr.includes(':')) {
+      return parseTimeToSeconds(durationStr);
+    }
+    return 200;
+  };
+
+  const durationSec = getDurationSec(activeVideoItem?.videoDuration);
+  const currentSec = Math.floor((videoProgress / 100) * durationSec);
+
+  // Simulate progress when playing
+  useEffect(() => {
+    if (!isPlaying || !activeVideoItem) return;
+    const interval = setInterval(() => {
+      setVideoProgress(prev => {
+        if (prev >= 100) return 0;
+        return prev + 0.5;
+      });
+    }, 500);
+    return () => clearInterval(interval);
+  }, [isPlaying, activeVideoItem]);
+
+  // Jump to chapter
+  const handleJumpToChapter = (chapterTime: string, index: number) => {
+    const chapSec = parseTimeToSeconds(chapterTime);
+    const newProgress = Math.min(100, Math.max(0, (chapSec / durationSec) * 100));
+    setVideoProgress(newProgress);
+    setActiveChapterIndex(index);
+    setIsPlaying(true);
+  };
 
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-white border-y-2 border-[#0B0F0D] relative">
@@ -141,7 +189,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
                     </span>
                     <p className="text-[#5B645F] mt-0.5">{item.challenge}</p>
                   </div>
-                  <div className="pt-2 border-t-2 border-[#0B0F0D]">
+                  <div className="pt-2 border-t-2 border-[#0B0F0D]/15">
                     <span className="font-mono font-bold text-[#0E4B3C] uppercase tracking-wider block">
                       The Delivered System:
                     </span>
@@ -149,15 +197,22 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
                   </div>
                 </div>
 
-                {/* 4 Metric Badges */}
+                {/* 4 Metric Badges with details */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
                   {item.metrics.map((m, idx) => (
-                    <div key={idx} className="bg-white p-3 rounded border-2 border-[#0B0F0D] text-center">
+                    <div key={idx} className="bg-white p-3 rounded border-2 border-[#0B0F0D] text-center flex flex-col justify-between">
                       <div className="text-sm sm:text-base font-bold text-[#0E4B3C] font-mono">
                         {m.value}
                       </div>
-                      <div className="text-[10px] text-[#5B645F] uppercase font-sans tracking-tight mt-0.5 line-clamp-1">
-                        {m.label}
+                      <div>
+                        <div className="text-[10px] text-[#0B0F0D] font-semibold uppercase font-sans tracking-tight mt-0.5">
+                          {m.label}
+                        </div>
+                        {m.detail && (
+                          <div className="text-[9px] text-[#5B645F] font-mono mt-0.5 truncate" title={m.detail}>
+                            {m.detail}
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -167,7 +222,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
               {/* Client Profile Footer */}
               <div className="pt-4 border-t-2 border-[#0B0F0D] flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#0E4B3C] text-white flex items-center justify-center font-bold text-sm border-2 border-[#0B0F0D]">
+                  <div className="w-10 h-10 rounded-full bg-[#0E4B3C] text-[#C9A961] flex items-center justify-center font-bold text-sm border-2 border-[#0B0F0D]">
                     {item.clientName.split(' ')[0][0]}
                   </div>
                   <div>
@@ -227,56 +282,61 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
 
       {/* Video / Audio Case Review Modal */}
       {activeVideoItem && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs animate-in fade-in-50">
-          <div className="bg-[#0B0F0D] text-white rounded-xl max-w-2xl w-full border-2 border-[#0B0F0D] overflow-hidden shadow-2xl relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs animate-in fade-in-50">
+          <div className="bg-[#0B0F0D] text-white rounded-xl max-w-3xl w-full border-2 border-[#0B0F0D] overflow-hidden shadow-2xl relative max-h-[92vh] flex flex-col">
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b-2 border-[#0B0F0D] bg-[#0E4B3C]/50">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+            <div className="flex items-center justify-between p-4 border-b-2 border-white/10 bg-[#082E24] shrink-0">
+              <div className="flex items-center gap-2.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#C9A961]">
                   Verified Client Case Recording • {activeVideoItem.company}
                 </span>
               </div>
               <button
                 onClick={() => setActiveVideoItem(null)}
-                className="p-1 rounded text-white/70 hover:text-white hover:bg-white/10 transition-colors border border-white/20"
+                className="p-1.5 rounded text-white/70 hover:text-white hover:bg-white/10 transition-colors border border-white/20"
+                aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Video Player Canvas Simulation */}
-            <div className="relative aspect-video bg-gradient-to-br from-[#082E24] via-[#0B0F0D] to-[#121915] flex flex-col justify-between p-6">
+            <div className="relative aspect-video bg-gradient-to-br from-[#082E24] via-[#0B0F0D] to-[#121915] flex flex-col justify-between p-6 shrink-0">
               {/* Top Details */}
-              <div className="flex items-center justify-between text-xs text-white/70 font-mono">
+              <div className="flex items-center justify-between text-xs text-white/80 font-mono">
                 <div className="flex items-center gap-2">
                   <Building2 className="w-4 h-4 text-[#C9A961]" />
                   <span>{activeVideoItem.clientName} ({activeVideoItem.role})</span>
                 </div>
-                <span>{activeVideoItem.videoDuration} HD</span>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-3.5 h-3.5 text-[#C9A961]" />
+                  <span>{formatSecondsToTime(currentSec)} / {formatSecondsToTime(durationSec)}</span>
+                </div>
               </div>
 
-              {/* Center Play Graphic */}
+              {/* Center Play Graphic & Waveform */}
               <div className="text-center my-auto">
                 <button
                   onClick={() => setIsPlaying(!isPlaying)}
                   className="w-16 h-16 rounded-full bg-[#C9A961] text-[#0B0F0D] flex items-center justify-center mx-auto hover:scale-105 transition-transform shadow-lg border-2 border-[#0B0F0D]"
+                  aria-label={isPlaying ? 'Pause walkthrough' : 'Play walkthrough'}
                 >
                   {isPlaying ? <Pause className="w-7 h-7 fill-[#0B0F0D]" /> : <Play className="w-7 h-7 fill-[#0B0F0D] ml-1" />}
                 </button>
-                <p className="text-xs text-white/60 font-mono mt-3">
+                <p className="text-xs text-white/70 font-mono mt-3">
                   {isPlaying ? 'Case walkthrough playing...' : 'Playback paused'}
                 </p>
 
                 {/* Animated Audio Waveform */}
                 <div className="flex items-center justify-center gap-1 mt-3 h-6">
-                  {[40, 70, 95, 60, 30, 85, 100, 45, 65, 80, 50, 90, 75, 35].map((h, i) => (
+                  {[35, 65, 95, 60, 30, 85, 100, 45, 75, 90, 50, 85, 70, 40].map((h, i) => (
                     <div
                       key={i}
-                      className={`w-1 bg-[#C9A961] rounded-full transition-all duration-300 ${
+                      className={`w-1.5 bg-[#C9A961] rounded-full transition-all duration-300 ${
                         isPlaying ? 'opacity-90' : 'opacity-30'
                       }`}
-                      style={{ height: isPlaying ? `${Math.min(100, h * (0.6 + (i % 3) * 0.2))}%` : '20%' }}
+                      style={{ height: isPlaying ? `${Math.min(100, h * (0.6 + (i % 3) * 0.2))}%` : '25%' }}
                     />
                   ))}
                 </div>
@@ -284,53 +344,143 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
 
               {/* Bottom Video Progress Bar & Controls */}
               <div className="space-y-2">
-                <div className="w-full bg-white/20 h-1.5 rounded-full overflow-hidden cursor-pointer border border-black/30">
+                <div 
+                  className="w-full bg-white/20 h-2 rounded-full overflow-hidden cursor-pointer border border-black/30"
+                  onClick={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    const newProgress = Math.min(100, Math.max(0, (clickX / rect.width) * 100));
+                    setVideoProgress(newProgress);
+                  }}
+                >
                   <div
                     className="bg-[#C9A961] h-full transition-all"
                     style={{ width: `${videoProgress}%` }}
                   />
                 </div>
                 <div className="flex items-center justify-between text-xs text-white/70 font-mono">
-                  <div className="flex items-center gap-3">
-                    <button onClick={() => setIsPlaying(!isPlaying)} className="hover:text-white">
+                  <div className="flex items-center gap-4">
+                    <button 
+                      onClick={() => setIsPlaying(!isPlaying)} 
+                      className="hover:text-white font-semibold flex items-center gap-1"
+                    >
                       {isPlaying ? 'Pause' : 'Play'}
                     </button>
-                    <button onClick={() => setIsMuted(!isMuted)} className="hover:text-white flex items-center gap-1">
-                      {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
+                    <button 
+                      onClick={() => setIsMuted(!isMuted)} 
+                      className="hover:text-white flex items-center gap-1"
+                    >
+                      {isMuted ? <VolumeX className="w-3.5 h-3.5 text-red-400" /> : <Volume2 className="w-3.5 h-3.5 text-[#C9A961]" />}
                       <span>{isMuted ? 'Unmute' : 'Mute'}</span>
                     </button>
                   </div>
-                  <span>{activeVideoItem.videoDuration}</span>
+                  <span>{activeVideoItem.videoDuration} HD</span>
                 </div>
               </div>
             </div>
 
-            {/* Transcript Area */}
-            <div className="p-6 bg-[#0E1512] border-t-2 border-[#0B0F0D] space-y-4">
-              <div>
-                <span className="text-[11px] font-mono uppercase tracking-widest text-[#C9A961] font-bold block">
-                  Verified Audio Transcript
-                </span>
-                <p className="text-sm text-[#F6F7F5]/90 mt-1.5 italic leading-relaxed font-serif">
-                  {activeVideoItem.videoTranscript}
-                </p>
-              </div>
+            {/* Chapters & Transcript Tabs */}
+            <div className="border-t-2 border-white/10 bg-[#0E1512] px-6 pt-3 flex items-center gap-4 text-xs font-mono shrink-0">
+              <button
+                onClick={() => setModalTab('transcript')}
+                className={`pb-2.5 font-bold uppercase tracking-wider flex items-center gap-1.5 border-b-2 transition-colors ${
+                  modalTab === 'transcript'
+                    ? 'border-[#C9A961] text-[#C9A961]'
+                    : 'border-transparent text-white/60 hover:text-white'
+                }`}
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>Transcript</span>
+              </button>
 
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
-                <div className="text-xs text-[#5B645F] font-mono">
-                  Service Scoped: {activeVideoItem.serviceUsed}
-                </div>
-
+              {activeVideoItem.chapters && activeVideoItem.chapters.length > 0 && (
                 <button
-                  onClick={() => {
-                    setActiveVideoItem(null);
-                    if (onBookCall) onBookCall();
-                  }}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-colors border-2 border-[#0B0F0D]"
+                  onClick={() => setModalTab('chapters')}
+                  className={`pb-2.5 font-bold uppercase tracking-wider flex items-center gap-1.5 border-b-2 transition-colors ${
+                    modalTab === 'chapters'
+                      ? 'border-[#C9A961] text-[#C9A961]'
+                      : 'border-transparent text-white/60 hover:text-white'
+                  }`}
                 >
-                  Book 20-Min Call With Sinisa
+                  <ListOrdered className="w-3.5 h-3.5" />
+                  <span>Chapters ({activeVideoItem.chapters.length})</span>
                 </button>
+              )}
+            </div>
+
+            {/* Modal Body: Transcript or Chapters */}
+            <div className="p-6 bg-[#090E0C] overflow-y-auto flex-1 space-y-4">
+              {modalTab === 'transcript' && (
+                <div className="space-y-3">
+                  {activeVideoItem.transcript && activeVideoItem.transcript.length > 0 ? (
+                    activeVideoItem.transcript.map((line, idx) => (
+                      <div 
+                        key={idx} 
+                        className="p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex gap-3 text-sm"
+                      >
+                        <span className="text-[11px] font-mono text-[#C9A961] font-semibold shrink-0 pt-0.5">
+                          {line.time}
+                        </span>
+                        <div>
+                          <strong className="text-xs font-mono text-white/90 block mb-0.5">
+                            {line.speaker}:
+                          </strong>
+                          <p className="text-white/80 font-serif italic text-sm leading-relaxed">
+                            {line.text}
+                          </p>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-sm text-[#F6F7F5]/90 italic leading-relaxed font-serif">
+                      {activeVideoItem.videoTranscript}
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {modalTab === 'chapters' && activeVideoItem.chapters && (
+                <div className="space-y-2">
+                  {activeVideoItem.chapters.map((chap, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleJumpToChapter(chap.time, idx)}
+                      className={`w-full text-left p-3 rounded-lg border transition-colors flex items-center justify-between text-sm ${
+                        activeChapterIndex === idx
+                          ? 'bg-[#0E4B3C]/50 border-[#C9A961] text-white'
+                          : 'bg-white/5 border-white/10 text-white/80 hover:bg-white/10'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="w-6 h-6 rounded-full bg-[#C9A961] text-[#0B0F0D] font-mono font-bold text-xs flex items-center justify-center shrink-0">
+                          {idx + 1}
+                        </span>
+                        <span className="font-sans font-medium">{chap.title}</span>
+                      </div>
+                      <span className="text-xs font-mono text-[#C9A961] shrink-0 pl-2">
+                        {chap.time}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer CTA */}
+            <div className="p-4 bg-[#082E24] border-t-2 border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+              <div className="text-xs text-white/70 font-mono">
+                Service Scoped: <strong className="text-white font-medium">{activeVideoItem.serviceUsed}</strong>
               </div>
+
+              <button
+                onClick={() => {
+                  setActiveVideoItem(null);
+                  if (onBookCall) onBookCall();
+                }}
+                className="w-full sm:w-auto px-5 py-2.5 rounded bg-[#C9A961] text-[#0B0F0D] hover:bg-[#9C7A3D] font-bold text-xs uppercase tracking-widest transition-colors border-2 border-[#0B0F0D]"
+              >
+                Book 20-Min Call With Sinisa
+              </button>
             </div>
           </div>
         </div>

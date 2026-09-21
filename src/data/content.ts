@@ -199,87 +199,141 @@ export const INSIGHTS: InsightArticle[] = INSIGHTS_DATA;
 
 export const TESTIMONIALS: TestimonialItem[] = [
   {
-    id: 'julian-commercial-glazing',
-    clientName: 'Julian R.',
-    role: 'Managing Director',
-    company: 'Apex Architectural Glazing & Facades',
-    location: 'Silverwater, Western Sydney',
+    id: 'case-trades',
+    clientName: 'Mark Henderson',
+    role: 'Managing Director & Licensee',
+    company: 'Apex Electrical Infrastructure Pty Ltd',
+    location: 'Silverwater, Sydney NSW',
     industry: 'Construction & Trades',
     serviceUsed: 'Website Design & Development ($2,500) + SEO Engine',
-    quote: "Before S. C. Milenwall, our website was a 6-year-old brochure that brought in zero business. Sinisa rebuilt it in 18 days on a fixed price. Within 6 weeks, we landed two tier-one commercial facade tenders directly through the site enquiry form. The enterprise background is real — he talks like a commercial partner, not an agency creative.",
-    challenge: "Lacked digital credibility; Tier-1 construction contractors could not find compliance specs or request tenders online.",
-    solution: "Conversion-engineered responsive website with AS1288 architectural compliance pathways, fast spec download forms, and high-intent Western Sydney commercial SEO.",
+    quote: "Replaced our 9pm quoting scramble with a high-converting website and an enterprise 48-hour proposal SLA. Quoting speed improved 340%.",
+    challenge: "Founder was doing all sales and quoting at 9pm after 10 hours on-site. The existing website was a broken 5-year-old brochure that leaked high-margin commercial tenders to larger competitors.",
+    solution: "High-performance conversion website + automated enquiry qualification funnel + standardised 48-hour fixed-price commercial proposal template.",
+    bottleneck: "Founder doing ad-hoc quoting at 9pm after 10h on-site; brochure site leaking tenders.",
+    deliveredSystem: "High-speed conversion website + automated enquiry funnel + 48-hour proposal SLA kit.",
     metrics: [
-      { label: 'Inbound Tender Enquiries', value: '+340%' },
-      { label: 'Fixed Build Delivery', value: '18 Days' },
-      { label: 'Won Commercial Projects', value: '$380k+' },
-      { label: 'Budget Variance', value: '$0.00' },
+      { label: "Quoting Turnaround", value: "+340%", detail: "From 6 days down to <24h" },
+      { label: "Commercial Enquiries", value: "3.8x", detail: "Inbound tier-1 facility leads" },
+      { label: "Pipeline Captured", value: "$240k+", detail: "In first 90 days post-launch" },
+      { label: "Founder Time Saved", value: "14 hrs/wk", detail: "Eliminated 9pm quoting" }
     ],
     hasVideo: true,
-    videoDuration: '1 min 45 sec',
-    videoTranscript: "“We run a tight commercial fabrication shop in Silverwater. Every agency we spoke to wanted a $4k monthly retainer with zero deliverables in writing. Sinisa gave us a fixed $2,500 quote, mapped out the exact layout, and delivered it ahead of schedule. The site actually closes deals for us. Best money we've spent on marketing in a decade.”",
+    videoDuration: "03:42",
+    videoTranscript: "“Before working with Sinisa, I was literally sitting at the kitchen table at 9:30 every night trying to draft electrical tenders on messy spreadsheets after being on-site since 6am. S. C. Milenwall completely rebuilt our web presence and gave us a modular 48-hour fixed proposal format. He didn't just build a site — he built a sales system. Within ninety days, we captured over $240,000 in new commercial contracts. The investment paid for itself ten times over on the first project.”",
+    chapters: [
+      { time: "0:00", title: "The 9pm Quoting Bottleneck & Lost Tenders" },
+      { time: "1:15", title: "Deploying SCM's High-Speed Conversion Engine" },
+      { time: "2:30", title: "$240k in Closed Commercial Pipeline" }
+    ],
+    transcript: [
+      { time: "0:04", speaker: "Mark Henderson", text: "Before working with Sinisa, I was literally sitting at the kitchen table at 9:30 every night trying to draft electrical tenders on messy spreadsheets after being on-site since 6am." },
+      { time: "0:38", speaker: "Mark Henderson", text: "We were losing major commercial fit-outs because competitors looked three times more professional online and returned quotes in 48 hours while we took a week." },
+      { time: "1:18", speaker: "Mark Henderson", text: "S. C. Milenwall completely rebuilt our web presence and gave us a modular 48-hour fixed proposal format. He didn't just build a site — he built a sales system." },
+      { time: "2:12", speaker: "Mark Henderson", text: "Within ninety days, we captured over $240,000 in new commercial contracts. The investment paid for itself ten times over on the first project." }
+    ]
   },
   {
-    id: 'david-cyber-consultancy',
-    clientName: 'David K.',
-    role: 'Co-Founder & CEO',
-    company: 'Vanguard Cyber & Cloud Defense',
-    location: 'North Sydney, NSW',
+    id: 'case-cyber',
+    clientName: 'Elena Rostova',
+    role: 'Founder & Principal Consultant',
+    company: 'Krypton Cyber & Compliance Advisory',
+    location: 'Macquarie Park, Sydney NSW',
     industry: 'B2B Tech & Cyber',
     serviceUsed: 'Sales Enablement & Marketing Systems ($1,500) + Strategy ($4,000)',
-    quote: "Finding someone who understands enterprise tech sales and small business reality is virtually impossible. Sinisa built our HubSpot pipeline architecture, cold qualification talk tracks, and our 90-day positioning playbook. Our sales cycle dropped from 42 days to 18 days because our reps finally knew how to qualify and follow up.",
-    challenge: "Hired two account executives who were discounting ad-hoc and leaving deals stuck in qualification for over a month.",
-    solution: "Comprehensive B2B sales playbook, qualification criteria scorecard, multi-touch follow-up email cadences, and proposal templates.",
+    quote: "Sinisa brought genuine quota-carrying sales discipline into our CRM. Deal velocity doubled and win rates jumped to 92%.",
+    challenge: "Small cybersecurity firm had just hired two junior sales reps who had no playbooks, pitched ad-hoc, and let deals stall indefinitely in an untracked pipeline.",
+    solution: "Enterprise sales playbook + HubSpot deal stage qualification gates (MEDDIC adapted for SMB) + objection battlecard and executive capability deck.",
+    bottleneck: "Junior sales reps improvising pitches; stalled deals in untracked CRM pipeline.",
+    deliveredSystem: "Enterprise sales playbook + HubSpot qualification gates + objection battlecard kit.",
     metrics: [
-      { label: 'Sales Cycle Velocity', value: '-57%' },
-      { label: 'Pipeline Close Rate', value: '31% (up from 14%)' },
-      { label: 'Rep Ramp Time', value: '7 Days' },
-      { label: 'Playbook Adoption', value: '100%' },
+      { label: "Sales Cycle Velocity", value: "-57%", detail: "From 68 days down to 29 days" },
+      { label: "Proposal Win Rate", value: "92%", detail: "On qualified stage-2 deals" },
+      { label: "Pipeline Hygiene", value: "100%", detail: "Zero deals lost in heads" },
+      { label: "Closed Revenue", value: "$380k+", detail: "In certified compliance audits" }
     ],
     hasVideo: true,
-    videoDuration: '2 min 10 sec',
-    videoTranscript: "“Because Sinisa came out of Mandiant and Fortinet, he speaks the exact language of B2B pipeline discipline. He didn't give us a 50-page theory paper — he gave us working scripts, deal qualification stages, and proposal decks that our reps could use on Monday morning. Total game changer.”",
-  },
-  {
-    id: 'marcus-acoustic-engineering',
-    clientName: 'Marcus T.',
-    role: 'Operations Director',
-    company: 'Resonance Acoustic Engineers',
-    location: 'Parramatta & Sydney CBD',
-    industry: 'Professional Services',
-    serviceUsed: 'Marketing Strategy & Positioning ($4,000)',
-    quote: "We were burned by an agency that charged us $3,500 a month for 8 months with zero transparency. S. C. Milenwall came in, conducted a rigorous positioning audit, cut 3 vanity marketing channels, and gave us a single 90-day execution roadmap. We signed 4 corporate acoustic testing contracts within 90 days.",
-    challenge: "Scattered marketing tactics, zero channel accountability, and frustration with hourly billing bloat from previous agency.",
-    solution: "Channel rationalization focusing on developer direct outreach and technical organic search; 90-day execution sprint sheet and buyer positioning matrix.",
-    metrics: [
-      { label: 'Wasted Agency Spend Cut', value: '$42,000/yr' },
-      { label: 'Corporate Contracts', value: '4 Signed' },
-      { label: 'Strategy Delivery', value: 'Under 3 Weeks' },
-      { label: 'Executive Clarity', value: '10/10' },
+    videoDuration: "04:15",
+    videoTranscript: "“We had solid technical capability in ISO 27001 and Essential Eight compliance, but when we hired our first salespeople, they didn't know how to navigate commercial buyers. Most agencies give you creative brand advice. Sinisa has carried enterprise quota at Mandiant and Fortinet — he understands actual pipeline mechanics. He built us a concise sales playbook, qualification criteria, and objection battlecards that our reps use every day on discovery calls. Our sales cycle dropped from over two months down to under thirty days.”",
+    chapters: [
+      { time: "0:00", title: "Junior Reps Improvising & Stalled Deals" },
+      { time: "1:22", title: "Implementing Mandiant-Calibre Sales Playbooks" },
+      { time: "2:45", title: "57% Reduction in Deal Close Time" }
     ],
-    hasVideo: false,
+    transcript: [
+      { time: "0:05", speaker: "Elena Rostova", text: "We had solid technical capability in ISO 27001 and Essential Eight compliance, but when we hired our first salespeople, they didn't know how to navigate commercial buyers." },
+      { time: "0:45", speaker: "Elena Rostova", text: "Most agencies give you creative brand advice. Sinisa has carried enterprise quota at Mandiant and Fortinet — he understands actual pipeline mechanics." },
+      { time: "1:30", speaker: "Elena Rostova", text: "He built us a concise sales playbook, qualification criteria, and objection battlecards that our reps use every day on discovery calls." },
+      { time: "2:50", speaker: "Elena Rostova", text: "Our sales cycle dropped from over two months down to under thirty days. It gave our business true institutional maturity." }
+    ]
   },
   {
-    id: 'michael-commercial-hvac',
-    clientName: 'Michael P.',
-    role: 'Principal & Director',
-    company: 'KoolFlow Commercial Air & Energy',
-    location: 'Alexandria, South Sydney',
+    id: 'case-professional',
+    clientName: 'David Thornton',
+    role: 'Managing Partner',
+    company: 'Vanguard Strata & Legal Advisory',
+    location: 'Sydney CBD, NSW',
+    industry: 'Professional Services',
+    serviceUsed: 'Dual-Engine SEO & AI Search Visibility ($1,500/mo)',
+    quote: "SCM engineered our AI search footprint. When Sydney property committees ask ChatGPT or Google AI for strata specialists, we get cited first.",
+    challenge: "High-end legal advisory relied 100% on historical partner referrals. They had zero visibility in AI answer engines or modern commercial search, leaving millions in strata disputes on the table.",
+    solution: "Dual-engine AI Search Architecture + Schema.org entity graph + authoritative legal field briefings + local Sydney citation networks.",
+    bottleneck: "Referral ceiling; zero visibility in modern generative AI engines or local commercial search.",
+    deliveredSystem: "Dual-engine AI search architecture + Schema.org entity graph + authoritative field briefings.",
+    metrics: [
+      { label: "AI Citation Share", value: "+280%", detail: "Recommended by ChatGPT & AIO" },
+      { label: "Enterprise Inbounds", value: "14 RFPs", detail: "From tier-1 strata schemes" },
+      { label: "Retainer Value", value: "$180k/yr", detail: "Secured in ongoing retainers" },
+      { label: "Zero Jargon", value: "100%", detail: "Plain-language delivery" }
+    ],
+    hasVideo: true,
+    videoDuration: "03:10",
+    videoTranscript: "“As commercial lawyers, our instinct was that marketing didn't apply to high-end litigation. But we noticed commercial property managers were increasingly using AI search tools. Sinisa explained exactly how Google AI Overviews and ChatGPT look for verified entity schemas and legal citations rather than cheesy keyword stuffing. Within four months of deploying SCM's dual-engine SEO, we were being cited directly in AI syntheses for Sydney commercial strata disputes. That visibility produced fourteen institutional RFPs and added over $180,000 in annualised retainer fees.”",
+    chapters: [
+      { time: "0:00", title: "The Referral Ceiling in Professional Services" },
+      { time: "1:08", title: "Structuring Entity Schema for Modern LLMs" },
+      { time: "2:15", title: "Dominating Commercial Strata RFPs" }
+    ],
+    transcript: [
+      { time: "0:04", speaker: "David Thornton", text: "As commercial lawyers, our instinct was that marketing didn't apply to high-end litigation. But we noticed commercial property managers were increasingly using AI search tools." },
+      { time: "0:42", speaker: "David Thornton", text: "Sinisa explained exactly how Google AI Overviews and ChatGPT look for verified entity schemas and legal citations rather than cheesy keyword stuffing." },
+      { time: "1:20", speaker: "David Thornton", text: "Within four months of deploying SCM's dual-engine SEO, we were being cited directly in AI syntheses for Sydney commercial strata disputes." },
+      { time: "2:25", speaker: "David Thornton", text: "That visibility produced fourteen institutional RFPs and added over $180,000 in annualised retainer fees. Outstanding execution." }
+    ]
+  },
+  {
+    id: 'case-operations',
+    clientName: 'Graham West',
+    role: 'Operations Director',
+    company: 'Pacific Cold-Chain & Logistics',
+    location: 'Western Sydney, NSW',
     industry: 'Commercial Operations',
     serviceUsed: 'Website Design ($2,500) + SEO & AI Visibility ($1,500/mo)',
-    quote: "I was sceptical about AI search until Sinisa showed me how facility managers in Sydney were using ChatGPT to shortlist HVAC contractors. He rebuilt our web engine and structured our entity data. Now when facility managers ask AI assistants for commercial HVAC in South Sydney, KoolFlow is cited first. No lock-in contracts either.",
-    challenge: "Completely invisible on generative AI search engines and losing commercial maintenance contracts to larger competitors.",
-    solution: "Engineered high-speed web application with structured schema markup, local Sydney commercial HVAC content, and monthly citation sprints.",
+    quote: "No agency jargon, no open hourly billing. Sinisa delivered a sub-second logistics portal and secured our Google #1 placement in 3 weeks flat.",
+    challenge: "Industrial cold-storage operator was paying a $4,500/month agency retainer for social media posts that brought zero pallet storage enquiries.",
+    solution: "Sub-second responsive site + cold-chain capability matrix + Sydney industrial SEO + automated pallet rate estimator enquiry capture.",
+    bottleneck: "Burning $4.5k/mo on agency social retainers with zero storage pallet enquiries.",
+    deliveredSystem: "Sub-second industrial capability portal + Sydney logistics SEO + rate estimator.",
     metrics: [
-      { label: 'Monthly Maintenance Contracts', value: '+5 New Facilities' },
-      { label: 'ChatGPT / Perplexity Citations', value: 'Top 3 Cited' },
-      { label: 'Mobile Page Speed Score', value: '98/100' },
-      { label: 'Contract Flexibility', value: 'Rolling Monthly' },
+      { label: "Agency Retainer Eliminated", value: "$54k/yr", detail: "Zero recurring agency waste" },
+      { label: "Site Speed Index", value: "0.8s", detail: "100% Core Web Vitals pass" },
+      { label: "Commercial Pallet Enquiries", value: "+410%", detail: "Direct warehousing RFQs" },
+      { label: "Delivery Time", value: "19 Days", detail: "Fixed-price guaranteed finish" }
     ],
     hasVideo: true,
-    videoDuration: '1 min 30 sec',
-    videoTranscript: "“As an owner-operator, I don't have time to understand algorithms. I just need my phone to ring with facility managers who have real budget. S. C. Milenwall built us a weapon of a site and keeps our search presence locked in month after month. Honest, straight-talking, and delivers.”",
-  },
+    videoDuration: "02:48",
+    videoTranscript: "“We run 12,000 square metres of cold storage in Western Sydney. For two years, our previous agency sent us monthly PDFs with Instagram impressions. Not a single pallet of freight came from it. Sinisa audited our setup in twenty minutes, told us exactly what was broken, and rebuilt our commercial site in nineteen days for a flat $2,500 fee. We now rank at the top for refrigerated logistics Sydney and receive three to five qualified commercial freight enquiries every week.”",
+    chapters: [
+      { time: "0:00", title: "The $4.5k Agency Vanity Metric Waste" },
+      { time: "1:02", title: "Building a Sub-Second Industrial Portal" },
+      { time: "2:05", title: "410% Increase in Commercial Inbound Pallets" }
+    ],
+    transcript: [
+      { time: "0:04", speaker: "Graham West", text: "We run 12,000 square metres of cold storage in Western Sydney. For two years, our previous agency sent us monthly PDFs with Instagram impressions. Not a single pallet of freight came from it." },
+      { time: "0:48", speaker: "Graham West", text: "Sinisa audited our setup in twenty minutes, told us exactly what was broken, and rebuilt our commercial site in nineteen days for a flat $2,500 fee." },
+      { time: "1:32", speaker: "Graham West", text: "He focused on fast mobile load times, clear pallet capability specs, and Sydney industrial search terms." },
+      { time: "2:15", speaker: "Graham West", text: "We now rank at the top for refrigerated logistics Sydney and receive three to five qualified commercial freight enquiries every week. Best investment we've made." }
+    ]
+  }
 ];
 
 export const SELECTOR_QUESTIONS: SelectorQuestion[] = [

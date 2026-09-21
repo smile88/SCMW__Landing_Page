@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Globe, Search, Compass, Target, ArrowRight, ShieldCheck, Cpu, CheckCircle2 } from 'lucide-react';
+import { Globe, Search, Compass, Target, ArrowRight, ShieldCheck, Cpu, CheckCircle2, Maximize2, X, Download } from 'lucide-react';
 
 interface SystemsGraphicProps {
   onSelectService?: (serviceId: string) => void;
@@ -7,6 +7,7 @@ interface SystemsGraphicProps {
 
 export const SystemsGraphic: React.FC<SystemsGraphicProps> = ({ onSelectService }) => {
   const [activeNode, setActiveNode] = useState<number>(0);
+  const [showBlueprint, setShowBlueprint] = useState<boolean>(false);
 
   const systemNodes = [
     {
@@ -70,10 +71,14 @@ export const SystemsGraphic: React.FC<SystemsGraphicProps> = ({ onSelectService 
           </h3>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-xs text-[#F6F7F5]/70 font-mono">Status: Production Spec</span>
-          <span className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-[#0E4B3C] border-2 border-[#0B0F0D] text-[#C9A961] font-bold">
-            Enterprise-Grade
-          </span>
+          <button
+            onClick={() => setShowBlueprint(true)}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-mono rounded-md bg-[#0E4B3C] border-2 border-white/20 hover:border-[#C9A961] text-[#C9A961] font-bold transition-all shadow-xs"
+          >
+            <Maximize2 className="w-3.5 h-3.5" />
+            <span>View Technical Blueprint</span>
+          </button>
+          <span className="hidden sm:inline-block text-xs text-[#F6F7F5]/70 font-mono">SCM-SYS-2026</span>
         </div>
       </div>
 
@@ -190,6 +195,43 @@ export const SystemsGraphic: React.FC<SystemsGraphicProps> = ({ onSelectService 
           </div>
         </div>
       </div>
+      {/* Technical Blueprint Modal */}
+      {showBlueprint && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xs animate-in fade-in-50">
+          <div className="bg-[#0B0F0D] text-white rounded-xl max-w-5xl w-full border-2 border-white/20 overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
+            <div className="flex items-center justify-between p-4 border-b-2 border-white/10 bg-[#082E24] shrink-0">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#C9A961]">
+                FIG 01.0 // S. C. Milenwall Growth Architecture Specification
+              </span>
+              <div className="flex items-center gap-2">
+                <a
+                  href="/assets/images/brand/system-architecture.svg"
+                  download
+                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-xs font-mono text-white transition-colors border border-white/20"
+                >
+                  <Download className="w-3.5 h-3.5 text-[#C9A961]" />
+                  <span>Download SVG</span>
+                </a>
+                <button
+                  onClick={() => setShowBlueprint(false)}
+                  className="p-1.5 rounded text-white/70 hover:text-white hover:bg-white/10 transition-colors border border-white/20"
+                  aria-label="Close blueprint"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            <div className="p-4 sm:p-8 bg-[#090E0C] overflow-auto flex-1 flex items-center justify-center">
+              <img
+                src="/assets/images/brand/system-architecture.svg"
+                alt="Technical Specification Blueprint"
+                className="max-w-full max-h-[75vh] object-contain rounded shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

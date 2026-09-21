@@ -26,7 +26,7 @@ export const SEO_METADATA: Record<NavigationTab, TabSeoConfig> = {
       name: 'S. C. Milenwall',
       legalName: 'S. C. Milenwall Pty Ltd',
       url: 'https://scmw.com.au/',
-      logo: 'https://scmw.com.au/icon.png',
+      logo: 'https://scmw.com.au/assets/images/brand/logo.svg',
       description: 'Enterprise-grade growth systems built for small business budgets in Sydney, NSW.',
       founder: {
         '@type': 'Person',

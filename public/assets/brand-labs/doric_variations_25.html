@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S. C. Milenwall — 25 Variations of Concept #01 (Doric Tri-Pillar)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #040907;
+      --card-bg: #082E24;
+      --card-border: rgba(201, 169, 97, 0.25);
+      --text: #F6F7F5;
+      --muted: #A3B8B0;
+      --gold: #C9A961;
+      --emerald: #0E4B3C;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .font-serif-brand { font-family: 'Spectral', Georgia, serif; }
+    .font-sans-brand { font-family: 'Inter', -apple-system, sans-serif; }
+    .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+
+    .transition-theme { transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+
+    /* Custom scrollbar */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="antialiased p-3 sm:p-6 min-h-screen pb-32">
+
+  <!-- ========================================================
+       TOP HEADER & NAVIGATION CONTROL PANEL
+       ======================================================== -->
+  <div class="max-w-6xl mx-auto mb-8 space-y-4">
+    
+    <!-- Top Brand Card -->
+    <div class="bg-[#082E24] border border-[#C9A961]/30 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-64 h-64 bg-[#C9A961]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#C9A961]/20">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 text-[#C9A961] text-xs font-mono-code font-bold uppercase tracking-widest border border-[#C9A961]/30 mb-2">
+            Concept Deep-Dive // The Doric Tri-Pillar Matrix
+          </div>
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif-brand font-semibold text-white tracking-tight">
+            25 Variations of Concept #01
+          </h1>
+          <p class="text-xs sm:text-sm text-[#F6F7F5]/80 mt-1 max-w-2xl font-sans-brand leading-relaxed">
+            Exploring 25 subtle and structural variations of <strong>The Doric Tri-Pillar</strong> — ranging from classical Doric proportions and temple pediments to ascending growth vectors, fluting geometry, and 3D split-facets.
+          </p>
+        </div>
+
+        <!-- Global Theme Controls -->
+        <div class="flex flex-wrap items-center gap-2 bg-[#040907]/90 p-1.5 rounded-xl border border-[#C9A961]/30 shrink-0 self-start md:self-center">
+          <button id="btnThemeEmerald" onclick="setLabTheme('emerald')" class="px-3 py-1.5 rounded-lg text-xs font-mono-code font-bold uppercase transition-all bg-[#082E24] text-[#C9A961] border border-[#C9A961]/40 shadow-xs">
+            Obsidian Dark
+          </button>
+          <button id="btnThemeLight" onclick="setLabTheme('light')" class="px-3 py-1.5 rounded-lg text-xs font-mono-code font-bold uppercase transition-all text-[#A3B8B0] hover:text-white">
+            Paper Light
+          </button>
+          <button id="btnThemeSilhouette" onclick="setLabTheme('silhouette')" class="px-3 py-1.5 rounded-lg text-xs font-mono-code font-bold uppercase transition-all text-[#A3B8B0] hover:text-white flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-white border border-neutral-700"></span>
+            <span>1-Bit Silhouette</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Category Jump Strip -->
+      <div class="pt-5 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex flex-wrap items-center gap-2 font-mono-code">
+          <span class="text-[#C9A961] text-[11px] font-bold uppercase tracking-wider mr-1">Sub-Families:</span>
+          <button onclick="filterCategory('all')" class="cat-pill active px-3 py-1 rounded-lg border border-[#C9A961] bg-[#C9A961] text-[#040907] font-bold" data-cat="all">All (25)</button>
+          <button onclick="filterCategory('classical')" class="cat-pill px-3 py-1 rounded-lg border border-[#C9A961]/30 bg-[#040907]/60 text-[#F6F7F5]/80 hover:text-white" data-cat="classical">A. Doric Purity (.01-.05)</button>
+          <button onclick="filterCategory('capitals')" class="cat-pill px-3 py-1 rounded-lg border border-[#C9A961]/30 bg-[#040907]/60 text-[#F6F7F5]/80 hover:text-white" data-cat="capitals">B. Capitals &amp; Pediment (.06-.10)</button>
+          <button onclick="filterCategory('rhythm')" class="cat-pill px-3 py-1 rounded-lg border border-[#C9A961]/30 bg-[#040907]/60 text-[#F6F7F5]/80 hover:text-white" data-cat="rhythm">C. Height Rhythms (.11-.15)</button>
+          <button onclick="filterCategory('fluting')" class="cat-pill px-3 py-1 rounded-lg border border-[#C9A961]/30 bg-[#040907]/60 text-[#F6F7F5]/80 hover:text-white" data-cat="fluting">D. Fluting &amp; Negative (.16-.20)</button>
+          <button onclick="filterCategory('modern')" class="cat-pill px-3 py-1 rounded-lg border border-[#C9A961]/30 bg-[#040907]/60 text-[#F6F7F5]/80 hover:text-white" data-cat="modern">E. Modern Evolutions (.21-.25)</button>
+        </div>
+
+        <!-- View Mode: Grid vs. Deck -->
+        <div class="flex items-center gap-2 font-mono-code">
+          <button onclick="toggleShortlistOnly()" id="btnShortlistToggle" class="px-3 py-1 rounded-lg border border-[#C9A961]/40 bg-[#040907]/60 text-[#C9A961] hover:bg-[#C9A961]/20 font-bold flex items-center gap-1.5 transition-all">
+            <span>★</span>
+            <span>Shortlisted: <span id="shortlistBadge">0</span></span>
+          </button>
+          <button onclick="toggleViewMode()" id="btnViewMode" class="px-3 py-1 rounded-lg border border-[#C9A961]/40 bg-[#040907]/60 text-[#F6F7F5] hover:text-white font-bold flex items-center gap-1.5">
+            <span id="viewModeIcon">⊞</span>
+            <span id="viewModeLabel">Deck Focus Mode</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Number Jump Bar (Click to scroll straight to #01.01..#01.25) -->
+      <div class="mt-4 pt-3 border-t border-[#C9A961]/15 flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 text-[11px] font-mono-code">
+        <span class="text-gray-400 shrink-0 mr-1 text-[10px] uppercase font-bold tracking-wider">Fast Jump:</span>
+        <div id="numberStrip" class="flex items-center gap-1.5 shrink-0">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       VIEW MODE 1: GRID VIEW (ORGANIZED INTO 5 EXPANDED SECTIONS)
+       ======================================================== -->
+  <div id="gridViewContainer" class="max-w-6xl mx-auto space-y-12">
+    <!-- Category Sections dynamically rendered here -->
+  </div>
+
+  <!-- ========================================================
+       VIEW MODE 2: DECK FOCUS MODE (SINGLE CONCEPT HERO VIEW)
+       ======================================================== -->
+  <div id="deckViewContainer" class="max-w-4xl mx-auto hidden space-y-6">
+    <div class="flex items-center justify-between font-mono-code text-xs px-2">
+      <button onclick="prevDeckConcept()" class="px-4 py-2 rounded-lg bg-[#082E24] border border-[#C9A961]/40 text-[#C9A961] font-bold hover:bg-[#0E4B3C] flex items-center gap-2">
+        <span>←</span> Previous Variation
+      </button>
+      <span class="text-gray-400 font-bold text-sm">
+        Variation <span id="deckCurrentNum" class="text-[#C9A961]">#01.01</span> of 25
+      </span>
+      <button onclick="nextDeckConcept()" class="px-4 py-2 rounded-lg bg-[#082E24] border border-[#C9A961]/40 text-[#C9A961] font-bold hover:bg-[#0E4B3C] flex items-center gap-2">
+        Next Variation <span>→</span>
+      </button>
+    </div>
+
+    <!-- Active Deck Card Container -->
+    <div id="deckCardHero">
+      <!-- Injected via JS -->
+    </div>
+    <div class="text-center font-mono-code text-[11px] text-gray-500">
+      Use left <kbd class="px-1.5 py-0.5 rounded bg-black/40 border border-gray-700">←</kbd> and right <kbd class="px-1.5 py-0.5 rounded bg-black/40 border border-gray-700">→</kbd> arrow keys to navigate
+    </div>
+  </div>
+
+  <!-- ========================================================
+       BOTTOM COMPARISON PANEL: 25-MARK 1-BIT SILHOUETTE MATRIX
+       ======================================================== -->
+  <div class="max-w-6xl mx-auto mt-16 bg-[#082E24] border border-[#C9A961]/30 rounded-2xl p-6 sm:p-8 shadow-2xl">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#C9A961]/20">
+      <div>
+        <span class="text-xs font-mono-code text-[#C9A961] uppercase tracking-widest font-bold">Comprehensive Test</span>
+        <h3 class="text-xl font-serif-brand font-semibold text-white mt-0.5">
+          Pure 1-Bit Silhouette Matrix (All 25 Variations)
+        </h3>
+        <p class="text-xs text-gray-300 font-sans-brand mt-0.5">
+          Side-by-side silhouette comparison stripped of all colours and shadows.
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="setMatrixBg('white')" id="btnMatrixWhite" class="px-3 py-1 rounded text-xs font-mono-code font-bold bg-white text-black">Black on White</button>
+        <button onclick="setMatrixBg('black')" id="btnMatrixBlack" class="px-3 py-1 rounded text-xs font-mono-code font-bold bg-black text-white border border-neutral-700">White on Black</button>
+      </div>
+    </div>
+
+    <!-- 25 Silhouettes Grid (5x5 on desktop) -->
+    <div id="silhouettesGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mt-6">
+      <!-- Injected via JS -->
+    </div>
+  </div>
+
+  <!-- ========================================================
+       JAVASCRIPT & 25 DORIC TRI-PILLAR VECTOR DEFINITIONS
+       ======================================================== -->
+  <script>
+    // State
+    let currentTheme = 'emerald';
+    let currentCategory = 'all';
+    let viewMode = 'grid';
+    let activeDeckIndex = 0;
+    let shortlist = new Set();
+    let filterShortlistOnly = false;
+    let matrixBg = 'white';
+
+    // 25 Distinct Variations of Concept #01
+    const concepts = [
+      // -------------------------------------------------------------
+      // SUB-FAMILY A: CLASSICAL DORIC PURITY (.01 - .05)
+      // -------------------------------------------------------------
+      {
+        id: '01.01',
+        title: "The Doric Archetype (Golden Ratio)",
+        category: 'classical',
+        categoryLabel: 'A. Doric Purity & Proportions',
+        archetype: 'Golden Ratio Cadence',
+        desc: "The pristine baseline: 18px-wide outer pillars, 18px-wide center high pillar, balanced with 2px fluting grooves and clean classical square abacus capitals.",
+        nuance: "Baseline reference: standard 1:1.35 height ratio with golden ratio fluting placement.",
+        silhouetteScore: '10/10 (Bold Triple Towers)',
+        chips: ['Golden Ratio', 'Doric Abacus', 'Center Apex'],
+        svg: (c) => `
+          <path class="mark-primary" d="M16 32 H34 V82 H16 Z" fill="${c.p}"/>
+          <path class="mark-primary" d="M12 26 H38 V32 H12 Z" fill="${c.p}"/>
+          <path class="mark-primary" d="M12 82 H38 V86 H12 Z" fill="${c.p}"/>
+          <path class="mark-accent" d="M41 18 H59 V82 H41 Z" fill="${c.s}"/>
+          <path class="mark-accent" d="M37 12 H63 V18 H37 Z" fill="${c.s}"/>
+          <path class="mark-accent" d="M37 82 H63 V86 H37 Z" fill="${c.s}"/>
+          <path class="mark-primary" d="M66 32 H84 V82 H66 Z" fill="${c.p}"/>
+          <path class="mark-primary" d="M62 26 H88 V32 H62 Z" fill="${c.p}"/>
+          <path class="mark-primary" d="M62 82 H88 V86 H62 Z" fill="${c.p}"/>
+          <line x1="25" y1="36" x2="25" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="50" y1="22" x2="50" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="75" y1="36" x2="75" y2="78" stroke="${c.bg}" stroke-width="2"/>
+        `
+      },
+      {
+        id: '01.02',
+        title: "The Heavy Spartan Monolith",
+        category: 'classical',
+        categoryLabel: 'A. Doric Purity & Proportions',
+        archetype: 'Muscular Stone Bastion',
+        desc: "Extra wide pillar shafts (22px) with compact 4px negative gaps and a unified continuous foundation plinth. Projects immense stone mass and uncompromising balance sheet strength.",
+        nuance: "+22% pillar girth, heavy 8px capital blocks, monolithic foundation slab.",
+        silhouetteScore: '10/10 (Heavy Stone Mass)',
+        chips: ['22px Shafts', 'Unified Plinth', 'Spartan Mass'],
+        svg: (c) => `
+          <!-- Unified Heavy Plinth -->
+          <rect class="mark-primary" x="8" y="82" width="84" height="6" rx="1" fill="${c.p}"/>
+          <!-- Left Heavy Pillar -->
+          <rect class="mark-primary" x="12" y="32" width="22" height="50" fill="${c.p}"/>
+          <rect class="mark-primary" x="9" y="24" width="28" height="8" fill="${c.p}"/>
+          <!-- Center High Pillar -->
+          <rect class="mark-accent" x="39" y="16" width="22" height="66" fill="${c.s}"/>
+          <rect class="mark-accent" x="36" y="8" width="28" height="8" fill="${c.s}"/>
+          <!-- Right Heavy Pillar -->
+          <rect class="mark-primary" x="66" y="32" width="22" height="50" fill="${c.p}"/>
+          <rect class="mark-primary" x="63" y="24" width="28" height="8" fill="${c.p}"/>
+          <!-- Recessed Central Flutes -->
+          <rect x="21" y="36" width="4" height="42" fill="${c.bg}"/>
+          <rect x="48" y="20" width="4" height="58" fill="${c.bg}"/>
+          <rect x="75" y="36" width="4" height="42" fill="${c.bg}"/>
+        `
+      },
+      {
+        id: '01.03',
+        title: "The Slender Towering Colonnade",
+        category: 'classical',
+        categoryLabel: 'A. Doric Purity & Proportions',
+        archetype: 'High-Aspect Architectural Fins',
+        desc: "Slim, graceful pillar shafts (11px wide) with increased negative air space. Imparts modern European architectural lightness while preserving classical discipline.",
+        nuance: "Slimmer 11px shafts, +20px vertical breathing space, delicate 3-step capital moldings.",
+        silhouetteScore: '9/10 (Slender Architectural Fins)',
+        chips: ['11px Slim Shafts', 'Spacious Air Gaps', 'Modernist Lightness'],
+        svg: (c) => `
+          <!-- Left Slim Pillar -->
+          <rect class="mark-primary" x="20" y="30" width="11" height="52" fill="${c.p}"/>
+          <path class="mark-primary" d="M16 26 H35 V30 H16 Z" fill="${c.p}"/>
+          <path class="mark-primary" d="M16 82 H35 V86 H16 Z" fill="${c.p}"/>
+          <!-- Center High Pillar -->
+          <rect class="mark-accent" x="44.5" y="14" width="11" height="68" fill="${c.s}"/>
+          <path class="mark-accent" d="M40.5 10 H59.5 V14 H40.5 Z" fill="${c.s}"/>
+          <path class="mark-accent" d="M40.5 82 H59.5 V86 H40.5 Z" fill="${c.s}"/>
+          <!-- Right Slim Pillar -->
+          <rect class="mark-primary" x="69" y="30" width="11" height="52" fill="${c.p}"/>
+          <path class="mark-primary" d="M65 26 H84 V30 H65 Z" fill="${c.p}"/>
+          <path class="mark-primary" d="M65 82 H84 V86 H65 Z" fill="${c.p}"/>
+          <!-- Hairline center grooves -->
+          <line x1="25.5" y1="34" x2="25.5" y2="78" stroke="${c.bg}" stroke-width="1.5"/>
+          <line x1="50" y1="18" x2="50" y2="78" stroke="${c.bg}" stroke-width="1.5"/>
+          <line x1="74.5" y1="34" x2="74.5" y2="78" stroke="${c.bg}" stroke-width="1.5"/>
+        `
+      },
+      {
+        id: '01.04',
+        title: "The Triple-Fluted Treasury",
+        category: 'classical',
+        categoryLabel: 'A. Doric Purity & Proportions',
+        archetype: '9-Flute Temple Facade',
+        desc: "Each pillar features three distinct vertical fluting channels (9 flutes across the entire facade), meticulously recreating the shadow lines of Greek classical temples.",
+        nuance: "3 flutes per column (9 total channels) for high texture and classical masonry detail.",
+        silhouetteScore: '9.5/10 (Rich Shadow Lines)',
+        chips: ['9 Total Flutes', 'Authentic Doric', 'Rich Texture'],
+        svg: (c) => `
+          <!-- Left Pillar -->
+          <path class="mark-primary" d="M16 32 H34 V82 H16 Z" fill="${c.p}"/>
+          <path class="mark-primary" d="M13 26 H37 V32 H13 Z" fill="${c.p}"/>
+          <path class="mark-primary" d="M13 82 H37 V86 H13 Z" fill="${c.p}"/>
+          <!-- Center High Pillar -->
+          <path class="mark-accent" d="M41 18 H59 V82 H41 Z" fill="${c.s}"/>
+          <path class="mark-accent" d="M38 12 H62 V18 H38 Z" fill="${c.s}"/>
+          <path class="mark-accent" d="M38 82 H62 V86 H38 Z" fill="${c.s}"/>
+          <!-- Right Pillar -->
+          <path class="mark-primary" d="M66 32 H84 V82 H66 Z" fill="${c.p}"/>
+          <path class="mark-primary" d="M63 26 H87 V32 H63 Z" fill="${c.p}"/>
+          <path class="mark-primary" d="M63 82 H87 V86 H63 Z" fill="${c.p}"/>
+          <!-- 3 Flutes Left -->
+          <line x1="20.5" y1="35" x2="20.5" y2="79" stroke="${c.bg}" stroke-width="1.2"/>
+          <line x1="25" y1="35" x2="25" y2="79" stroke="${c.bg}" stroke-width="1.2"/>
+          <line x1="29.5" y1="35" x2="29.5" y2="79" stroke="${c.bg}" stroke-width="1.2"/>
+          <!-- 3 Flutes Center -->
+          <line x1="45.5" y1="21" x2="45.5" y2="79" stroke="${c.bg}" stroke-width="1.2"/>
+          <line x1="50" y1="21" x2="50" y2="79" stroke="${c.bg}" stroke-width="1.2"/>
+          <line x1="54.5" y1="21" x2="54.5" y2="79" stroke="${c.bg}" stroke-width="1.2"/>
+          <!-- 3 Flutes Right -->
+          <line x1="70.5" y1="35" x2="70.5" y2="79" stroke="${c.bg}" stroke-width="1.2"/>
+          <line x1="75" y1="35" x2="75" y2="79" stroke="${c.bg}" stroke-width="1.2"/>
+          <line x1="79.5" y1="35" x2="79.5" y2="79" stroke="${c.bg}" stroke-width="1.2"/>
+        `
+      },
+      {
+        id: '01.05',
+        title: "The Monolithic Flat-Face",
+        category: 'classical',
+        categoryLabel: 'A. Doric Purity & Proportions',
+        archetype: 'Pure Minimalist Silhouette',
+        desc: "Zero internal fluting lines: pure solid monolithic geometry with subtle corner chamfers. Delivers flawless high-contrast silhouette clarity even down to a 12px micro-icon.",
+        nuance: "Completely solid column shafts with zero internal lines for pure 1-bit perfection.",
+        silhouetteScore: '10/10 (Flawless at 12px)',
+        chips: ['Zero Lines', 'Solid Monolith', 'Ultimate Simplicity'],
+        svg: (c) => `
+          <!-- Left Solid Pillar -->
+          <rect class="mark-primary" x="16" y="32" width="18" height="50" rx="1" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="26" width="26" height="6" rx="1" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="82" width="26" height="4" rx="1" fill="${c.p}"/>
+          <!-- Center High Pillar -->
+          <rect class="mark-accent" x="41" y="18" width="18" height="64" rx="1" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="12" width="26" height="6" rx="1" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="82" width="26" height="4" rx="1" fill="${c.s}"/>
+          <!-- Right Solid Pillar -->
+          <rect class="mark-primary" x="66" y="32" width="18" height="50" rx="1" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="26" width="26" height="6" rx="1" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="82" width="26" height="4" rx="1" fill="${c.p}"/>
+        `
+      },
+
+      // -------------------------------------------------------------
+      // SUB-FAMILY B: CAPITALS & PEDIMENT VARIATIONS (.06 - .10)
+      // -------------------------------------------------------------
+      {
+        id: '01.06',
+        title: "The Bridged Entablature",
+        category: 'capitals',
+        categoryLabel: 'B. Capitals, Pediments & Spans',
+        archetype: 'Unified Horizontal Architrave',
+        desc: "A solid continuous architrave beam spans horizontally across the outer columns, with the central high pillar projecting through the beam into a classical pediment peak.",
+        nuance: "Spanning 6px horizontal cross-beam creating a fortified gateway feeling.",
+        silhouetteScore: '10/10 (Gateway Portal)',
+        chips: ['Spanning Architrave', 'Protruding Apex', 'Fortified Gate'],
+        svg: (c) => `
+          <!-- Spanning Entablature Architrave Beam -->
+          <rect class="mark-accent" x="10" y="28" width="80" height="6" rx="1" fill="${c.s}"/>
+          <!-- Left Pillar -->
+          <rect class="mark-primary" x="16" y="34" width="16" height="48" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="82" width="24" height="4" fill="${c.p}"/>
+          <!-- Center Tower (Breaching Through Beam) -->
+          <rect class="mark-accent" x="42" y="14" width="16" height="68" fill="${c.s}"/>
+          <polygon class="mark-accent" points="50,6 60,14 40,14" fill="${c.s}"/>
+          <rect class="mark-accent" x="38" y="82" width="24" height="4" fill="${c.s}"/>
+          <!-- Right Pillar -->
+          <rect class="mark-primary" x="68" y="34" width="16" height="48" fill="${c.p}"/>
+          <rect class="mark-primary" x="64" y="82" width="24" height="4" fill="${c.p}"/>
+          <!-- Vertical Slits -->
+          <line x1="24" y1="38" x2="24" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="50" y1="18" x2="50" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="76" y1="38" x2="76" y2="78" stroke="${c.bg}" stroke-width="2"/>
+        `
+      },
+      {
+        id: '01.07',
+        title: "The Classical Temple Pediment",
+        category: 'capitals',
+        categoryLabel: 'B. Capitals, Pediments & Spans',
+        archetype: 'Greek Triangular Tympanum',
+        desc: "The three pillars support a razor-sharp triangular temple pediment gable across the roofline, complete with a recessed tympanum slot. Evokes the Parthenon and central treasury facades.",
+        nuance: "Triangular pediment roof (14° pitch) crowning the colonnade.",
+        silhouetteScore: '10/10 (Temple Gable Silhouette)',
+        chips: ['Gable Pediment', 'Parthenon Facade', 'Treasury Roof'],
+        svg: (c) => `
+          <!-- Triangular Pediment -->
+          <polygon class="mark-accent" points="50,10 88,26 12,26" fill="${c.s}"/>
+          <!-- Architrave Sub-Beam -->
+          <rect class="mark-primary" x="12" y="28" width="76" height="4" fill="${c.p}"/>
+          <!-- 3 Pillars -->
+          <rect class="mark-primary" x="18" y="34" width="14" height="48" fill="${c.p}"/>
+          <rect class="mark-accent" x="43" y="34" width="14" height="48" fill="${c.s}"/>
+          <rect class="mark-primary" x="68" y="34" width="14" height="48" fill="${c.p}"/>
+          <!-- Base Plinth -->
+          <rect class="mark-primary" x="10" y="82" width="80" height="5" fill="${c.p}"/>
+          <!-- Inner Tympanum Negative Slot -->
+          <polygon points="50,16 76,24 24,24" fill="${c.bg}"/>
+        `
+      },
+      {
+        id: '01.08',
+        title: "The Suspended Keystone Crown",
+        category: 'capitals',
+        categoryLabel: 'B. Capitals, Pediments & Spans',
+        archetype: 'Floating Diamond Meridian',
+        desc: "The central high pillar is crowned by a detached, floating diamond keystone floating 5px above its capital. Symbolizes visionary strategic clarity suspended above operational discipline.",
+        nuance: "Floating diamond keystone (14px tall) at apex + flat Doric abacuses.",
+        silhouetteScore: '10/10 (Floating Diamond Apex)',
+        chips: ['Floating Keystone', 'Diamond Crown', 'Apex Vision'],
+        svg: (c) => `
+          <!-- Floating Diamond Keystone -->
+          <path class="mark-accent" d="M50 6 L58 16 L50 26 L42 16 Z" fill="${c.s}"/>
+          <!-- Left Pillar -->
+          <rect class="mark-primary" x="16" y="36" width="18" height="46" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="30" width="26" height="6" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Center Pillar -->
+          <rect class="mark-accent" x="41" y="30" width="18" height="52" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="24" width="26" height="6" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="82" width="26" height="4" fill="${c.s}"/>
+          <!-- Right Pillar -->
+          <rect class="mark-primary" x="66" y="36" width="18" height="46" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="30" width="26" height="6" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Center Fluting lines -->
+          <line x1="25" y1="40" x2="25" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="50" y1="34" x2="50" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="75" y1="40" x2="75" y2="78" stroke="${c.bg}" stroke-width="2"/>
+        `
+      },
+      {
+        id: '01.09',
+        title: "The Beveled Chamfer Capitals",
+        category: 'capitals',
+        categoryLabel: 'B. Capitals, Pediments & Spans',
+        archetype: 'Modernist 45° Knife-Edge',
+        desc: "Instead of rectangular horizontal caps, each pillar terminates in a razor 45-degree knife-edge chamfer: outer pillars angle inward, while the center pillar peaks like a spearhead.",
+        nuance: "45-degree beveled knife-edge terminations instead of classical flat moldings.",
+        silhouetteScore: '9.5/10 (Razor Knife Edges)',
+        chips: ['45° Chamfer', 'Spear Apex', 'Knife Capital'],
+        svg: (c) => `
+          <!-- Left Pillar with Inward Chamfer -->
+          <path class="mark-primary" d="M16 82 V34 L34 22 V82 H16 Z" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Center Pillar with Peak Spear Apex -->
+          <path class="mark-accent" d="M41 82 V22 L50 12 L59 22 V82 H41 Z" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="82" width="26" height="4" fill="${c.s}"/>
+          <!-- Right Pillar with Inward Chamfer -->
+          <path class="mark-primary" d="M84 82 V34 L66 22 V82 H84 Z" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Flute Cuts -->
+          <line x1="25" y1="36" x2="25" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="50" y1="24" x2="50" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="75" y1="36" x2="75" y2="78" stroke="${c.bg}" stroke-width="2"/>
+        `
+      },
+      {
+        id: '01.10',
+        title: "The Stepped Echinus (Double-Capital)",
+        category: 'capitals',
+        categoryLabel: 'B. Capitals, Pediments & Spans',
+        archetype: 'Two-Tier Architectural Molding',
+        desc: "Two distinct tiers of molded stone on each pillar (lower echinus collar + upper abacus block). Creates intricate micro-shadows at medium and large scales.",
+        nuance: "Double-step capitals (lower 3px + upper 4px) for architectural depth.",
+        silhouetteScore: '9.5/10 (Double-Tier Capitals)',
+        chips: ['Double Capital', 'Echinus Collar', 'Shadow Depth'],
+        svg: (c) => `
+          <!-- Left Pillar -->
+          <rect class="mark-primary" x="16" y="34" width="18" height="48" fill="${c.p}"/>
+          <rect class="mark-primary" x="14" y="29" width="22" height="5" fill="${c.p}"/>
+          <rect class="mark-primary" x="11" y="24" width="28" height="5" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Center Pillar -->
+          <rect class="mark-accent" x="41" y="22" width="18" height="60" fill="${c.s}"/>
+          <rect class="mark-accent" x="39" y="17" width="22" height="5" fill="${c.s}"/>
+          <rect class="mark-accent" x="36" y="12" width="28" height="5" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="82" width="26" height="4" fill="${c.s}"/>
+          <!-- Right Pillar -->
+          <rect class="mark-primary" x="66" y="34" width="18" height="48" fill="${c.p}"/>
+          <rect class="mark-primary" x="64" y="29" width="22" height="5" fill="${c.p}"/>
+          <rect class="mark-primary" x="61" y="24" width="28" height="5" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Flute Cuts -->
+          <line x1="25" y1="38" x2="25" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="50" y1="26" x2="50" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="75" y1="38" x2="75" y2="78" stroke="${c.bg}" stroke-width="2"/>
+        `
+      },
+
+      // -------------------------------------------------------------
+      // SUB-FAMILY C: HEIGHT RHYTHMS & SILHOUETTES (.11 - .15)
+      // -------------------------------------------------------------
+      {
+        id: '01.11',
+        title: "The Ascending Cadence (Growth Staircase)",
+        category: 'rhythm',
+        categoryLabel: 'C. Height Rhythms & Silhouettes',
+        archetype: 'Staircase Growth Vector',
+        desc: "Left-to-right ascending staircase: Pillar 1 (Q1, lowest), Pillar 2 (Q2, mid), Pillar 3 (Q3, summit). Directly embodies compounding quota progression from left to right.",
+        nuance: "Pure growth vector: height increases strictly from left to right at a 32° angle.",
+        silhouetteScore: '10/10 (Ascending Staircase Vector)',
+        chips: ['Ascending Cadence', 'Q1-Q2-Q3', 'Growth Vector'],
+        svg: (c) => `
+          <!-- Base Plinth -->
+          <rect class="mark-primary" x="10" y="82" width="80" height="5" fill="${c.p}"/>
+          <!-- Pillar 1 (Lowest - Left) -->
+          <rect class="mark-primary" x="16" y="46" width="18" height="36" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="40" width="26" height="6" fill="${c.p}"/>
+          <!-- Pillar 2 (Mid - Center) -->
+          <rect class="mark-primary" x="41" y="28" width="18" height="54" fill="${c.p}"/>
+          <rect class="mark-primary" x="37" y="22" width="26" height="6" fill="${c.p}"/>
+          <!-- Pillar 3 (Summit - Right) -->
+          <rect class="mark-accent" x="66" y="14" width="18" height="68" fill="${c.s}"/>
+          <rect class="mark-accent" x="62" y="8" width="26" height="6" fill="${c.s}"/>
+          <!-- Flute Cuts -->
+          <line x1="25" y1="50" x2="25" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="50" y1="32" x2="50" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="75" y1="18" x2="75" y2="78" stroke="${c.bg}" stroke-width="2"/>
+        `
+      },
+      {
+        id: '01.12',
+        title: "The True 'M' Valley (Recessed Center)",
+        category: 'rhythm',
+        categoryLabel: 'C. Height Rhythms & Silhouettes',
+        archetype: "Direct Monogram 'M' Profile",
+        desc: "Inversion of the apex: outer pillars stand tall, while the center pillar is recessed lower with an inverted triangular chevron top, creating an unmistakable, literal 'M'.",
+        nuance: "Outer towers high (y=16), center pillar low (y=36) to trace literal letter 'M'.",
+        silhouetteScore: "10/10 (Undeniable 'M' Letterform)",
+        chips: ["Literal 'M'", 'Recessed Valley', 'Flank Towers'],
+        svg: (c) => `
+          <!-- Left High Tower -->
+          <rect class="mark-primary" x="16" y="20" width="18" height="62" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="14" width="26" height="6" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Center Recessed Tower with Valley Chevron -->
+          <path class="mark-accent" d="M41 82 V36 L50 44 L59 36 V82 H41 Z" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="82" width="26" height="4" fill="${c.s}"/>
+          <!-- Right High Tower -->
+          <rect class="mark-primary" x="66" y="20" width="18" height="62" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="14" width="26" height="6" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Flute Cuts -->
+          <line x1="25" y1="24" x2="25" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="50" y1="48" x2="50" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="75" y1="24" x2="75" y2="78" stroke="${c.bg}" stroke-width="2"/>
+        `
+      },
+      {
+        id: '01.13',
+        title: "The Parabolic Vault Cadence",
+        category: 'rhythm',
+        categoryLabel: 'C. Height Rhythms & Silhouettes',
+        archetype: 'Vaulted Triumphal Arch',
+        desc: "Outer pillars feature soft parabolic arched capitals that bend inward toward the towering central column, creating the feeling of a vaulted Roman basilica ceiling.",
+        nuance: "Inward-curving arched capitals joining toward center pinnacle.",
+        silhouetteScore: '9.5/10 (Basilica Vault)',
+        chips: ['Parabolic Vault', 'Roman Basilica', 'Curved Arches'],
+        svg: (c) => `
+          <!-- Left Pillar with Curved Top -->
+          <path class="mark-primary" d="M16 82 V38 Q16 24 34 24 V82 H16 Z" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Center High Tower -->
+          <path class="mark-accent" d="M41 82 V18 Q50 10 59 18 V82 H41 Z" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="82" width="26" height="4" fill="${c.s}"/>
+          <!-- Right Pillar with Curved Top -->
+          <path class="mark-primary" d="M84 82 V38 Q84 24 66 24 V82 H84 Z" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Flute lines -->
+          <line x1="25" y1="36" x2="25" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="50" y1="22" x2="50" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="75" y1="36" x2="75" y2="78" stroke="${c.bg}" stroke-width="2"/>
+        `
+      },
+      {
+        id: '01.14',
+        title: "The Terraced Crepidoma Plinth",
+        category: 'rhythm',
+        categoryLabel: 'C. Height Rhythms & Silhouettes',
+        archetype: '3-Tier Classical Foundation',
+        desc: "The pillars rest upon a triple-stepped crepidoma (the 3-tier stone foundation of the Parthenon), giving the logo an immovable, deeply anchored base.",
+        nuance: "3 cascading baseline steps: 86px, 76px, and 66px widths.",
+        silhouetteScore: '10/10 (Deep Ground Authority)',
+        chips: ['3-Tier Base', 'Crepidoma', 'Parthenon Foundation'],
+        svg: (c) => `
+          <!-- 3-Tier Crepidoma Base -->
+          <rect class="mark-primary" x="8" y="84" width="84" height="4" rx="0.5" fill="${c.p}"/>
+          <rect class="mark-primary" x="13" y="80" width="74" height="4" rx="0.5" fill="${c.p}"/>
+          <rect class="mark-primary" x="18" y="76" width="64" height="4" rx="0.5" fill="${c.p}"/>
+          <!-- Left Pillar -->
+          <rect class="mark-primary" x="20" y="32" width="14" height="44" fill="${c.p}"/>
+          <rect class="mark-primary" x="16" y="26" width="22" height="6" fill="${c.p}"/>
+          <!-- Center High Pillar -->
+          <rect class="mark-accent" x="43" y="16" width="14" height="60" fill="${c.s}"/>
+          <rect class="mark-accent" x="39" y="10" width="22" height="6" fill="${c.s}"/>
+          <!-- Right Pillar -->
+          <rect class="mark-primary" x="66" y="32" width="14" height="44" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="26" width="22" height="6" fill="${c.p}"/>
+          <!-- Flute Cuts -->
+          <line x1="27" y1="36" x2="27" y2="72" stroke="${c.bg}" stroke-width="1.5"/>
+          <line x1="50" y1="20" x2="50" y2="72" stroke="${c.bg}" stroke-width="1.5"/>
+          <line x1="73" y1="36" x2="73" y2="72" stroke="${c.bg}" stroke-width="1.5"/>
+        `
+      },
+      {
+        id: '01.15',
+        title: "The Floating Knife Base",
+        category: 'rhythm',
+        categoryLabel: 'C. Height Rhythms & Silhouettes',
+        archetype: 'Zero Plinth Modernist Flight',
+        desc: "Completely eliminates the horizontal ground slab. The base of each pillar terminates in a razor-sharp inverted 45-degree knife point, creating floating kinetic energy.",
+        nuance: "Inverted angled bottoms (no ground plinth) for a futuristic floating stance.",
+        silhouetteScore: '9.5/10 (Floating Kinetic Silhouette)',
+        chips: ['Zero Plinth', 'Knife-Point Base', 'Floating Pillars'],
+        svg: (c) => `
+          <!-- Left Pillar with Knife Bottom -->
+          <path class="mark-primary" d="M16 26 H34 V74 L25 84 L16 74 Z" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="20" width="26" height="6" fill="${c.p}"/>
+          <!-- Center High Pillar with Knife Bottom -->
+          <path class="mark-accent" d="M41 12 H59 V74 L50 84 L41 74 Z" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="6" width="26" height="6" fill="${c.s}"/>
+          <!-- Right Pillar with Knife Bottom -->
+          <path class="mark-primary" d="M66 26 H84 V74 L75 84 L66 74 Z" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="20" width="26" height="6" fill="${c.p}"/>
+          <!-- Center Flutes -->
+          <line x1="25" y1="30" x2="25" y2="72" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="50" y1="16" x2="50" y2="72" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="75" y1="30" x2="75" y2="72" stroke="${c.bg}" stroke-width="2"/>
+        `
+      },
+
+      // -------------------------------------------------------------
+      // SUB-FAMILY D: FLUTING & INTERNAL NEGATIVE SPACE (.16 - .20)
+      // -------------------------------------------------------------
+      {
+        id: '01.16',
+        title: "The Single Precision Razor Slit",
+        category: 'fluting',
+        categoryLabel: 'D. Fluting & Negative Geometry',
+        archetype: 'Minimalist 1.5px Hairline Aperture',
+        desc: "Replaces traditional wide fluting grooves with a single hairline 1.5px laser-cut slot running down the exact axis of each pillar. Yields an ultra-clean corporate tech appearance.",
+        nuance: "Hairline 1.5px razor slits down column centerlines.",
+        silhouetteScore: '10/10 (Laser-Clean Tech Stance)',
+        chips: ['Hairline Slit', 'Laser Aperture', 'Tech Minimalism'],
+        svg: (c) => `
+          <!-- Left Pillar -->
+          <rect class="mark-primary" x="16" y="32" width="18" height="50" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="26" width="26" height="6" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Center Pillar -->
+          <rect class="mark-accent" x="41" y="18" width="18" height="64" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="12" width="26" height="6" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="82" width="26" height="4" fill="${c.s}"/>
+          <!-- Right Pillar -->
+          <rect class="mark-primary" x="66" y="32" width="18" height="50" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="26" width="26" height="6" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Precision 1.5px Razor Slits -->
+          <line x1="25" y1="36" x2="25" y2="78" stroke="${c.bg}" stroke-width="1.5"/>
+          <line x1="50" y1="22" x2="50" y2="78" stroke="${c.bg}" stroke-width="1.5"/>
+          <line x1="75" y1="36" x2="75" y2="78" stroke="${c.bg}" stroke-width="1.5"/>
+        `
+      },
+      {
+        id: '01.17',
+        title: "The Inward-Offset Flute (Solar Lighting)",
+        category: 'fluting',
+        categoryLabel: 'D. Fluting & Negative Geometry',
+        archetype: 'Directional Architectural Chiaroscuro',
+        desc: "Fluting lines are offset toward the inner faces of the outer columns. This draws the eye inward toward the central high tower and creates an optical illusion of natural lighting.",
+        nuance: "Asymmetric flutes biased inward to focalize the center tower.",
+        silhouetteScore: '9.5/10 (Optical Focal Draw)',
+        chips: ['Asymmetric Flute', 'Chiaroscuro', 'Focal Inward Pull'],
+        svg: (c) => `
+          <!-- Left Pillar -->
+          <rect class="mark-primary" x="16" y="32" width="18" height="50" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="26" width="26" height="6" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Center Pillar -->
+          <rect class="mark-accent" x="41" y="18" width="18" height="64" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="12" width="26" height="6" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="82" width="26" height="4" fill="${c.s}"/>
+          <!-- Right Pillar -->
+          <rect class="mark-primary" x="66" y="32" width="18" height="50" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="26" width="26" height="6" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Inward Offset Lines -->
+          <line x1="28" y1="36" x2="28" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="50" y1="22" x2="50" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="72" y1="36" x2="72" y2="78" stroke="${c.bg}" stroke-width="2"/>
+        `
+      },
+      {
+        id: '01.18',
+        title: "The Golden Section Horizon Cutout",
+        category: 'fluting',
+        categoryLabel: 'D. Fluting & Negative Geometry',
+        archetype: 'Horizontal Horizon Void',
+        desc: "A continuous 3px negative horizontal gap pierces across all three columns at the 61.8% Golden Ratio height line, dividing the columns into a lower foundation and soaring upper shafts.",
+        nuance: "A horizontal horizon slice at phi (61.8% height) cutting through all 3 pillars.",
+        silhouetteScore: '10/10 (High Geometric Impact)',
+        chips: ['Golden Section Cut', 'Horizon Line', 'Tectonic Slices'],
+        svg: (c) => `
+          <!-- Left Pillar (Two Segments with Horizon Gap) -->
+          <rect class="mark-primary" x="16" y="32" width="18" height="24" fill="${c.p}"/>
+          <rect class="mark-primary" x="16" y="59" width="18" height="23" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="26" width="26" height="6" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Center Pillar -->
+          <rect class="mark-accent" x="41" y="18" width="18" height="38" fill="${c.s}"/>
+          <rect class="mark-accent" x="41" y="59" width="18" height="23" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="12" width="26" height="6" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="82" width="26" height="4" fill="${c.s}"/>
+          <!-- Right Pillar -->
+          <rect class="mark-primary" x="66" y="32" width="18" height="24" fill="${c.p}"/>
+          <rect class="mark-primary" x="66" y="59" width="18" height="23" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="26" width="26" height="6" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Negative Horizon Bar Indicator Line -->
+          <rect x="8" y="56" width="84" height="3" fill="${c.bg}"/>
+        `
+      },
+      {
+        id: '01.19',
+        title: "The Perforated Fortress Arrow-Slits",
+        category: 'fluting',
+        categoryLabel: 'D. Fluting & Negative Geometry',
+        archetype: 'Medieval Citadel Crenellations',
+        desc: "Instead of continuous fluting lines, each pillar contains two rounded defensive arrow-slit apertures. Marries classical Greek colonnades with medieval Norman stone fortresses.",
+        nuance: "Pillars pierced with rounded capsule fortress apertures.",
+        silhouetteScore: '9.5/10 (Citadel Arrow Slits)',
+        chips: ['Arrow Slits', 'Capsule Apertures', 'Norman Bastion'],
+        svg: (c) => `
+          <!-- Left Pillar -->
+          <rect class="mark-primary" x="16" y="32" width="18" height="50" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="26" width="26" height="6" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Center Pillar -->
+          <rect class="mark-accent" x="41" y="18" width="18" height="64" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="12" width="26" height="6" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="82" width="26" height="4" fill="${c.s}"/>
+          <!-- Right Pillar -->
+          <rect class="mark-primary" x="66" y="32" width="18" height="50" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="26" width="26" height="6" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Left Capsule Slits -->
+          <rect x="23.5" y="38" width="3" height="16" rx="1.5" fill="${c.bg}"/>
+          <rect x="23.5" y="60" width="3" height="16" rx="1.5" fill="${c.bg}"/>
+          <!-- Center Capsule Slits -->
+          <rect x="48.5" y="24" width="3" height="22" rx="1.5" fill="${c.bg}"/>
+          <rect x="48.5" y="52" width="3" height="22" rx="1.5" fill="${c.bg}"/>
+          <!-- Right Capsule Slits -->
+          <rect x="73.5" y="38" width="3" height="16" rx="1.5" fill="${c.bg}"/>
+          <rect x="73.5" y="60" width="3" height="16" rx="1.5" fill="${c.bg}"/>
+        `
+      },
+      {
+        id: '01.20',
+        title: "The Split-Facet Chiseled 3D Monolith",
+        category: 'fluting',
+        categoryLabel: 'D. Fluting & Negative Geometry',
+        archetype: 'Dual-Tone Metallic Isometric Planes',
+        desc: "Each column is bisected down its center into two complementary facets: light gold on one side, crisp white on the other. Delivers extraordinary metallic 3D relief without relying on raster shadows.",
+        nuance: "Dual-facet vector halves producing natural optical 3D volume.",
+        silhouetteScore: '10/10 (Rich Dimensional Facets)',
+        chips: ['3D Split-Facet', 'Chiseled Stone', 'Vector Shading'],
+        svg: (c) => `
+          <!-- Left Pillar Split (Left=p, Right=s) -->
+          <rect class="mark-primary" x="16" y="32" width="9" height="50" fill="${c.p}"/>
+          <rect class="mark-accent" x="25" y="32" width="9" height="50" fill="${c.s}"/>
+          <path class="mark-primary" d="M12 26 H25 V32 H12 Z" fill="${c.p}"/>
+          <path class="mark-accent" d="M25 26 H38 V32 H25 Z" fill="${c.s}"/>
+          <rect class="mark-primary" x="12" y="82" width="26" height="4" fill="${c.p}"/>
+          <!-- Center Pillar Split -->
+          <rect class="mark-primary" x="41" y="18" width="9" height="64" fill="${c.p}"/>
+          <rect class="mark-accent" x="50" y="18" width="9" height="64" fill="${c.s}"/>
+          <path class="mark-primary" d="M37 12 H50 V18 H37 Z" fill="${c.p}"/>
+          <path class="mark-accent" d="M50 12 H63 V18 H50 Z" fill="${c.s}"/>
+          <rect class="mark-accent" x="37" y="82" width="26" height="4" fill="${c.s}"/>
+          <!-- Right Pillar Split -->
+          <rect class="mark-primary" x="66" y="32" width="9" height="50" fill="${c.p}"/>
+          <rect class="mark-accent" x="75" y="32" width="9" height="50" fill="${c.s}"/>
+          <path class="mark-primary" d="M62 26 H75 V32 H62 Z" fill="${c.p}"/>
+          <path class="mark-accent" d="M75 26 H88 V32 H75 Z" fill="${c.s}"/>
+          <rect class="mark-primary" x="62" y="82" width="26" height="4" fill="${c.p}"/>
+        `
+      },
+
+      // -------------------------------------------------------------
+      // SUB-FAMILY E: MODERNIST & HYBRID EVOLUTIONS (.21 - .25)
+      // -------------------------------------------------------------
+      {
+        id: '01.21',
+        title: "The Interlocking Dovetail Grid",
+        category: 'modern',
+        categoryLabel: 'E. Modernist & Hybrid Evolutions',
+        archetype: 'Stepped Precision Dovetail',
+        desc: "Stepped horizontal dovetail keys bridge between the columns, locking all three pillars into an unshakeable structural matrix. Symbolizes tightly integrated marketing, search, and sales infrastructure.",
+        nuance: "Horizontal interlocking dovetail teeth bridging the negative gaps.",
+        silhouetteScore: '9.5/10 (Interlocking Matrix)',
+        chips: ['Dovetail Teeth', 'Interlocking Masonry', 'Integrated Systems'],
+        svg: (c) => `
+          <!-- Base Plinth -->
+          <rect class="mark-primary" x="12" y="82" width="76" height="5" fill="${c.p}"/>
+          <!-- Left Pillar with outward right teeth -->
+          <path class="mark-primary" d="M16 32 H34 V44 H38 V52 H34 V64 H38 V72 H34 V82 H16 Z" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="26" width="26" height="6" fill="${c.p}"/>
+          <!-- Center Pillar with matching teeth -->
+          <path class="mark-accent" d="M42 18 H58 V82 H42 V72 H46 V64 H42 V52 H46 V44 H42 Z" fill="${c.s}"/>
+          <rect class="mark-accent" x="38" y="12" width="24" height="6" fill="${c.s}"/>
+          <!-- Right Pillar with inward left teeth -->
+          <path class="mark-primary" d="M66 32 H84 V82 H66 V72 H62 V64 H66 V52 H62 V44 H66 Z" fill="${c.p}"/>
+          <rect class="mark-primary" x="62" y="26" width="26" height="6" fill="${c.p}"/>
+          <!-- Flute Cuts -->
+          <line x1="25" y1="36" x2="25" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="50" y1="22" x2="50" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="75" y1="36" x2="75" y2="78" stroke="${c.bg}" stroke-width="2"/>
+        `
+      },
+      {
+        id: '01.22',
+        title: "The Chevron-Tipped Spire Pillars",
+        category: 'modern',
+        categoryLabel: 'E. Modernist & Hybrid Evolutions',
+        archetype: 'Aerodynamic Vector Spire',
+        desc: "All three pillars terminate in upward-pointing aerodynamic chevron arrowheads. Fuses classical stone stability with modern aerospace propulsion and pipeline velocity.",
+        nuance: "Chevron spearhead capitals on all 3 pillars pointing forward and upward.",
+        silhouetteScore: '10/10 (Triple Arrowhead Thrust)',
+        chips: ['Chevron Caps', 'Aerospace Thrust', 'Forward Velocity'],
+        svg: (c) => `
+          <!-- Base Plinth -->
+          <rect class="mark-primary" x="12" y="82" width="76" height="4" fill="${c.p}"/>
+          <!-- Left Pillar with Chevron Tip -->
+          <path class="mark-primary" d="M16 82 V38 L25 26 L34 38 V82 H16 Z" fill="${c.p}"/>
+          <!-- Center High Pillar with Chevron Tip -->
+          <path class="mark-accent" d="M41 82 V24 L50 12 L59 24 V82 H41 Z" fill="${c.s}"/>
+          <!-- Right Pillar with Chevron Tip -->
+          <path class="mark-primary" d="M66 82 V38 L75 26 L84 38 V82 H66 Z" fill="${c.p}"/>
+          <!-- Negative Chevron insets -->
+          <path d="M25 32 L30 38 H20 Z" fill="${c.bg}"/>
+          <path d="M50 18 L55 24 H45 Z" fill="${c.bg}"/>
+          <path d="M75 32 L80 38 H70 Z" fill="${c.bg}"/>
+          <!-- Shaft lines -->
+          <line x1="25" y1="42" x2="25" y2="78" stroke="${c.bg}" stroke-width="1.5"/>
+          <line x1="50" y1="28" x2="50" y2="78" stroke="${c.bg}" stroke-width="1.5"/>
+          <line x1="75" y1="42" x2="75" y2="78" stroke="${c.bg}" stroke-width="1.5"/>
+        `
+      },
+      {
+        id: '01.23',
+        title: "The Enclosed Cartouche Shield",
+        category: 'modern',
+        categoryLabel: 'E. Modernist & Hybrid Evolutions',
+        archetype: 'Sovereign Perimeter Frame',
+        desc: "The three Doric pillars are encased inside a refined octagonal cartouche frame with gold bevel lines. Delivers an all-in-one institutional crest ideal for luxury seals, wax stamps, and lapel pins.",
+        nuance: "Octagonal beveled cartouche perimeter holding the Doric pillars inside.",
+        silhouetteScore: '10/10 (Cartouche Sovereign Crest)',
+        chips: ['Cartouche Frame', 'All-in-One Crest', 'Signet Stamp'],
+        svg: (c) => `
+          <!-- Octagonal Outer Frame -->
+          <path class="mark-primary" d="M30 10 H70 L88 28 V72 L70 90 H30 L12 72 V28 Z" fill="none" stroke="${c.p}" stroke-width="3.5" stroke-linejoin="round"/>
+          <!-- Inner Pillars -->
+          <rect class="mark-primary" x="24" y="38" width="12" height="38" fill="${c.p}"/>
+          <rect class="mark-primary" x="21" y="34" width="18" height="4" fill="${c.p}"/>
+          <rect class="mark-accent" x="44" y="24" width="12" height="52" fill="${c.s}"/>
+          <rect class="mark-accent" x="41" y="20" width="18" height="4" fill="${c.s}"/>
+          <rect class="mark-primary" x="64" y="38" width="12" height="38" fill="${c.p}"/>
+          <rect class="mark-primary" x="61" y="34" width="18" height="4" fill="${c.p}"/>
+          <!-- Shared Plinth -->
+          <rect class="mark-primary" x="20" y="76" width="60" height="4" fill="${c.p}"/>
+        `
+      },
+      {
+        id: '01.24',
+        title: "The Cantilevered Tension Architrave",
+        category: 'modern',
+        categoryLabel: 'E. Modernist & Hybrid Evolutions',
+        archetype: 'Suspended Center Column',
+        desc: "The outer two pillars support a cantilevered high architrave from which the central pillar hangs suspended above the foundation. Represents structural tension and architectural audacity.",
+        nuance: "The center pillar hangs suspended from above, with a clean 6px air void at its base.",
+        silhouetteScore: '9.5/10 (Architectural Tension)',
+        chips: ['Suspended Column', 'Cantilever', 'Structural Audacity'],
+        svg: (c) => `
+          <!-- Top Cantilever Architrave Beam -->
+          <rect class="mark-accent" x="12" y="14" width="76" height="6" rx="1" fill="${c.s}"/>
+          <!-- Outer Pillars (Supporting Beam) -->
+          <rect class="mark-primary" x="16" y="20" width="16" height="62" fill="${c.p}"/>
+          <rect class="mark-primary" x="12" y="82" width="24" height="4" fill="${c.p}"/>
+          <rect class="mark-primary" x="68" y="20" width="16" height="62" fill="${c.p}"/>
+          <rect class="mark-primary" x="64" y="82" width="24" height="4" fill="${c.p}"/>
+          <!-- Suspended Center Pillar (Air gap at bottom) -->
+          <path class="mark-accent" d="M42 20 H58 V70 L50 76 L42 70 Z" fill="${c.s}"/>
+          <!-- Bottom Plinth across outer pillars -->
+          <rect class="mark-primary" x="12" y="82" width="76" height="4" fill="${c.p}"/>
+          <!-- Center negative void beneath suspended pillar -->
+          <rect x="42" y="77" width="16" height="5" fill="${c.bg}"/>
+        `
+      },
+      {
+        id: '01.25',
+        title: "The S•C•M Monogram Pillar Fusion",
+        category: 'modern',
+        categoryLabel: 'E. Modernist & Hybrid Evolutions',
+        archetype: 'Subtle Letterform Encryption',
+        desc: "The capital of the left pillar incorporates a subtle geometric 'S' contour, the center capital incorporates an open 'C' vault, and the three pillar shafts form an architectural 'M' foundation.",
+        nuance: "Capital details subtly encode 'S', 'C', and 'M' without sacrificing pillar geometry.",
+        silhouetteScore: '10/10 (Triple Monogram Encrypted)',
+        chips: ['S-C-M Encrypted', 'Integrated Letters', 'Sovereign Synthesis'],
+        svg: (c) => `
+          <!-- Base Plinth -->
+          <rect class="mark-primary" x="12" y="82" width="76" height="5" fill="${c.p}"/>
+          <!-- Left Pillar with 'S' Capital -->
+          <path class="mark-primary" d="M16 36 H34 V82 H16 Z" fill="${c.p}"/>
+          <path class="mark-primary" d="M14 24 H36 V28 H22 V30 H36 V36 H14 V32 H28 V30 H14 Z" fill="${c.p}"/>
+          <!-- Center Pillar with 'C' Capital -->
+          <path class="mark-accent" d="M41 24 H59 V82 H41 Z" fill="${c.s}"/>
+          <path class="mark-accent" d="M38 12 H62 V16 H44 V20 H62 V24 H38 Z" fill="${c.s}"/>
+          <!-- Right Pillar with 'M' Chevron Capital -->
+          <path class="mark-primary" d="M66 36 H84 V82 H66 Z" fill="${c.p}"/>
+          <path class="mark-primary" d="M62 24 H88 V36 H82 V28 L75 34 L68 28 V36 H62 Z" fill="${c.p}"/>
+          <!-- Center Flute Grooves -->
+          <line x1="25" y1="40" x2="25" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="50" y1="28" x2="50" y2="78" stroke="${c.bg}" stroke-width="2"/>
+          <line x1="75" y1="40" x2="75" y2="78" stroke="${c.bg}" stroke-width="2"/>
+        `
+      }
+    ];
+
+    // Palette Mappings
+    function getPalette(theme) {
+      if (theme === 'emerald') {
+        return { p: '#C9A961', s: '#FFFFFF', bg: '#082E24', cardBg: '#082E24', text: '#FFFFFF', wordmark: '#FFFFFF', sub: '#C9A961' };
+      } else if (theme === 'light') {
+        return { p: '#0E4B3C', s: '#C9A961', bg: '#F6F7F5', cardBg: '#FFFFFF', text: '#0B0F0D', wordmark: '#0B0F0D', sub: '#0E4B3C' };
+      } else { // silhouette
+        return { p: '#000000', s: '#000000', bg: '#FFFFFF', cardBg: '#FFFFFF', text: '#000000', wordmark: '#000000', sub: '#000000' };
+      }
+    }
+
+    // Build Fast Jump Numbers Strip
+    function renderNumberStrip() {
+      const container = document.getElementById('numberStrip');
+      container.innerHTML = '';
+      concepts.forEach((item, index) => {
+        const btn = document.createElement('button');
+        const isStarred = shortlist.has(item.id);
+        btn.id = `jump-pill-${item.id}`;
+        btn.className = `px-2 py-0.5 rounded transition-all shrink-0 ${isStarred ? 'bg-[#C9A961] text-[#040907] font-bold' : 'bg-[#040907]/60 text-gray-300 hover:text-white border border-[#C9A961]/25 hover:border-[#C9A961]'}`;
+        btn.innerHTML = `${isStarred ? '★ ' : ''}#${item.id}`;
+        btn.title = `#${item.id} — ${item.title}`;
+        btn.onclick = () => {
+          if (viewMode === 'deck') {
+            activeDeckIndex = index;
+            renderDeckHero();
+          } else {
+            const cardEl = document.getElementById(`concept-card-${item.id}`);
+            if (cardEl) {
+              cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              cardEl.classList.add('ring-2', 'ring-[#C9A961]');
+              setTimeout(() => cardEl.classList.remove('ring-2', 'ring-[#C9A961]'), 1500);
+            }
+          }
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    // Generate Single Card HTML (Generous matching logo_showcase.html)
+    function buildConceptCardHTML(item, colors, isDeck = false) {
+      const isStarred = shortlist.has(item.id);
+      return `
+        <div id="concept-card-${item.id}" class="concept-card rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] p-6 flex flex-col justify-between space-y-6 hover:border-[#C9A961] transition-all group ${isStarred ? 'ring-1 ring-[#C9A961]' : ''}">
+          <div>
+            <!-- Card Header -->
+            <div class="flex items-center justify-between pb-3 border-b border-[#C9A961]/20">
+              <div>
+                <span class="text-[11px] font-mono-code font-bold text-[#C9A961] uppercase tracking-wider block">
+                  VARIATION ${item.id} // ${item.archetype.toUpperCase()}
+                </span>
+                <h3 class="text-xl font-serif-brand font-semibold text-white mt-0.5">
+                  ${item.title}
+                </h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded bg-[#0E4B3C]/40 text-[#C9A961] font-mono-code text-[10px] font-bold uppercase border border-[#C9A961]/30">
+                  ${item.category.toUpperCase()}
+                </span>
+                <button onclick="toggleShortlist('${item.id}')" class="p-1 rounded text-lg transition-transform active:scale-125 ${isStarred ? 'text-yellow-400' : 'text-gray-500 hover:text-gray-300'}" title="Shortlist this variation">
+                  ${isStarred ? '★' : '☆'}
+                </button>
+              </div>
+            </div>
+
+            <!-- Description & Specific Nuance Highlight -->
+            <p class="text-xs text-gray-300 mt-3 leading-relaxed font-sans-brand">
+              ${item.desc}
+            </p>
+            <div class="mt-2 p-2.5 rounded bg-[#040907]/60 border border-[#C9A961]/15 text-[11px] font-mono-code text-[#C9A961]">
+              <span class="font-bold uppercase text-[9px] text-gray-400 block">Design Nuance:</span>
+              ${item.nuance}
+            </div>
+
+            <!-- Generous Visual Display Area with Full Master Brand Lockup -->
+            <div class="display-box mt-5 p-8 rounded-xl flex flex-col items-center justify-center transition-theme bg-[#082E24] border border-[#0E4B3C]/40 min-h-[220px]">
+              <!-- Vector SVG -->
+              <svg class="logo-mark w-24 h-24 drop-shadow-md" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                ${item.svg(colors)}
+              </svg>
+
+              <!-- Full Horizontal Wordmark Lockup -->
+              <div class="mt-5 text-center lockup-text">
+                <div class="text-[10px] font-serif-brand font-semibold tracking-[0.35em] text-[#C9A961] uppercase leading-none mb-1">
+                  S. C.
+                </div>
+                <div class="text-xl font-serif-brand font-bold tracking-[0.12em] text-[#FFFFFF] uppercase leading-none brand-wordmark">
+                  MILENWALL
+                </div>
+                <div class="text-[8px] font-mono-code tracking-[0.25em] text-[#C9A961]/80 uppercase mt-1.5">
+                  SYDNEY • REVENUE ARCHITECTURE
+                </div>
+              </div>
+            </div>
+
+            <!-- Scale & Favicon Simulation Strip -->
+            <div class="mt-4 pt-4 border-t border-[#C9A961]/20 flex items-center justify-between text-xs font-mono-code text-gray-400">
+              <span>Silhouette: <strong class="text-emerald-400">${item.silhouetteScore}</strong></span>
+              <div class="flex items-center gap-3">
+                <span class="text-[10px]">Favicon 24px:</span>
+                <div class="w-6 h-6 rounded bg-[#082E24] border border-[#C9A961]/40 flex items-center justify-center p-0.5">
+                  <svg viewBox="0 0 100 100" fill="none" class="w-full h-full">
+                    ${item.svg(colors)}
+                  </svg>
+                </div>
+                <span class="text-[10px]">16px:</span>
+                <div class="w-4 h-4 rounded bg-[#082E24] border border-[#C9A961]/40 flex items-center justify-center p-0.5">
+                  <svg viewBox="0 0 100 100" fill="none" class="w-full h-full">
+                    ${item.svg(colors)}
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Rationale Chips & Actions -->
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[#C9A961]/10">
+            <div class="flex flex-wrap gap-1.5">
+              ${item.chips.map(ch => `<span class="text-[10px] font-mono-code px-2 py-0.5 rounded bg-[#040907]/60 text-gray-300 border border-[#C9A961]/20">${ch}</span>`).join('')}
+            </div>
+            <button onclick="copySvgCode('${item.id}')" class="px-2.5 py-1 rounded bg-[#0E4B3C]/60 hover:bg-[#0E4B3C] border border-[#C9A961]/30 text-gray-200 text-[11px] font-mono-code transition-colors">
+              Copy SVG
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Render Grid Mode (Clean Sectioned 2-Column Grid)
+    function renderGrid() {
+      const container = document.getElementById('gridViewContainer');
+      container.innerHTML = '';
+      const colors = getPalette(currentTheme);
+
+      const subFamilies = [
+        { id: 'classical', title: 'A. Doric Purity & Classical Proportions (#01.01 – #01.05)', desc: 'Exploring column width, fluting density, and flat-face monolithic silhouette.' },
+        { id: 'capitals', title: 'B. Capitals, Pediments & Spanning Beams (#01.06 – #01.10)', desc: 'Continuous architraves, triangular temple gables, floating keystones, and knife-edge chamfers.' },
+        { id: 'rhythm', title: 'C. Height Rhythms & Silhouette Profiles (#01.11 – #01.15)', desc: "Ascending staircase growth vectors, recessed 'M' valleys, crepidoma steps, and floating bases." },
+        { id: 'fluting', title: 'D. Fluting Geometry & Negative Space (#01.16 – #01.20)', desc: 'Razor 1.5px slits, golden ratio horizon cutouts, castle arrow-slits, and dual-tone 3D facets.' },
+        { id: 'modern', title: 'E. Modernist Evolutions & Hybrid Concepts (#01.21 – #01.25)', desc: 'Interlocking dovetails, chevron spires, cartouche shield crests, and subtle S•C•M letter encryption.' }
+      ];
+
+      subFamilies.forEach(fam => {
+        const famItems = concepts.filter(item => {
+          const matchesCat = (currentCategory === 'all' || currentCategory === fam.id) && item.category === fam.id;
+          const matchesShortlist = !filterShortlistOnly || shortlist.has(item.id);
+          return matchesCat && matchesShortlist;
+        });
+
+        if (famItems.length === 0) return;
+
+        const section = document.createElement('div');
+        section.className = 'space-y-6';
+        section.innerHTML = `
+          <div class="pb-3 border-b border-[#C9A961]/30 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+            <div>
+              <h2 class="text-xl sm:text-2xl font-serif-brand font-semibold text-white">
+                ${fam.title}
+              </h2>
+              <p class="text-xs text-[#F6F7F5]/70 font-sans-brand mt-0.5">
+                ${fam.desc}
+              </p>
+            </div>
+            <span class="text-xs font-mono-code text-[#C9A961] font-bold">
+              ${famItems.length} variation${famItems.length > 1 ? 's' : ''}
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            ${famItems.map(item => buildConceptCardHTML(item, colors)).join('')}
+          </div>
+        `;
+        container.appendChild(section);
+      });
+
+      if (container.children.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-16 text-gray-400 font-mono-code text-sm">
+            <p>No variations match the selected filter.</p>
+            <button onclick="filterShortlistOnly=false; currentCategory='all'; renderAll();" class="mt-4 px-4 py-2 rounded-lg bg-[#C9A961] text-[#040907] font-bold text-xs">
+              Reset Filters
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    // Render Deck Hero Mode
+    function renderDeckHero() {
+      const heroContainer = document.getElementById('deckCardHero');
+      const item = concepts[activeDeckIndex];
+      const colors = getPalette(currentTheme);
+
+      document.getElementById('deckCurrentNum').innerText = `#${item.id}`;
+      heroContainer.innerHTML = buildConceptCardHTML(item, colors, true);
+    }
+
+    function prevDeckConcept() {
+      activeDeckIndex = (activeDeckIndex - 1 + concepts.length) % concepts.length;
+      renderDeckHero();
+    }
+
+    function nextDeckConcept() {
+      activeDeckIndex = (activeDeckIndex + 1) % concepts.length;
+      renderDeckHero();
+    }
+
+    // Render Silhouettes 1-Bit Bottom Grid
+    function renderSilhouettes() {
+      const grid = document.getElementById('silhouettesGrid');
+      grid.innerHTML = '';
+      const isWhite = matrixBg === 'white';
+      const cardBg = isWhite ? 'bg-white text-black border-neutral-300' : 'bg-black text-white border-neutral-800';
+      const markColor = isWhite ? '#000000' : '#FFFFFF';
+      const coreBg = isWhite ? '#FFFFFF' : '#000000';
+
+      concepts.forEach((item, index) => {
+        const el = document.createElement('div');
+        el.className = `p-4 rounded-xl border flex flex-col items-center justify-between text-center transition-all hover:scale-105 cursor-pointer ${cardBg}`;
+        el.onclick = () => {
+          if (viewMode === 'deck') {
+            activeDeckIndex = index;
+            renderDeckHero();
+            window.scrollTo({ top: 200, behavior: 'smooth' });
+          } else {
+            const cardEl = document.getElementById(`concept-card-${item.id}`);
+            if (cardEl) cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        };
+
+        el.innerHTML = `
+          <div class="w-12 h-12 flex items-center justify-center">
+            <svg class="w-full h-full" viewBox="0 0 100 100" fill="${markColor}">
+              ${item.svg({ p: markColor, s: markColor, bg: coreBg })}
+            </svg>
+          </div>
+          <span class="text-[11px] font-mono-code font-bold mt-2 truncate w-full">#${item.id} ${item.title.split(' ')[1] || item.title}</span>
+        `;
+        grid.appendChild(el);
+      });
+    }
+
+    function setMatrixBg(bg) {
+      matrixBg = bg;
+      document.getElementById('btnMatrixWhite').className = `px-3 py-1 rounded text-xs font-mono-code font-bold ${bg === 'white' ? 'bg-white text-black' : 'bg-transparent text-gray-400 border border-gray-700'}`;
+      document.getElementById('btnMatrixBlack').className = `px-3 py-1 rounded text-xs font-mono-code font-bold ${bg === 'black' ? 'bg-black text-white border border-neutral-700' : 'bg-transparent text-gray-400 border border-gray-700'}`;
+      renderSilhouettes();
+    }
+
+    // Toggle Shortlist
+    function toggleShortlist(id) {
+      if (shortlist.has(id)) {
+        shortlist.delete(id);
+      } else {
+        shortlist.add(id);
+      }
+      document.getElementById('shortlistBadge').innerText = shortlist.size;
+      renderAll();
+    }
+
+    function toggleShortlistOnly() {
+      filterShortlistOnly = !filterShortlistOnly;
+      const btn = document.getElementById('btnShortlistToggle');
+      if (filterShortlistOnly) {
+        btn.className = "px-3 py-1 rounded-lg border border-[#C9A961] bg-[#C9A961] text-[#040907] font-bold flex items-center gap-1.5 transition-all";
+      } else {
+        btn.className = "px-3 py-1 rounded-lg border border-[#C9A961]/40 bg-[#040907]/60 text-[#C9A961] hover:bg-[#C9A961]/20 font-bold flex items-center gap-1.5 transition-all";
+      }
+      renderAll();
+    }
+
+    // Toggle View Mode (Grid vs. Deck)
+    function toggleViewMode() {
+      viewMode = (viewMode === 'grid') ? 'deck' : 'grid';
+      const gridContainer = document.getElementById('gridViewContainer');
+      const deckContainer = document.getElementById('deckViewContainer');
+      const icon = document.getElementById('viewModeIcon');
+      const label = document.getElementById('viewModeLabel');
+
+      if (viewMode === 'deck') {
+        gridContainer.classList.add('hidden');
+        deckContainer.classList.remove('hidden');
+        icon.innerText = '⊞';
+        label.innerText = 'Switch to 25 Grid';
+        renderDeckHero();
+      } else {
+        gridContainer.classList.remove('hidden');
+        deckContainer.classList.add('hidden');
+        icon.innerText = '🔍';
+        label.innerText = 'Deck Focus Mode';
+        renderGrid();
+      }
+    }
+
+    // Filter Category
+    function filterCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-pill').forEach(pill => {
+        if (pill.getAttribute('data-cat') === cat) {
+          pill.className = "cat-pill active px-3 py-1 rounded-lg border border-[#C9A961] bg-[#C9A961] text-[#040907] font-bold";
+        } else {
+          pill.className = "cat-pill px-3 py-1 rounded-lg border border-[#C9A961]/30 bg-[#040907]/60 text-[#F6F7F5]/80 hover:text-white";
+        }
+      });
+      renderAll();
+    }
+
+    // Set Lab Theme (Emerald, Light, Silhouette)
+    function setLabTheme(mode) {
+      currentTheme = mode;
+      const btnEmerald = document.getElementById('btnThemeEmerald');
+      const btnLight = document.getElementById('btnThemeLight');
+      const btnSil = document.getElementById('btnThemeSilhouette');
+
+      [btnEmerald, btnLight, btnSil].forEach(btn => {
+        btn.className = "px-3 py-1.5 rounded-lg text-xs font-mono-code font-bold uppercase transition-all text-[#A3B8B0] hover:text-white";
+      });
+
+      if (mode === 'emerald') {
+        btnEmerald.className = "px-3 py-1.5 rounded-lg text-xs font-mono-code font-bold uppercase transition-all bg-[#082E24] text-[#C9A961] border border-[#C9A961]/40 shadow-xs";
+        document.documentElement.style.setProperty('--bg', '#040907');
+        document.documentElement.style.setProperty('--card-bg', '#082E24');
+        document.documentElement.style.setProperty('--card-border', 'rgba(201, 169, 97, 0.25)');
+        document.documentElement.style.setProperty('--text', '#F6F7F5');
+      } else if (mode === 'light') {
+        btnLight.className = "px-3 py-1.5 rounded-lg text-xs font-mono-code font-bold uppercase transition-all bg-[#F6F7F5] text-[#0E4B3C] border border-[#0E4B3C]/30 shadow-xs";
+        document.documentElement.style.setProperty('--bg', '#F6F7F5');
+        document.documentElement.style.setProperty('--card-bg', '#FFFFFF');
+        document.documentElement.style.setProperty('--card-border', 'rgba(14, 75, 60, 0.2)');
+        document.documentElement.style.setProperty('--text', '#0B0F0D');
+      } else if (mode === 'silhouette') {
+        btnSil.className = "px-3 py-1.5 rounded-lg text-xs font-mono-code font-bold uppercase transition-all bg-black text-white border border-neutral-700 shadow-xs";
+        document.documentElement.style.setProperty('--bg', '#FFFFFF');
+        document.documentElement.style.setProperty('--card-bg', '#FFFFFF');
+        document.documentElement.style.setProperty('--card-border', '#000000');
+        document.documentElement.style.setProperty('--text', '#000000');
+      }
+
+      renderAll();
+    }
+
+    // Copy SVG Code
+    function copySvgCode(id) {
+      const item = concepts.find(c => c.id === id);
+      if (!item) return;
+      const colors = getPalette(currentTheme);
+      const code = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" fill="none">
+  <!-- S. C. MILENWALL // Variation #${item.id}: ${item.title} -->
+  ${item.svg(colors).trim()}
+</svg>`.trim();
+      navigator.clipboard.writeText(code).then(() => {
+        alert(`Copied Variation #${item.id} (${item.title}) SVG vector code to clipboard!`);
+      });
+    }
+
+    // Keyboard Navigation for Deck Mode
+    window.addEventListener('keydown', (e) => {
+      if (viewMode === 'deck') {
+        if (e.key === 'ArrowLeft') prevDeckConcept();
+        if (e.key === 'ArrowRight') nextDeckConcept();
+      }
+    });
+
+    // Master Render
+    function renderAll() {
+      renderNumberStrip();
+      if (viewMode === 'deck') {
+        renderDeckHero();
+      } else {
+        renderGrid();
+      }
+      renderSilhouettes();
+    }
+
+    // Initial Execution
+    renderAll();
+  </script>
+</body>
+</html>

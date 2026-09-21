@@ -24,10 +24,11 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 
   const effectiveTheme = theme ?? (isContextDark ? 'dark' : 'light');
   const isDark = effectiveTheme === 'dark' || effectiveTheme === 'emerald';
-  const wordmarkTextColor = isDark ? '#FFFFFF' : '#0E4B3C';
+  const wordmarkTextColor = isDark ? '#FFFFFF' : '#0B0F0D';
   const goldColor = '#C9A961';
   const emeraldColor = '#0E4B3C';
-  const shieldBg = theme === 'emerald' ? '#082E24' : isDark ? '#0E4B3C' : '#0E4B3C';
+  const primaryMarkColor = isDark ? goldColor : emeraldColor;
+  const keystoneMarkColor = isDark ? '#FFFFFF' : goldColor;
 
   const sizeClasses = {
     sm: { seal: 'w-7 h-7', text: 'text-base', sub: 'text-[9px]' },
@@ -35,39 +36,24 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
     lg: { seal: 'w-12 h-12', text: 'text-2xl', sub: 'text-xs' },
   }[size];
 
-  // Monogram seal: geometric shield with subtle nod to cybersecurity & enterprise discipline
+  // Monogram mark: The Bastion Citadel (architectural M-monolith with apex keystone)
   const MonogramSeal = () => (
     <div className={`relative flex items-center justify-center shrink-0 ${sizeClasses.seal}`}>
-      <svg viewBox="0 0 40 44" className="w-full h-full drop-shadow-xs" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Shield outline */}
-        <path
-          d="M20 2L36 7.5V23C36 32.5 28.5 38.5 20 42C11.5 38.5 4 32.5 4 23V7.5L20 2Z"
-          fill={shieldBg}
-          stroke={goldColor}
-          strokeWidth="1.5"
-          strokeLinejoin="round"
-        />
-        {/* Inner geometric security grid line */}
-        <path
-          d="M20 6.5L32 10.5V22C32 29 26.5 34.5 20 37.5C13.5 34.5 8 29 8 22V10.5L20 6.5Z"
-          stroke={goldColor}
-          strokeWidth="0.75"
-          strokeOpacity="0.4"
-          strokeDasharray="2 2"
-        />
-        {/* Interlocking SCM monogram */}
-        <text
-          x="20"
-          y="25.5"
-          textAnchor="middle"
-          fill={goldColor}
-          fontFamily="'Spectral', serif"
-          fontSize="13"
-          fontWeight="600"
-          letterSpacing="0.5"
-        >
-          SCM
-        </text>
+      <svg
+        viewBox="0 0 100 100"
+        className="w-full h-full drop-shadow-xs"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        {/* Left Pylon */}
+        <path d="M16 84 V28 L34 16 V84 H16 Z" fill={primaryMarkColor} />
+        {/* Right Pylon */}
+        <path d="M84 84 V28 L66 16 V84 H84 Z" fill={primaryMarkColor} />
+        {/* Center Chevron Keystone */}
+        <path d="M50 18 L62 38 H38 L50 18 Z" fill={keystoneMarkColor} />
+        {/* Center Inverted Foundation Spear */}
+        <path d="M50 48 L62 40 V72 L50 84 L38 72 V40 L50 48 Z" fill={primaryMarkColor} />
       </svg>
     </div>
   );

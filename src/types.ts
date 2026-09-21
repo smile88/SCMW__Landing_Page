@@ -73,6 +73,23 @@ export interface DiagnosticQuestion {
   }[];
 }
 
+export interface TestimonialChapter {
+  time: string;
+  title: string;
+}
+
+export interface TestimonialTranscriptItem {
+  time: string;
+  speaker: string;
+  text: string;
+}
+
+export interface TestimonialMetric {
+  label: string;
+  value: string;
+  detail?: string;
+}
+
 export interface TestimonialItem {
   id: string;
   clientName: string;
@@ -84,13 +101,14 @@ export interface TestimonialItem {
   quote: string;
   challenge: string;
   solution: string;
-  metrics: {
-    label: string;
-    value: string;
-  }[];
+  bottleneck?: string;
+  deliveredSystem?: string;
+  metrics: TestimonialMetric[];
   hasVideo?: boolean;
   videoDuration?: string;
   videoTranscript?: string;
+  chapters?: TestimonialChapter[];
+  transcript?: TestimonialTranscriptItem[];
 }
 
 export interface SelectorQuestion {

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" width="320" height="64" fill="none">
+  <!-- S. C. MILENWALL // MASTER BRAND LOCKUP (LIGHT MODE) -->
+  <g transform="translate(4, 6)">
+    <!-- Bastion Citadel Mark (52x52) -->
+    <g transform="scale(0.52)">
+      <!-- Left Pylon -->
+      <path d="M16 84 V28 L34 16 V84 H16 Z" fill="#0E4B3C"/>
+      <!-- Right Pylon -->
+      <path d="M84 84 V28 L66 16 V84 H84 Z" fill="#0E4B3C"/>
+      <!-- Center Chevron Keystone -->
+      <path d="M50 18 L62 38 H38 L50 18 Z" fill="#C9A961"/>
+      <!-- Center Inverted Foundation Spear -->
+      <path d="M50 48 L62 40 V72 L50 84 L38 72 V40 L50 48 Z" fill="#0E4B3C"/>
+    </g>
+  </g>
+
+  <!-- Typography Lockup -->
+  <!-- "S. C." in Gold, tracked small caps -->
+  <text x="66" y="24" font-family="'Spectral', Georgia, serif" font-size="12" font-weight="600" letter-spacing="4.5" fill="#C9A961">
+    S. C.
+  </text>
+
+  <!-- "MILENWALL" in Deep Ink/Emerald, serif bold -->
+  <text x="66" y="48" font-family="'Spectral', Georgia, serif" font-size="22" font-weight="600" letter-spacing="2.2" fill="#0B0F0D">
+    MILENWALL
+  </text>
+</svg>
